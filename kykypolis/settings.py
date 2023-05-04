@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'ckeditor',
     'service.apps.ServiceConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'kykypolis.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["templates/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +69,11 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.request',
+)
 
 WSGI_APPLICATION = 'kykypolis.wsgi.application'
 

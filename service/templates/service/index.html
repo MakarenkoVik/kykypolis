@@ -15,11 +15,10 @@
 		href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
 		rel="stylesheet">
 	<!-- Favicon -->
-	<link rel="shortcut icon" ="{% static 'service/img/favicon.png' %}">
+	<link rel="shortcut icon" href="{% static 'service/img/favicon.png' %}">
+	
 	<!-- Bootstrap v5.0.2 css href-->
 	<link rel="stylesheet" href="{% static 'service/css/bootstrap.min.css' %}">
-	<!-- Animate css -->
-	<link rel="stylesheet" href="{% static 'service/css/animate.min.css' %}">
 	<!--====== Fontawesome ======-->
 	<link rel="stylesheet" href="{% static 'service/fonts/fontawesome/css/fontawesome.all.min.css' %}">
 	<!-- Owl carousel css -->
@@ -35,7 +34,7 @@
 	<!-- Responsive CSS -->
 	<link rel="stylesheet" href="{% static 'service/css/responsive.css' %}">
 
-	<link rel="stylesheet" href="{% static 'service/https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.3.2/css/lightgallery.css' %}" />
+	<link rel="stylesheet" href="{% static 'service/css/lightgallery.css' %}">
 
 	<link rel="stylesheet" href="{% static 'service/css/justifiedGallery.css' %}" />
 </head>
@@ -149,7 +148,7 @@
 											<!-- Start Single slide content	-->
 											<div class="single-slide-content text-center">
 												<div class="content-text">
-													<h1><strong>Кукурузный Лабиринт</strong><span></span>
+													<h1><strong>Кукуполис</strong><span></span>
 														Любимое место для всей семьи!</h1>
 												</div>
 											</div>
@@ -249,14 +248,15 @@
 								</div>
 								<!-- End section title -->
 								<div class="about-content">
-									<p>Парк КУКУПОЛИС погружает гостей в атмосферу квеста в
+									<p align="justify">Парк КУКУПОЛИС погружает гостей в атмосферу квеста в
 										кукурузном лабиринте. В зоне отдыха агропарка работают
-										аттракционы и есть возможность арендовать беседки. Можно
-										посетить экскурсию, прокатиться на паровозике, насладиться
-										музыкой и подкрепиться на фудкортах. Также в парке
-										есть контактный зоопарк, где можно покормить и погладить
-										коз. И самое «вкусное» - это из «первых рук» фермеров
-										купить свежие продукты из козьего молока.
+										аттракционы и есть возможность арендовать беседки в лесу
+										на берегу озера. Можно посетить экскурсию, прокатиться
+										на паровозике, насладиться музыкой и подкрепиться на 
+										фудкортах. Также в парке есть контактный зоопарк, где
+										можно покормить и погладить коз и других обитателей фермы.
+										И самое «вкусное» - это из «первых рук» фермеров купить
+										свежие продукты из козьего молока.
 										<strong>И помните, лабиринт — это не место для свиданий.
 											Это место для острых ощущений:)</strong>
 									</p>
@@ -283,8 +283,8 @@
 									<h6>Вход в парк выходные</h6>
 								</a>
 								<p class="price">20 BYN <small>взрослый</small></p><br>
-								<p class="price">15 BYN <small>детский</small></p>
-								<p class="price">Бесплатно <small>дети до 5 лет</small></p><br>
+								<p class="price">15 BYN <small>детский</small></p><br>
+								<p class="price">0 BYN <small>до 5 лет включительно</small></p>
 							</div>
 						</div>
 						<!-- end single adventure -->
@@ -298,8 +298,8 @@
 									<h6>Вход в парк будние</h6>
 								</a>
 								<p class="price">15 BYN <small>взрослый</small></p><br>
-								<p class="price">10 BYN <small>детский</small></p>
-								<p class="price">Бесплатно <small>дети до 5 лет</small></p><br>
+								<p class="price">10 BYN <small>детский</small></p><br>
+								<p class="price">0 BYN <small>до 5 лет включительно</small></p>
 							</div>
 						</div>
 						<!-- end single adventure -->
@@ -310,10 +310,11 @@
 							<div class="single-selling-tips section-title">
 								<p class="title">КУКУПОЛИС</p>
 								<h2>Ваш идеальный праздник<span></span> Нашими руками</h2>
-								<p>В стоимость входного билета входит посещение кукурузного,
-									лабиринта, экскурсия на паровозике до фермы, посещение
-									фермы с 1500 коз, контактный зоопарк, танцы, песни и
-									многое другое.
+								<p align="justify">В стоимость билета входит: посещение кукурузного
+									лабиринта, экскурсия с катанием на паровозике и посещением
+									фермы с 1500 коз, контактный зоопарк с другими обитателями
+									кукуполиса, в выходные в стоимость также входит работа
+									аниматоров.
 								</p>
 								<a href="#" class="btn btn-theme blue-2 mt-30">Забронировать</a>
 							</div>
@@ -355,7 +356,7 @@
 							<img src="{% static 'service/img/certificate.jpg' %}" alt="adventure">
 							<div class="adventure-content">
 								<a href="#">
-									<h6>Cертификат</h6>
+									<h6>Подарочный сертификат</h6>
 								</a>
 								<p class="price">20 BYN <small>действует весь сезон</small></p>
 							</div>
@@ -472,59 +473,59 @@
 				<div class="gallery-container" id="animated-thumbnails-gallery">
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/1.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/1.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/1_2.jpg' %}" />
 					</a>
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/2.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/2.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/2_2.jpg' %}" />
 					</a>
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/3.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/3.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/3_2.jpg' %}" />
 					</a>
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/4.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/4.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/4_2.jpg' %}" />
 					</a>
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/5.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/5.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/5_2.jpg' %}" />
 					</a>
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/6.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/6.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/6_2.jpg' %}" />
 					</a>
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/7.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/7.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/7_2.jpg' %}" />
 					</a>
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/8.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/8.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/8_2.jpg' %}" />
 					</a>
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/9.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/9.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/9_2.jpg' %}" />
 					</a>
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/10.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/10.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/10_2.jpg' %}" />
 					</a>
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/11.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/11.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/11_2.jpg' %}" />
 					</a>
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/12.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/12.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/12_2.jpg' %}" />
 					</a>
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/13.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/13.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/13_2.jpg' %}" />
 					</a>
 					<a class="gallery-item" data-src="{% static 'service/img/gallery/14.jpg' %}"
 						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/14.jpg' %}" />
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/14_2.jpg' %}" />
 					</a>
 				</div>
 			</div>
@@ -974,7 +975,7 @@
 	<!-- main js -->
 	<script src="{% static 'service/js/main.js' %}"></script>
 
-	<script src="{% static 'service/https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.3.2/js/lightgallery.js' %}"></script>
+	<script src="{% static 'service/js/lightgallery.js' %}"></script>
 
 	<script src="{% static 'service/js/jquery.justifiedGallery.min.js' %}"></script>
 
