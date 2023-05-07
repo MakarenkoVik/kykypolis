@@ -1,5 +1,5 @@
 from django.contrib import admin
-from service.models import Price, Service
+from service.models import Price, Service, Gallery, Event, Review
 from django.db.models import Avg
 from django.utils.html import format_html
 from django.urls import reverse
@@ -58,8 +58,11 @@ class ServiceAdmin(admin.ModelAdmin):
 
     @admin.display(description="average value")
     def average_price(self, obj):
-        result = Price.objects.filter(service=obj).aggregate(Avg('value'))
-        return f'{result["value__avg"]:.2f} BYN'
+        if Price.objects.filter(service=obj):
+            result = Price.objects.filter(service=obj).aggregate(Avg('value'))
+            return f'{result["value__avg"]:.2f} BYN'
+        else: 
+            None
 
     @admin.display(description="prices")
     def view_price_link(self, obj):
@@ -81,13 +84,98 @@ class ServiceAdmin(admin.ModelAdmin):
     @admin.display(description='service image')
     def img_preview(self, obj):
         return mark_safe(
-            f'<img src = "{obj.service_image.url}" width ="150px" height="150px"/>'
+            f'<img src = "{obj.service_image.url}" width ="200px" height="150px"/>'
         )
     
     @admin.display(description='service image')
     def img_tag(self, obj): 
         return mark_safe(
-            f'<img src = "{obj.service_image.url}" width = "150" height="150px"/>'
+            f'<img src = "{obj.service_image.url}" width = "200" height="150px"/>'
+        )
+
+    @admin.action(description='Switch to inactive state')
+    def make_inactive(self, request, queryset): 
+        queryset.update(is_active=False)
+        
+    @admin.action(description='Switch to active state')
+    def make_active(self, request, queryset): 
+        queryset.update(is_active=True)
+
+    @admin.action(description='Download files')
+    def export_as_json(self, request, queryset):
+        response = FileResponse(
+            io.BytesIO(serializers.serialize('json', queryset).encode('utf-8')), 
+            as_attachment=True, filename=f'log-{datetime.now()}.json',
+        )
+        return response
+    
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+    date_hierarchy = 'pub_date'
+    list_display = (
+        'photographer',
+        'pub_date',
+        'place',
+        'img_preview',
+    )
+    actions = (
+        'make_inactive', 
+        'make_active'
+    )
+    readonly_fields = ('img_tag',)
+    search_fields = (
+        'photographer', 
+        'place',
+    )
+
+    @admin.action(description='Switch to inactive state')
+    def make_inactive(self, request, queryset): 
+        queryset.update(is_active=False)
+
+    @admin.action(description='Switch to active state')
+    def make_active(self, request, queryset): 
+        queryset.update(is_active=True)
+
+    @admin.display(description='gallery image')
+    def img_preview(self, obj):
+        return mark_safe(
+            f'<img src = "{obj.gallery_image_small.url}" width ="150px" height="150px"/>'
+        )
+    
+    @admin.display(description='gallery image')
+    def img_tag(self, obj): 
+        return mark_safe(
+            f'<img src = "{obj.gallery_image_small.url}" width = "150" height="150px"/>'
+        )
+    
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    date_hierarchy = 'date'
+    list_display = (
+        'name',
+        'date',
+        'description',
+        'img_preview',
+    )
+
+    search_fields = ('name', 'date', 'description',)
+    readonly_fields = ("img_tag",)
+    actions = (
+        'make_inactive', 
+        'export_as_json', 
+        'make_active',
+    )
+
+    @admin.display(description='event image')
+    def img_preview(self, obj):
+        return mark_safe(
+            f'<img src = "{obj.event_image.url}" width ="150px" height="150px"/>'
+        )
+    
+    @admin.display(description='event image')
+    def img_tag(self, obj): 
+        return mark_safe(
+            f'<img src = "{obj.event_image.url}" width = "150" height="150px"/>'
         )
 
     @admin.action(description='Switch to inactive state')
@@ -103,6 +191,61 @@ class ServiceAdmin(admin.ModelAdmin):
         response = FileResponse(
             io.BytesIO(serializers.serialize("json", queryset).encode("utf-8")), 
             as_attachment=True, filename=f"log-{datetime.now()}.json",
+        )
+        return response
+    
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    date_hierarchy = 'pub_date'
+    list_display = (
+        'visitor_name',
+        'visitor_category',
+        'description',
+        'link',
+        'img_preview',
+        'pub_date',
+    )
+
+    search_fields = (
+        'visitor_name', 
+        'visitor_category',
+        'description',
+    )
+    readonly_fields = (
+        'img_tag',
+    )
+    actions = (
+        'make_inactive', 
+        'export_as_json', 
+        'make_active',
+    )
+
+    @admin.display(description='review image')
+    def img_preview(self, obj):
+        return mark_safe(
+            f'<img src = "{obj.review_image.url}" width ="150px" height="150px"/>'
+        )
+    
+    @admin.display(description='review image')
+    def img_tag(self, obj): 
+        return mark_safe(
+            f'<img src = "{obj.review_image.url}" width = "150" height="150px"/>'
+        )
+
+    @admin.action(description='Switch to inactive state')
+    def make_inactive(self, request, queryset): 
+        queryset.update(is_active=False)
+        
+    @admin.action(description='Switch to active state')
+    def make_active(self, request, queryset): 
+        queryset.update(is_active=True)
+
+    @admin.action(description='Download files')
+    def export_as_json(self, request, queryset):
+        response = FileResponse(
+            io.BytesIO(serializers.serialize('json', queryset).encode('utf-8')), 
+            as_attachment=True, filename=f'log-{datetime.now()}.json',
         )
         return response
     
