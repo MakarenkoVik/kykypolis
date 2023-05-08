@@ -3,8 +3,6 @@ from service.models import Service, Price, Gallery, Event, Review
 from datetime import datetime
 
 
-# Create your views here.
-
 def index(request):
     services = Service.objects.filter(is_active = True).order_by('id')
     galleries = Gallery.objects.filter(is_active = True)
@@ -17,5 +15,4 @@ def index(request):
         'reviews': reviews,
     }
     return render(request, "service/index.html", context)
-
 

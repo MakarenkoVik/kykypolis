@@ -118,7 +118,11 @@
 										<li><a>События</a></li>
 										<li><a>Отзывы</a></li>
 										<li><a>Контакты</a></li>
-										<li class="icon"><a href="login.html"><i class="far fa-user"></i>Войти</a></li>
+										{% if user.is_authenticated %}
+											<li class="icon"><a href="{% url 'users:logout' %}"><i class="far fa-user"></i>Выйти</a></li>
+										{% else %}
+											<li class="icon"><a href="{% url 'users:login' %}"><i class="far fa-user"></i>Войти</a></li>
+										{% endif %}
 									</ul>
 								</nav>
 							</div>

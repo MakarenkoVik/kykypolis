@@ -1,4 +1,4 @@
-"""kykypolis URL Configuration
+"""online URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -13,22 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
-import debug_toolbar
+
+from django.urls import path, include, reverse_lazy
+from django.contrib.auth import views as auth_views
+from . import views
+
+app_name = 'users'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include("service.urls")),
-    path("users/", include("users.urls")),
+    #path('', views.index, name='index'),
+    #path('password_change/', auth_views.PasswordChangeView.as_view(success_url = reverse_lazy("users:login"),)),
+    path("", include("django.contrib.auth.urls")),
+    path('register/', views.register, name="register"),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-
-if settings.DEBUG:
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
