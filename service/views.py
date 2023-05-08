@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from service.models import Event, Gallery, Review, Service
 
-
+# Getting objects from the database and passing them to the template index.html
 def index(request):
     services = Service.objects.filter(is_active=True).order_by("id")
     galleries = Gallery.objects.filter(is_active=True)

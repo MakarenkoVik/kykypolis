@@ -13,11 +13,12 @@ from service.models import Event, Gallery, Price, Review, Service
 
 # Register your models here.
 
-
+# Adding a child price model to the parent service on one page.
 class PriceInline(admin.TabularInline):
     model = Price
 
 
+# Register model Price.
 @admin.register(Price)
 class PriceAdmin(admin.ModelAdmin):
     date_hierarchy = "pub_date"
@@ -40,14 +41,17 @@ class PriceAdmin(admin.ModelAdmin):
         "make_active",
     )
 
+    # Setting the is_active field to False.
     @admin.action(description="Switch to inactive state")
     def make_inactive(self, request, queryset):
         queryset.update(is_active=False)
 
+    # Setting the is_active field to True.
     @admin.action(description="Switch to active state")
     def make_active(self, request, queryset):
         queryset.update(is_active=True)
 
+    # Dump database as json.
     @admin.action(description="Download files")
     def export_as_json(self, request, queryset):
         response = FileResponse(
@@ -58,6 +62,7 @@ class PriceAdmin(admin.ModelAdmin):
         return response
 
 
+# Register model Service.
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     date_hierarchy = "pub_date"
@@ -69,6 +74,7 @@ class ServiceAdmin(admin.ModelAdmin):
         "img_preview",
     )
 
+    # Average service price.
     @admin.display(description="average value")
     def average_price(self, obj):
         if Price.objects.filter(service=obj):
@@ -77,6 +83,7 @@ class ServiceAdmin(admin.ModelAdmin):
         else:
             None
 
+    # Link to the prices of a specific service.
     @admin.display(description="prices")
     def view_price_link(self, obj):
         count = obj.price_set.count()
@@ -94,22 +101,27 @@ class ServiceAdmin(admin.ModelAdmin):
         "make_active",
     )
 
+    # Preview in the list of objects.
     @admin.display(description="service image")
     def img_preview(self, obj):
         return mark_safe(f'<img src = "{obj.service_image.url}" width ="200px" height="150px"/>')
-
+    
+    # Preview on change view page.
     @admin.display(description="service image")
     def img_tag(self, obj):
         return mark_safe(f'<img src = "{obj.service_image.url}" width = "200" height="150px"/>')
-
+    
+    # Setting the is_active field to False.
     @admin.action(description="Switch to inactive state")
     def make_inactive(self, request, queryset):
         queryset.update(is_active=False)
 
+    # Setting the is_active field to True.
     @admin.action(description="Switch to active state")
     def make_active(self, request, queryset):
         queryset.update(is_active=True)
 
+    # Dump database as json.
     @admin.action(description="Download files")
     def export_as_json(self, request, queryset):
         response = FileResponse(
@@ -120,6 +132,7 @@ class ServiceAdmin(admin.ModelAdmin):
         return response
 
 
+# Register model Gallery.
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
     date_hierarchy = "pub_date"
@@ -136,23 +149,28 @@ class GalleryAdmin(admin.ModelAdmin):
         "place",
     )
 
+    # Setting the is_active field to False.
     @admin.action(description="Switch to inactive state")
     def make_inactive(self, request, queryset):
         queryset.update(is_active=False)
 
+    # Setting the is_active field to True.
     @admin.action(description="Switch to active state")
     def make_active(self, request, queryset):
         queryset.update(is_active=True)
 
+    # Preview in the list of objects.
     @admin.display(description="gallery image")
     def img_preview(self, obj):
         return mark_safe(f'<img src = "{obj.gallery_image_small.url}" width ="150px" height="150px"/>')
-
+    
+    # Preview on change view page.
     @admin.display(description="gallery image")
     def img_tag(self, obj):
         return mark_safe(f'<img src = "{obj.gallery_image_small.url}" width = "150" height="150px"/>')
 
 
+# Register model Event.
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     date_hierarchy = "date"
@@ -175,22 +193,27 @@ class EventAdmin(admin.ModelAdmin):
         "make_active",
     )
 
+    # Preview in the list of objects.
     @admin.display(description="event image")
     def img_preview(self, obj):
         return mark_safe(f'<img src = "{obj.event_image.url}" width ="150px" height="150px"/>')
-
+    
+    # Preview on change view page.
     @admin.display(description="event image")
     def img_tag(self, obj):
         return mark_safe(f'<img src = "{obj.event_image.url}" width = "150" height="150px"/>')
-
+    
+    # Setting the is_active field to False.
     @admin.action(description="Switch to inactive state")
     def make_inactive(self, request, queryset):
         queryset.update(is_active=False)
-
+    
+    # Setting the is_active field to True.
     @admin.action(description="Switch to active state")
     def make_active(self, request, queryset):
         queryset.update(is_active=True)
-
+    
+    # Dump database as json.
     @admin.action(description="Download files")
     def export_as_json(self, request, queryset):
         response = FileResponse(
@@ -201,6 +224,7 @@ class EventAdmin(admin.ModelAdmin):
         return response
 
 
+# Register model Review.
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
     date_hierarchy = "pub_date"
@@ -224,23 +248,28 @@ class ReviewAdmin(admin.ModelAdmin):
         "export_as_json",
         "make_active",
     )
-
+    
+    # Preview in the list of objects.
     @admin.display(description="review image")
     def img_preview(self, obj):
         return mark_safe(f'<img src = "{obj.review_image.url}" width ="150px" height="150px"/>')
-
+    
+    # Preview on change view page.
     @admin.display(description="review image")
     def img_tag(self, obj):
         return mark_safe(f'<img src = "{obj.review_image.url}" width = "150" height="150px"/>')
-
+    
+    # Setting the is_active field to False.
     @admin.action(description="Switch to inactive state")
     def make_inactive(self, request, queryset):
         queryset.update(is_active=False)
-
+    
+    # Setting the is_active field to True.
     @admin.action(description="Switch to active state")
     def make_active(self, request, queryset):
         queryset.update(is_active=True)
-
+    
+    # Dump database as json.
     @admin.action(description="Download files")
     def export_as_json(self, request, queryset):
         response = FileResponse(

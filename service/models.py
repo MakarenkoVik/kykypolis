@@ -3,6 +3,7 @@ from django.db import models
 from django.utils.html import mark_safe
 
 
+# Creating a parent abstract model.
 class BaseMixin(models.Model):
     is_active = models.BooleanField(verbose_name="Is active?", default=True)
     pub_date = models.DateField(verbose_name="Pub date", auto_now_add=True)
@@ -11,6 +12,7 @@ class BaseMixin(models.Model):
         abstract = True
 
 
+# Creating a child model with services.
 class Service(BaseMixin):
     name = models.CharField(max_length=50, default="", verbose_name="Service Name")
     name_en = models.CharField(max_length=50, default="", verbose_name="Service Name En")
@@ -35,6 +37,7 @@ def default_service():
         return None
 
 
+# Creating a child model with prices.
 class Price(BaseMixin):
     service = models.ForeignKey(Service, on_delete=models.SET_DEFAULT, default=default_service, null=True, blank=True)
     currency = models.CharField(max_length=50, verbose_name="Currency Name")
@@ -46,6 +49,7 @@ class Price(BaseMixin):
         return f"{self.service}"
 
 
+# Creating a child model with galleries.
 class Gallery(BaseMixin):
     photographer = models.CharField(max_length=50, default="", verbose_name="Gallery Photographer")
     photographer_en = models.CharField(max_length=50, default="", verbose_name="Gallery Photographer En")
@@ -66,6 +70,7 @@ class Gallery(BaseMixin):
         return mark_safe(f'<img class="img-responsive" src="{self.gallery_image_small.url}" />')
 
 
+# Creating a child model with events.
 class Event(BaseMixin):
     name = models.CharField(max_length=50, default="", verbose_name="Event Name")
     name_en = models.CharField(max_length=50, default="", verbose_name="Event Name En")
@@ -78,6 +83,7 @@ class Event(BaseMixin):
         return f"{self.name}"
 
 
+# Creating a child model with reviews.
 class Review(BaseMixin):
     visitor_category = models.CharField(max_length=50, default="", verbose_name="Visitor Category")
     visitor_category_en = models.CharField(max_length=50, default="", verbose_name="Visitor Category En")
