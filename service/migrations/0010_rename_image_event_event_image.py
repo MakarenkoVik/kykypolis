@@ -4,15 +4,14 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('service', '0009_rename_event_image_event_image'),
+        ("service", "0009_rename_event_image_event_image"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='event',
-            old_name='image',
-            new_name='event_image',
+            model_name="event",
+            old_name="image",
+            new_name="event_image",
         ),
     ]

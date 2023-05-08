@@ -5,90 +5,97 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('service', '0011_alter_price_value'),
+        ("service", "0011_alter_price_value"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='event',
-            name='description_en',
-            field=ckeditor.fields.RichTextField(blank=True, default=None, null=True, verbose_name='Event Description En'),
+            model_name="event",
+            name="description_en",
+            field=ckeditor.fields.RichTextField(
+                blank=True, default=None, null=True, verbose_name="Event Description En"
+            ),
         ),
         migrations.AddField(
-            model_name='event',
-            name='name_en',
-            field=models.CharField(default='', max_length=50, verbose_name='Event Name En'),
+            model_name="event",
+            name="name_en",
+            field=models.CharField(default="", max_length=50, verbose_name="Event Name En"),
         ),
         migrations.AddField(
-            model_name='gallery',
-            name='photographer_en',
-            field=models.CharField(default='', max_length=50, verbose_name='Gallery Photographer En'),
+            model_name="gallery",
+            name="photographer_en",
+            field=models.CharField(default="", max_length=50, verbose_name="Gallery Photographer En"),
         ),
         migrations.AddField(
-            model_name='gallery',
-            name='place_en',
-            field=models.CharField(default='', max_length=50, verbose_name='Gallery Place En'),
+            model_name="gallery",
+            name="place_en",
+            field=models.CharField(default="", max_length=50, verbose_name="Gallery Place En"),
         ),
         migrations.AddField(
-            model_name='price',
-            name='description_en',
-            field=ckeditor.fields.RichTextField(blank=True, default=None, null=True, verbose_name='Price Description En'),
+            model_name="price",
+            name="description_en",
+            field=ckeditor.fields.RichTextField(
+                blank=True, default=None, null=True, verbose_name="Price Description En"
+            ),
         ),
         migrations.AddField(
-            model_name='review',
-            name='description_en',
-            field=ckeditor.fields.RichTextField(blank=True, default=None, null=True, verbose_name='Review Description En'),
+            model_name="review",
+            name="description_en",
+            field=ckeditor.fields.RichTextField(
+                blank=True, default=None, null=True, verbose_name="Review Description En"
+            ),
         ),
         migrations.AddField(
-            model_name='review',
-            name='visitor_category_en',
-            field=models.CharField(default='', max_length=50, verbose_name='Visitor Category En'),
+            model_name="review",
+            name="visitor_category_en",
+            field=models.CharField(default="", max_length=50, verbose_name="Visitor Category En"),
         ),
         migrations.AddField(
-            model_name='review',
-            name='visitor_name_en',
-            field=models.CharField(default='', max_length=50, verbose_name='Visitor Name En'),
+            model_name="review",
+            name="visitor_name_en",
+            field=models.CharField(default="", max_length=50, verbose_name="Visitor Name En"),
         ),
         migrations.AddField(
-            model_name='service',
-            name='description_en',
-            field=ckeditor.fields.RichTextField(blank=True, default=None, null=True, verbose_name='Service Description En'),
+            model_name="service",
+            name="description_en",
+            field=ckeditor.fields.RichTextField(
+                blank=True, default=None, null=True, verbose_name="Service Description En"
+            ),
         ),
         migrations.AddField(
-            model_name='service',
-            name='name_en',
-            field=models.CharField(default='', max_length=50, verbose_name='Service Name En'),
+            model_name="service",
+            name="name_en",
+            field=models.CharField(default="", max_length=50, verbose_name="Service Name En"),
         ),
         migrations.AlterField(
-            model_name='event',
-            name='name',
-            field=models.CharField(default='', max_length=50, verbose_name='Event Name'),
+            model_name="event",
+            name="name",
+            field=models.CharField(default="", max_length=50, verbose_name="Event Name"),
         ),
         migrations.AlterField(
-            model_name='gallery',
-            name='photographer',
-            field=models.CharField(default='', max_length=50, verbose_name='Gallery Photographer'),
+            model_name="gallery",
+            name="photographer",
+            field=models.CharField(default="", max_length=50, verbose_name="Gallery Photographer"),
         ),
         migrations.AlterField(
-            model_name='gallery',
-            name='place',
-            field=models.CharField(default='', max_length=50, verbose_name='Gallery Place'),
+            model_name="gallery",
+            name="place",
+            field=models.CharField(default="", max_length=50, verbose_name="Gallery Place"),
         ),
         migrations.AlterField(
-            model_name='review',
-            name='visitor_category',
-            field=models.CharField(default='', max_length=50, verbose_name='Visitor Category'),
+            model_name="review",
+            name="visitor_category",
+            field=models.CharField(default="", max_length=50, verbose_name="Visitor Category"),
         ),
         migrations.AlterField(
-            model_name='review',
-            name='visitor_name',
-            field=models.CharField(default='', max_length=50, verbose_name='Visitor Name'),
+            model_name="review",
+            name="visitor_name",
+            field=models.CharField(default="", max_length=50, verbose_name="Visitor Name"),
         ),
         migrations.AlterField(
-            model_name='service',
-            name='name',
-            field=models.CharField(default='', max_length=50, verbose_name='Service Name'),
+            model_name="service",
+            name="name",
+            field=models.CharField(default="", max_length=50, verbose_name="Service Name"),
         ),
     ]

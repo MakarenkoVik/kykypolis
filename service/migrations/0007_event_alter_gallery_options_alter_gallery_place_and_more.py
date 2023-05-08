@@ -5,49 +5,56 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('service', '0006_gallery'),
+        ("service", "0006_gallery"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Event',
+            name="Event",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('is_active', models.BooleanField(default=True, verbose_name='Is active?')),
-                ('pub_date', models.DateField(auto_now_add=True, verbose_name='Pub date')),
-                ('name', models.CharField(max_length=50, verbose_name='Event Name')),
-                ('date', models.DateField(verbose_name='Event date')),
-                ('description', ckeditor.fields.RichTextField(blank=True, default=None, null=True, verbose_name='Event Description')),
-                ('event_image', models.ImageField(blank=True, null=True, upload_to='event', verbose_name='Event Image')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("is_active", models.BooleanField(default=True, verbose_name="Is active?")),
+                ("pub_date", models.DateField(auto_now_add=True, verbose_name="Pub date")),
+                ("name", models.CharField(max_length=50, verbose_name="Event Name")),
+                ("date", models.DateField(verbose_name="Event date")),
+                (
+                    "description",
+                    ckeditor.fields.RichTextField(
+                        blank=True, default=None, null=True, verbose_name="Event Description"
+                    ),
+                ),
+                (
+                    "event_image",
+                    models.ImageField(blank=True, null=True, upload_to="event", verbose_name="Event Image"),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.AlterModelOptions(
-            name='gallery',
-            options={'verbose_name': 'Gallery', 'verbose_name_plural': 'Galleries'},
+            name="gallery",
+            options={"verbose_name": "Gallery", "verbose_name_plural": "Galleries"},
         ),
         migrations.AlterField(
-            model_name='gallery',
-            name='place',
-            field=models.CharField(max_length=50, verbose_name='Gallery Place'),
+            model_name="gallery",
+            name="place",
+            field=models.CharField(max_length=50, verbose_name="Gallery Place"),
         ),
         migrations.AlterField(
-            model_name='gallery',
-            name='pub_date',
-            field=models.DateField(auto_now_add=True, verbose_name='Pub date'),
+            model_name="gallery",
+            name="pub_date",
+            field=models.DateField(auto_now_add=True, verbose_name="Pub date"),
         ),
         migrations.AlterField(
-            model_name='price',
-            name='pub_date',
-            field=models.DateField(auto_now_add=True, verbose_name='Pub date'),
+            model_name="price",
+            name="pub_date",
+            field=models.DateField(auto_now_add=True, verbose_name="Pub date"),
         ),
         migrations.AlterField(
-            model_name='service',
-            name='pub_date',
-            field=models.DateField(auto_now_add=True, verbose_name='Pub date'),
+            model_name="service",
+            name="pub_date",
+            field=models.DateField(auto_now_add=True, verbose_name="Pub date"),
         ),
     ]

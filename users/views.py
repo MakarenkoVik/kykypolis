@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import redirect, render
 from django.urls import reverse
-from django.contrib.auth.forms import UserCreationForm  
+
 from users.forms import CustomUserCreationForm
 
 # Create your views here.
@@ -12,12 +13,10 @@ from users.forms import CustomUserCreationForm
 # def password_change_done(request):
 #     return redirect("/users/login")
 
+
 def register(request):
     if request.method == "GET":
-        return render(
-            request, "registration/register.html",
-            {"form": CustomUserCreationForm}
-        )
+        return render(request, "registration/register.html", {"form": CustomUserCreationForm})
     elif request.method == "POST":
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -25,9 +24,7 @@ def register(request):
             login(request, user)
             return redirect(reverse("service:index"))
         return render(
-            request, "registration/register.html",
-            {
-                "form": CustomUserCreationForm,
-                "error_message": form.error_messages
-            }
+            request,
+            "registration/register.html",
+            {"form": CustomUserCreationForm, "error_message": form.error_messages},
         )

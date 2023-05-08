@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('service', '0010_rename_image_event_event_image'),
+        ("service", "0010_rename_image_event_event_image"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='price',
-            name='value',
-            field=models.DecimalField(decimal_places=2, max_digits=6, max_length=6, verbose_name='Price Value'),
+            model_name="price",
+            name="value",
+            field=models.DecimalField(decimal_places=2, max_digits=6, max_length=6, verbose_name="Price Value"),
         ),
     ]

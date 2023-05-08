@@ -5,20 +5,19 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('service', '0002_alter_price_options_alter_service_options_and_more'),
+        ("service", "0002_alter_price_options_alter_service_options_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='price',
-            name='description',
-            field=ckeditor.fields.RichTextField(default=None, null=True, verbose_name='Price Description'),
+            model_name="price",
+            name="description",
+            field=ckeditor.fields.RichTextField(default=None, null=True, verbose_name="Price Description"),
         ),
         migrations.AlterField(
-            model_name='service',
-            name='description',
-            field=ckeditor.fields.RichTextField(default=None, null=True, verbose_name='Service Description'),
+            model_name="service",
+            name="description",
+            field=ckeditor.fields.RichTextField(default=None, null=True, verbose_name="Service Description"),
         ),
     ]
