@@ -1,17 +1,8 @@
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
 from users.forms import CustomUserCreationForm
-
-# Create your views here.
-
-# def index(request):
-#     return redirect("/users/login")
-
-# def password_change_done(request):
-#     return redirect("/users/login")
 
 
 def register(request):

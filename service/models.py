@@ -31,7 +31,7 @@ class Service(BaseMixin):
 def default_service():
     try:
         return Service.objects.get(title="default").pk
-    except:
+    except Exception:
         return None
 
 

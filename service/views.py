@@ -1,8 +1,6 @@
-from datetime import datetime
-
 from django.shortcuts import render
 
-from service.models import Event, Gallery, Price, Review, Service
+from service.models import Event, Gallery, Review, Service
 
 
 def index(request):
