@@ -3,3 +3,6 @@ psycopg2-binary
 django-ckeditor
 Pillow
 django-debug-toolbar
+black
+isort
+flake8
