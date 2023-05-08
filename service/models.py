@@ -12,8 +12,10 @@ class BaseMixin(models.Model):
 
 
 class Service(BaseMixin):
-    name = models.CharField(max_length=50, verbose_name='Service Name')
+    name = models.CharField(max_length=50, default="", verbose_name='Service Name')
+    name_en = models.CharField(max_length=50, default="", verbose_name='Service Name En')
     description = RichTextField(verbose_name='Service Description', default=None, null=True, blank=True)
+    description_en = RichTextField(verbose_name='Service Description En', default=None, null=True, blank=True)
     service_image = models.ImageField(upload_to='service', blank=True, null=True, verbose_name='Service Image')
    
     def get_prices(self):
@@ -38,14 +40,17 @@ class Price(BaseMixin):
     currency = models.CharField(max_length=50, verbose_name='Currency Name')
     value = models.DecimalField(max_length=6, max_digits=6, decimal_places=2, verbose_name='Price Value')
     description = RichTextField(verbose_name='Price Description', default=None, null=True, blank=True)
+    description_en = RichTextField(verbose_name='Price Description En', default=None, null=True, blank=True)
 
     def __str__(self):
         return f"{self.service}"
 
 
 class Gallery(BaseMixin):
-    photographer = models.CharField(max_length=50, verbose_name='Gallery Photographer')
-    place = models.CharField(max_length=50, verbose_name='Gallery Place')
+    photographer = models.CharField(max_length=50, default="", verbose_name='Gallery Photographer')
+    photographer_en = models.CharField(max_length=50, default="", verbose_name='Gallery Photographer En')
+    place = models.CharField(max_length=50, default="", verbose_name='Gallery Place')
+    place_en = models.CharField(max_length=50, default="", verbose_name='Gallery Place En')
     gallery_image_big = models.ImageField(upload_to='gallery_big', blank=True, null=True, verbose_name='Gallery Image Big')
     gallery_image_small = models.ImageField(upload_to='gallery_small', blank=True, null=True, verbose_name='Gallery Image Small')
 
@@ -58,9 +63,11 @@ class Gallery(BaseMixin):
     
 
 class Event(BaseMixin):
-    name = models.CharField(max_length=50, verbose_name='Event Name')
+    name = models.CharField(max_length=50, default="", verbose_name='Event Name')
+    name_en = models.CharField(max_length=50, default="", verbose_name='Event Name En')
     date = models.DateField(verbose_name='Event Date')
     description = RichTextField(verbose_name='Event Description', default=None, null=True, blank=True)
+    description_en = RichTextField(verbose_name='Event Description En', default=None, null=True, blank=True)
     event_image = models.ImageField(upload_to='event', blank=True, null=True, verbose_name='Event Image')
 
     def __str__(self):
@@ -68,12 +75,14 @@ class Event(BaseMixin):
     
 
 class Review(BaseMixin):
-    visitor_category = models.CharField(max_length=50, verbose_name='Visitor Category')
-    visitor_name = models.CharField(max_length=50, verbose_name='Visitor Name')
+    visitor_category = models.CharField(max_length=50, default="", verbose_name='Visitor Category')
+    visitor_category_en = models.CharField(max_length=50, default="", verbose_name='Visitor Category En')
+    visitor_name = models.CharField(max_length=50, default="", verbose_name='Visitor Name')
+    visitor_name_en = models.CharField(max_length=50, default="", verbose_name='Visitor Name En')
     description = RichTextField(verbose_name='Review Description', default=None, null=True, blank=True)
+    description_en = RichTextField(verbose_name='Review Description En', default=None, null=True, blank=True)
     review_image = models.ImageField(upload_to='review', blank=True, null=True, verbose_name='Review Image')
     link = models.URLField(verbose_name='Review Link')
     
     def img_tag(self):
         return mark_safe(f'<img src = "{self.review_image.url}" width = "300"/>')
-

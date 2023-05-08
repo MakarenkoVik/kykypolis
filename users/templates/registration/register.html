@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block extra_header %}
 <style>
@@ -216,25 +217,26 @@
   <form class="form login" action="{% url 'users:register' %}" method="post">
     {% csrf_token %}
     <header class="login__header">
-      <h3 class="login__title">Register</h3>
+      <h3 class="login__title">{% trans 'register' %}</h3>
     </header>
     <div class="login__body">
       {% for key, err in error_message.items %}
         <p class="bg-danger p-d ml-b">{{ err }}</p>
       {% endfor %}
       <div class="form__field">
-        <input name="username" value="" type="text"  placeholder="username" class="form-control" required/>
+        <input name="username" value="" type="text"  placeholder="{% trans 'username' %}" class="form-control" required/>
       </div>
       <div class="form__field">
-        <input name="password1" type="password" class="form-control" placeholder="password" required/>
+        <input name="password1" type="password" class="form-control" placeholder="{% trans 'password' %}" required/>
       </div>
       <div class="form__field">
-        <input name="password2" type="password" class="form-control" placeholder="repeat password" required/>
+        <input name="password2" type="password" class="form-control" placeholder="{% trans 'repeat password' %}" required/>
       </div>
     </div>
     <footer class="login__footer">
       <input type="submit" value="Register">
-      <p><a class="btn btn-secondary" href="{% url 'users:login' %}"> Login</a></p>
+      <p><a class="btn btn-secondary" href="{% url 'users:login' %}"> {% trans 'login' %}</a></p>
+      <p><a class="btn btn-secondary" href="{% url 'service:index' %}"> {% trans 'return' %}</a></p>
     </footer>
   </form>
 </div>

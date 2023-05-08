@@ -1,4 +1,9 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,11 +72,20 @@
 					<div class="col-lg-2 col-sm-3">
 						<div class="header-top-left">
 							<ul>
-								<li class="has-dropdown"><a href="#">Русский</a>
+								<li class="has-dropdown"><a href="#">{{ LANGUAGE_CODE|language_name_local }}</a>
 									<ul>
-										<li><a href="#">English</a></li>
+										{% for language in languages %}
+										{% if language.code != LANGUAGE_CODE %}
+										<li><a href="#"  onclick="changeLanguage('{{ language.code }}')">{{ language.code|language_name_local }}</a></li>
+										{% endif %}
+										{% endfor %}
 									</ul>
 								</li>
+								<form id="languageForm" action="{% url 'service:set_language' %}" method="post">
+									{% csrf_token %}
+									<input name="language" type="hidden" value="" /> 
+									<input id="newLanguageInput" type="hidden" name="language"/>
+								</form>
 							</ul>
 						</div>
 					</div>
@@ -112,16 +126,16 @@
 							<div class="main-menu-wrap">
 								<nav class="gene-nav">
 									<ul class="menu">
-										<li><a>О парке</a></li>
-										<li><a>Услуги</a></li>
-										<li><a>Галерея</a></li>
-										<li><a>События</a></li>
-										<li><a>Отзывы</a></li>
-										<li><a>Контакты</a></li>
+										<li><a>{% trans 'about_park' %}</a></li>
+										<li><a>{% trans 'services' %}</a></li>
+										<li><a>{% trans 'gallery' %}</a></li>
+										<li><a>{% trans 'events' %}</a></li>
+										<li><a>{% trans 'reviews' %}</a></li>
+										<li><a>{% trans 'contacts' %}</a></li>
 										{% if user.is_authenticated %}
-											<li class="icon"><a href="{% url 'users:logout' %}"><i class="far fa-user"></i>Выйти</a></li>
+											<li class="icon"><a href="{% url 'users:logout' %}"><i class="far fa-user"></i>{% trans 'logout' %}</a></li>
 										{% else %}
-											<li class="icon"><a href="{% url 'users:login' %}"><i class="far fa-user"></i>Войти</a></li>
+											<li class="icon"><a href="{% url 'users:login' %}"><i class="far fa-user"></i>{% trans 'login' %}</a></li>
 										{% endif %}
 									</ul>
 								</nav>
@@ -152,8 +166,8 @@
 											<!-- Start Single slide content	-->
 											<div class="single-slide-content text-center">
 												<div class="content-text">
-													<h1><strong>Кукуполис</strong><span></span>
-														Любимое место для всей семьи!</h1>
+													<h1><strong>{% trans 'kykypolis' %}</strong><span></span>
+														{% trans 'slogan' %}</h1>
 												</div>
 											</div>
 											<!-- End Single slide content -->
@@ -187,7 +201,7 @@
 										<div class="single-quick-icon style-3 text-center">
 											<div class="quick-icon-content">
 												<img src="{% static 'service/img/icon/maze.png' %}" alt="">
-												<p>Лабиринт</p>
+												<p>{% trans 'maze' %}</p>
 											</div>
 										</div>
 										<!-- End single quick icon -->
@@ -197,7 +211,7 @@
 										<div class="single-quick-icon style-3 text-center">
 											<div class="quick-icon-content">
 												<img src="{% static 'service/img/icon/game.png' %}" alt="">
-												<p>Игры</p>
+												<p>{% trans 'games' %}</p>
 											</div>
 										</div>
 										<!-- End single quick icon -->
@@ -207,7 +221,7 @@
 										<div class="single-quick-icon style-3 text-center">
 											<div class="quick-icon-content">
 												<img src="{% static 'service/img/icon/dancing.png' %}" alt="">
-												<p>Танцы</p>
+												<p>{% trans 'dances' %}</p>
 											</div>
 										</div>
 										<!-- End single quick icon -->
@@ -217,7 +231,7 @@
 										<div class="single-quick-icon style-3 text-center">
 											<div class="quick-icon-content">
 												<img src="{% static 'service/img/icon/farm.png' %}" alt="">
-												<p>Знакомство с козлятами</p>
+												<p>{% trans 'meeting_goats' %}</p>
 											</div>
 										</div>
 										<!-- End single quick icon -->
@@ -227,7 +241,7 @@
 										<div class="single-quick-icon style-3 text-center">
 											<div class="quick-icon-content">
 												<img src="{% static 'service/img/icon/flight.png' %}" alt="">
-												<p>Полеты</p>
+												<p>{% trans 'fly' %}</p>
 											</div>
 										</div>
 										<!-- End single quick icon -->
@@ -237,7 +251,7 @@
 										<div class="single-quick-icon style-3 text-center">
 											<div class="quick-icon-content">
 												<img src="{% static 'service/img/icon/food.png' %}" alt="">
-												<p>Фудкорт</p>
+												<p>{% trans 'eating_place' %}</p>
 											</div>
 										</div>
 										<!-- End single quick icon -->
@@ -247,24 +261,14 @@
 							<div class="col-lg-6">
 								<!-- Start section title -->
 								<div class="section-title">
-									<p class="title">Познакомьтесь с нами ближе</p>
-									<h2>Вместе мы<span></span>найдем выход!</h2>
+									<p class="title">{% trans 'acquaintance' %}</p>
+									<h2>{% trans 'find_out' %}</h2>
 								</div>
 								<!-- End section title -->
 								<div class="about-content">
-									<p align="justify">Парк КУКУПОЛИС погружает гостей в атмосферу квеста в
-										кукурузном лабиринте. В зоне отдыха агропарка работают
-										аттракционы и есть возможность арендовать беседки в лесу
-										на берегу озера. Можно посетить экскурсию, прокатиться
-										на паровозике, насладиться музыкой и подкрепиться на 
-										фудкортах. Также в парке есть контактный зоопарк, где
-										можно покормить и погладить коз и других обитателей фермы.
-										И самое «вкусное» - это из «первых рук» фермеров купить
-										свежие продукты из козьего молока.
-										<strong>И помните, лабиринт — это не место для свиданий.
-											Это место для острых ощущений:)</strong>
+									<p align="justify">{% trans 'about_content' %}
 									</p>
-									<a href="#" class="btn btn-theme blue-2">Хочу Попасть К Вам!</a>
+									<a href="#" class="btn btn-theme blue-2">{% trans 'want_there' %}</a>
 								</div>
 							</div>
 						</div>
@@ -279,8 +283,8 @@
 				<div class="row">
 					<!-- Start section title -->
 					<div class="section-title text-center">
-						<p class="title">Кукуполис</p>
-						<h2>Ваш идеальный праздник нашими руками</h2>
+						<p class="title">{% trans 'kykypolis' %}</p>
+						<h2>{% trans 'celebrate' %}</h2>
 					</div>
 					<!-- End section title -->
 					{% for service in services %}
@@ -290,10 +294,10 @@
 							{{ service.img_tag }}
 							<div class="adventure-content">
 								<a href="#">
-									<h6>{{ service.name }}</h6>
+									<h6>{% if LANGUAGE_CODE == 'en' %}{{ price.name_en }}{% else %}{{ price.name }}{% endif %}</h6>
 								</a>
 								{% for price in service.get_prices %}
-								<p class="price">{{ price.value }} BYN <small>{{ price.description|striptags }}</small></p><br>
+								<p class="price">{{ price.value }} BYN <small>{% if LANGUAGE_CODE == 'en' %}{{ price.description_en|striptags }}{% else %}{{ price.description|striptags }}{% endif %}</small></p><br>
 								{% endfor %}
 							</div>
 						</div>
@@ -301,13 +305,8 @@
 					</div>
 					{% endfor %}
 							<div class="single-selling-tips section-title">
-								<p align="justify">В стоимость билета входит: посещение кукурузного
-									лабиринта, экскурсия с катанием на паровозике и посещением
-									фермы с 1500 коз, контактный зоопарк с другими обитателями
-									кукуполиса, в выходные в стоимость также входит работа
-									аниматоров.
-								</p>
-								<a href="#" class="btn btn-theme blue-2 mt-10">Позвонить!</a>
+								<p align="justify">{% trans 'price_comment' %}</p>
+								<a href="#" class="btn btn-theme blue-2 mt-10">{% trans 'call' %}</a>
 							</div>
 						</div>
 					</div>
@@ -321,8 +320,8 @@
 				<div class="row justify-content-center pt-85">
 					<!-- Start section title -->
 					<div class="section-title text-center">
-						<p class="title">Кукуполис</p>
-						<h2>Интересные факты</h2>
+						<p class="title">{% trans 'kykypolis' %}</p>
+						<h2>{% trans 'facts' %}</h2>
 					</div>
 					<!-- End section title -->
 				</div>
@@ -332,7 +331,7 @@
 						<div class="single-fact text-center">
 							<div class="fact-info">
 								<img src="{% static 'service/img/icon/number_one.png' %}" alt="">
-								<p>Единственные в стране</p>
+								<p>{% trans 'unique' %}</p>
 							</div>
 						</div>
 						<!-- Start single fact -->
@@ -343,7 +342,7 @@
 							<div class="fact-info">
 								<img src="{% static 'service/img/icon/square.png' %}" alt="">
 								<span class="counter">25000</span><span>м²</span>
-								<p>Площадь лабиринта</p>
+								<p>{% trans 'square' %}</p>
 							</div>
 						</div>
 						<!-- Start single fact -->
@@ -354,7 +353,7 @@
 							<div class="fact-info">
 								<img src="{% static 'service/img/icon/funfact.png' %}" alt="">
 								<span class="counter">30000</span><span>+</span>
-								<p>Посетители</p>
+								<p>{% trans 'guests' %}</p>
 							</div>
 						</div>
 						<!-- Start single fact -->
@@ -364,8 +363,8 @@
 						<div class="single-fact text-center">
 							<div class="fact-info">
 								<img src="{% static 'service/img/icon/goats.png' %}" alt="">
-								<span class="counter">1500</span><span>коз</span>
-								<p>Контактный зоопарк</p>
+								<span class="counter">1500</span><span>{% trans 'goats' %}</span>
+								<p>{% trans 'contact_zoo' %}</p>
 							</div>
 						</div>
 						<!-- Start single fact -->
@@ -376,7 +375,7 @@
 							<div class="fact-info">
 								<img src="{% static 'service/img/icon/excursion.png' %}" alt="">
 								<span class="counter">500</span><span>+</span>
-								<p>Экскурсии</p>
+								<p>{% trans 'excursions' %}</p>
 							</div>
 						</div>
 						<!-- Start single fact -->
@@ -386,8 +385,8 @@
 						<div class="single-fact text-center">
 							<div class="fact-info">
 								<img src="{% static 'service/img/icon/tractor.png' %}" alt="">
-								<span class="counter">5000</span><span>км</span>
-								<p>Экскурсии на паровозике</p>
+								<span class="counter">5000</span><span>{% trans 'kilometers' %}</span>
+								<p>{% trans 'train' %}</p>
 							</div>
 						</div>
 						<!-- Start single fact -->
@@ -398,8 +397,8 @@
 		<!-- End Fun Facts Area -->
 		<!-- Start section title -->
 		<div class="section-title text-center">
-			<p class="title">Кукуполис</p>
-			<h2>Ваши счастливые моменты</h2>
+			<p class="title">{% trans 'kykypolis' %}</p>
+			<h2>{% trans 'moments' %}</h2>
 		</div>
 		<!-- End section title -->
 		<!-- Start Gallery -->
@@ -426,10 +425,9 @@
 					<div class="col-lg-8">
 						<!-- Start section title -->
 						<div class="section-title text-center">
-							<p class="title">Кукуполис</p>
-							<h2>ПОДПИШИСЬ НА НАШИ НОВОСТИ</h2>
-							<p>Присоединяйся к нашему сообществу и получай электронные письма с новостями,
-								рекламными акциями и другими полезными материалами от КУКУПОЛИС</p>
+							<p class="title">{% trans 'kykypolis' %}</p>
+							<h2>{% trans 'email_subscribe' %}</h2>
+							<p>{% trans 'get_emails' %}</p>
 						</div>
 						<!-- End section title -->
 					</div>
@@ -439,7 +437,7 @@
 						<!-- start subscribe -->
 						<form action="#" method="post" class="subscribe-form">
 							<input name="email" class="widget-input" placeholder="Email ......" type="email">
-							<button type="submit" class="widget-sbtn">Подписаться</button>
+							<button type="submit" class="widget-sbtn">{% trans 'subscribe' %}</button>
 						</form>
 						<!-- end subscribe -->
 					</div>
@@ -454,8 +452,8 @@
 					<div class="col-lg-9">
 						<!-- Start section title -->
 						<div class="section-title text-center">
-							<p class="title">Кукуполис</p>
-							<h2>Ближайшие события</h2>
+							<p class="title">{% trans 'kykypolis' %}</p>
+							<h2>{% trans 'next_events' %}</h2>
 						</div>
 						<!-- End section title -->
 					</div>
@@ -473,9 +471,9 @@
 							</div>
 							<div class="post-blog-content">
 								<a href="#">
-									<h4>{{ event.name }}</h4>
+									<h4>{{ language.code }}{% if LANGUAGE_CODE == 'en' %}{{ event.name_en|striptags }}{% else %}{{ event.name|striptags }}{% endif %}</h4>
 								</a>
-								<p>{{ event.description|striptags }}</p>
+								<p>{% if LANGUAGE_CODE == 'en' %}{{ event.description_en|striptags }}{% else %}{{ event.description|striptags }}{% endif %}</p>
 							</div>
 						</div>
 						<!-- End single post blog -->
@@ -492,8 +490,8 @@
 					<div class="col-lg-10">
 						<!-- Start section title -->
 						<div class="section-title text-center">
-							<p class="title">Кукуполис</p>
-							<h2>Отзывы</h2>
+							<p class="title">{% trans 'kykypolis' %}</p>
+							<h2>{% trans 'reviews' %}</h2>
 						</div>
 						<!-- End section title -->
 					</div>
@@ -506,9 +504,9 @@
 							<div class="guide-thumb">
 								{{ review.img_tag }}
 								<div class="guide-content">
-									<p class="title">{{review.visitor_category}}</p>
+									<p class="title">{% if LANGUAGE_CODE == 'en' %}{{ review.visitor_category_en|striptags }}{% else %}{{ review.visitor_category|striptags }}{% endif %}</p>
 									<a href="#">
-										<h4>{{review.visitor_name}}</h4>
+										<h4>{% if LANGUAGE_CODE == 'en' %}{{ review.visitor_name_en|striptags }}{% else %}{{ review.visitor_name|striptags }}{% endif %}</h4>
 									</a>
 									<ul>
 										<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -518,63 +516,12 @@
 										<li><a href="#"><i class="fab fa-youtube"></i></a></li>
 									</ul>
 									<div class="about-guide">
-										<p>{{review.description}}</p>
+										<p>{% if LANGUAGE_CODE == 'en' %}{{ review.description_en|striptags }}{% else %}{{ review.description|striptags }}{% endif %}</p>
 									</div>
 								</div>
 							</div>
 						</div>
 						{% endfor %}
-						<!-- End single guide -->
-					</div>
-					<div class="col-sm-4">
-						<!-- Start single guide -->
-						<!-- Start single guide -->
-						<div class="single-guide">
-							<div class="guide-thumb">
-								<img src="{% static 'service/img/reviews.jpg' %}" alt="">
-								<div class="guide-content">
-									<p class="title">Посетитель</p>
-									<a href="#">
-										<h4>Светлана</h4>
-									</a>
-									<ul>
-										<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-										<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-										<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-										<li><a href="#"><i class="fab fa-youtube"></i></a></li>
-									</ul>
-									<div class="about-guide">
-										<p>Все очень понравилось!</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End single guide -->
-					</div>
-					<div class="col-sm-4">
-						<!-- Start single guide -->
-						<div class="single-guide">
-							<div class="guide-thumb">
-								<img src="{% static 'service/img/reviews.jpg' %}" alt="">
-								<div class="guide-content">
-									<p class="title">Посетитель</p>
-									<a href="#">
-										<h4>Светлана</h4>
-									</a>
-									<ul>
-										<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-										<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-										<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-										<li><a href="#"><i class="fab fa-youtube"></i></a></li>
-									</ul>
-									<div class="about-guide">
-										<p>Все очень понравилось!</p>
-									</div>
-								</div>
-							</div>
-						</div>
 						<!-- End single guide -->
 					</div>
 				</div>
@@ -588,9 +535,9 @@
 					<div class="col-lg-10">
 						<!-- Start section title -->
 						<div class="section-title text-center">
-							<p class="title">Кукуполис</p>
-							<h2>Контакты</h2>
-							<p>Мы будем рады получить от вас обратную связь</p>
+							<p class="title">{% trans 'kykypolis' %}</p>
+							<h2>{% trans 'contacts' %}</h2>
+							<p>{% trans 'callback' %}</p>
 						</div>
 						<!-- End section title -->
 					</div>
@@ -603,9 +550,8 @@
 								<img src="{% static 'service/img/icon/c1.png' %}" alt="">
 							</div>
 							<div class="contact-content">
-								<h4>Наш адрес</h4>
-								<p>222722, хутор Лизаветин, д. 1,
-									Дзержинский район, Минская область, Беларусь</p>
+								<h4>{% trans 'our_address' %}</h4>
+								<p>{% trans 'address' %}</p>
 							</div>
 						</div>
 						<!-- End single contact -->
@@ -617,9 +563,9 @@
 								<img src="{% static 'service/img/icon/c2.png' %}" alt="">
 							</div>
 							<div class="contact-content">
-								<h4>Давай общаться в телеграм!</h4>
-								<p>Пн - Вс: 09:00 - 21:00</p>
-								<a href="#" class="chat">Написать <i class="fal fa-angle-right"></i></a>
+								<h4>{% trans 'talk_telegram' %}</h4>
+								<p>{% trans 'working_time' %}</p>
+								<a href="#" class="chat">{% trans 'write' %} <i class="fal fa-angle-right"></i></a>
 							</div>
 						</div>
 						<!-- End single contact -->
@@ -631,9 +577,9 @@
 								<img src="{% static 'service/img/icon/c3.png' %}" alt="">
 							</div>
 							<div class="contact-content">
-								<h4>Телефон</h4>
-								<p>МТС: <a href="tel:+375295759912">+375 29 575 99 12</a></p>
-								<p>A1: <a href="tel:+375295759912">+375 29 575 99 12</a></p>
+								<h4>{% trans 'telephone' %}</h4>
+								<p>{% trans 'mts' %}: <a href="tel:+375295759912">+375 29 575 99 12</a></p>
+								<p>{% trans 'a1' %}: <a href="tel:+375295759912">+375 29 575 99 12</a></p>
 							</div>
 						</div>
 						<!-- End single contact -->
@@ -677,8 +623,8 @@
 					<div class="col-lg-10">
 						<!-- Start section title -->
 						<div class="section-title text-center">
-							<p class="title">Кукуполис</p>
-							<h2>Наши партнеры</h2>
+							<p class="title">{% trans 'kykypolis' %}</p>
+							<h2>{% trans 'partners' %}</h2>
 						</div>
 						<!-- End section title -->
 					</div>
@@ -735,9 +681,8 @@
 					<div class="col-lg-3 col-sm-6">
 						<!-- start contact widget -->
 						<div class="widget contact-widget">
-							<h3>О кукуполисе</h3>
-							<p>Приключение в кукурузном лабиринте — это свобода следовать своему любопытству и
-								открывать неизведанное.</p>
+							<h3>{% trans 'about_kykypolis' %}</h3>
+							<p>{% trans 'adventure' %}</p>
 							<ul>
 								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
 								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -751,15 +696,19 @@
 					<div class="col-lg-2 col-sm-3">
 						<!-- start quick link widget -->
 						<div class="widget quick-link-widget">
-							<h3>Меню</h3>
+							<h3>{% trans 'menu' %}</h3>
 							<ul>
-								<li><a href="#"><i class="fal fa-angle-right"></i>О парке</a></li>
-								<li><a href="#"><i class="fal fa-angle-right"></i>Услуги</a></li>
-								<li><a href="#"><i class="fal fa-angle-right"></i>Галерея</a></li>
-								<li><a href="#"><i class="fal fa-angle-right"></i>События</a></li>
-								<li><a href="#"><i class="fal fa-angle-right"></i>Отзывы</a></li>
-								<li><a href="#"><i class="fal fa-angle-right"></i>Контакты</a></li>
-								<li><a href="#"><i class="fal fa-angle-right"></i>Войти</a></li>
+								<li><a href="#"><i class="fal fa-angle-right"></i>{% trans 'about_park' %}</a></li>
+								<li><a href="#"><i class="fal fa-angle-right"></i>{% trans 'services' %}</a></li>
+								<li><a href="#"><i class="fal fa-angle-right"></i>{% trans 'gallery' %}</a></li>
+								<li><a href="#"><i class="fal fa-angle-right"></i>{% trans 'events' %}</a></li>
+								<li><a href="#"><i class="fal fa-angle-right"></i>{% trans 'reviews' %}</a></li>
+								<li><a href="#"><i class="fal fa-angle-right"></i>{% trans 'contacts' %}</a></li>
+								{% if user.is_authenticated %}
+								<li><a href="{% url 'users:logout' %}"><i class="fal fa-angle-right"></i>{% trans 'logout' %}</a></li>
+								{% else %}
+								<li><a href="{% url 'users:login' %}"><i class="fal fa-angle-right"></i>{% trans 'login' %}</a></li>
+								{% endif %}
 							</ul>
 						</div>
 						<!-- end quick link widget -->
@@ -768,10 +717,9 @@
 					<div class="col-lg-3 col-sm-6">
 						<!-- start contact us widget -->
 						<div class="widget contact-us">
-							<h3>Контакты</h3>
+							<h3>{% trans 'contacts' %}</h3>
 							<ul>
-								<li><a href="#"><i class="fal fa-paper-plane"></i>хутор Лизаветин, д. 1,
-										Дзержинский район, Минская область, Беларусь</a></li>
+								<li><a href="#"><i class="fal fa-paper-plane"></i>{% trans 'address' %}</a></li>
 								<li><a href="#"><i class="fal fa-envelope"></i>dmkr@tut.by</a></li>
 								<li><a href="#"><i class="fal fa-phone-alt"></i>+375 29 575 99 12</a></li>
 							</ul>
@@ -846,27 +794,31 @@
 				});
 		});
 		var map;
-			var grayStyles = [
-				{
-					featureType: "all",
-					stylers: [
-						{ saturation: -90 },
-						{ lightness: 50 }
-					]
-				},
-			];
-			var mapOptions = {
-				center: new google.maps.LatLng(41.325663, 19.8029607),
-				zoom: 15,
-				styles: grayStyles,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
+		var grayStyles = [
+			{
+				featureType: "all",
+				stylers: [
+					{ saturation: -90 },
+					{ lightness: 50 }
+				]
+			},
+		];
+		var mapOptions = {
+			center: new google.maps.LatLng(41.325663, 19.8029607),
+			zoom: 15,
+			styles: grayStyles,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
 
-			function initialize() {
-				map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-			}
+		function initialize() {
+			map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+		}
 
-			google.maps.event.addDomListener(window, 'load', initialize);
+		google.maps.event.addDomListener(window, 'load', initialize);
+		function changeLanguage(newLanguage) {
+			$('input[name="language"]').val(newLanguage);
+			$('#languageForm').submit();
+		}
 	</script>
 </body>
 

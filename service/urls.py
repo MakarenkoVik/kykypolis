@@ -1,8 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+
 
 app_name = 'service'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path(r'^i18n/', include('django.conf.urls.i18n')),
 ]
