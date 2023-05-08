@@ -54,7 +54,7 @@ class Gallery(BaseMixin):
         verbose_name_plural = 'Galleries'
     
     def img_tag_small(self):
-        return mark_safe(f'<img class="img-responsive" src="{self.gallery_image_small.url}"')
+        return mark_safe(f'<img class="img-responsive" src="{self.gallery_image_small.url}" />')
     
 
 class Event(BaseMixin):
