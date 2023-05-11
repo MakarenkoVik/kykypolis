@@ -42,8 +42,8 @@ class Price(BaseMixin):
     service = models.ForeignKey(Service, on_delete=models.SET_DEFAULT, default=default_service, null=True, blank=True)
     currency = models.CharField(max_length=50, verbose_name="Currency Name")
     value = models.DecimalField(max_length=6, max_digits=6, decimal_places=2, verbose_name="Price Value")
-    description = RichTextField(verbose_name="Price Description", default=None, null=True, blank=True)
-    description_en = RichTextField(verbose_name="Price Description En", default=None, null=True, blank=True)
+    description = RichTextField(verbose_name="Price Description", default="", null=True, blank=True)
+    description_en = RichTextField(verbose_name="Price Description En", default="", null=True, blank=True)
 
     def __str__(self):
         return f"{self.service}"
@@ -51,10 +51,14 @@ class Price(BaseMixin):
 
 # Creating a child model with galleries.
 class Gallery(BaseMixin):
-    photographer = models.CharField(max_length=50, default="", verbose_name="Gallery Photographer")
-    photographer_en = models.CharField(max_length=50, default="", verbose_name="Gallery Photographer En")
-    place = models.CharField(max_length=50, default="", verbose_name="Gallery Place")
-    place_en = models.CharField(max_length=50, default="", verbose_name="Gallery Place En")
+    photographer = models.CharField(
+        max_length=50, default=None, null=True, blank=True, verbose_name="Gallery Photographer"
+    )
+    photographer_en = models.CharField(
+        max_length=50, default=None, null=True, blank=True, verbose_name="Gallery Photographer En"
+    )
+    place = models.CharField(max_length=100, default=None, null=True, blank=True, verbose_name="Gallery Place")
+    place_en = models.CharField(max_length=100, default=None, null=True, blank=True, verbose_name="Gallery Place En")
     gallery_image_big = models.ImageField(
         upload_to="gallery_big", blank=True, null=True, verbose_name="Gallery Image Big"
     )

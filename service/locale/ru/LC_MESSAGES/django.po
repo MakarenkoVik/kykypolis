@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 11:53+0300\n"
+"POT-Creation-Date: 2023-05-11 12:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,85 +20,90 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: templates/service/index.html:129 templates/service/index.html:701
+#: templates/service/index.html:15
+msgid "kykypolis_lower"
+msgstr "кукуполис"
+
+#: templates/service/index.html:105 templates/service/index.html:107
+#: templates/service/index.html:613
+msgid "mts"
+msgstr "МТС"
+
+#: templates/service/index.html:131 templates/service/index.html:733
 msgid "about_park"
 msgstr "О парке"
 
-#: templates/service/index.html:130 templates/service/index.html:702
+#: templates/service/index.html:132 templates/service/index.html:734
 msgid "services"
 msgstr "Услуги"
 
-#: templates/service/index.html:131 templates/service/index.html:703
+#: templates/service/index.html:133 templates/service/index.html:735
 msgid "gallery"
 msgstr "Галерея"
 
-#: templates/service/index.html:132 templates/service/index.html:704
+#: templates/service/index.html:134 templates/service/index.html:736
 msgid "events"
 msgstr "События"
 
-#: templates/service/index.html:133 templates/service/index.html:494
-#: templates/service/index.html:705
+#: templates/service/index.html:135 templates/service/index.html:513
+#: templates/service/index.html:737
 msgid "reviews"
 msgstr "Отзывы"
 
-#: templates/service/index.html:134 templates/service/index.html:539
-#: templates/service/index.html:706 templates/service/index.html:716
+#: templates/service/index.html:136 templates/service/index.html:571
+#: templates/service/index.html:738 templates/service/index.html:752
 msgid "contacts"
 msgstr "Контакты"
 
-#: templates/service/index.html:136
+#: templates/service/index.html:139 templates/service/index.html:740
 msgid "logout"
 msgstr "Выйти"
 
-#: templates/service/index.html:138 templates/service/index.html:707
+#: templates/service/index.html:141 templates/service/index.html:742
 msgid "login"
 msgstr "Войти"
 
-#: templates/service/index.html:169 templates/service/index.html:286
-#: templates/service/index.html:323 templates/service/index.html:400
-#: templates/service/index.html:428 templates/service/index.html:455
-#: templates/service/index.html:493 templates/service/index.html:538
-#: templates/service/index.html:626
-msgid "kykypolis"
-msgstr "Кукуполис"
+#: templates/service/index.html:172
+msgid "corn_maze2"
+msgstr "Кукурузный Лабиринт"
 
-#: templates/service/index.html:170
+#: templates/service/index.html:173
 msgid "slogan"
 msgstr "Любимое место для всей семьи!"
 
-#: templates/service/index.html:204
+#: templates/service/index.html:207
 msgid "maze"
 msgstr "Лабиринт"
 
-#: templates/service/index.html:214
+#: templates/service/index.html:217
 msgid "games"
 msgstr "Игры"
 
-#: templates/service/index.html:224
+#: templates/service/index.html:227
 msgid "dances"
 msgstr "Танцы"
 
-#: templates/service/index.html:234
+#: templates/service/index.html:237
 msgid "meeting_goats"
 msgstr "Знакомство с козлятами"
 
-#: templates/service/index.html:244
+#: templates/service/index.html:247
 msgid "fly"
 msgstr "Полеты"
 
-#: templates/service/index.html:254
+#: templates/service/index.html:257
 msgid "eating_place"
 msgstr "Фудкорт"
 
-#: templates/service/index.html:264
+#: templates/service/index.html:267
 msgid "acquaintance"
 msgstr "Познакомьтесь с нами ближе"
 
-#: templates/service/index.html:265
+#: templates/service/index.html:268
 msgid "find_out"
 msgstr "Вместе мы<span></span>найдем выход!"
 
-#: templates/service/index.html:269
+#: templates/service/index.html:272
 msgid "about_content"
 msgstr ""
 "Парк КУКУПОЛИС погружает гостей в атмосферу квеста вкукурузном лабиринте. В "
@@ -110,15 +115,22 @@ msgstr ""
 "купитьсвежие продукты из козьего молока. <strong>И помните, лабиринт — это "
 "не место для свиданий. Это место для острых ощущений:)</strong>"
 
-#: templates/service/index.html:271
+#: templates/service/index.html:274
 msgid "want_there"
 msgstr "Хочу Попасть К Вам!"
 
-#: templates/service/index.html:287
+#: templates/service/index.html:289 templates/service/index.html:333
+#: templates/service/index.html:410 templates/service/index.html:438
+#: templates/service/index.html:465 templates/service/index.html:512
+#: templates/service/index.html:570 templates/service/index.html:658
+msgid "kykypolis"
+msgstr "Кукуполис"
+
+#: templates/service/index.html:290
 msgid "celebrate"
 msgstr "Ваш идеальный праздник нашими руками"
 
-#: templates/service/index.html:308
+#: templates/service/index.html:320
 msgid "price_comment"
 msgstr ""
 "В стоимость билета входит: посещение кукурузноголабиринта, экскурсия с "
@@ -126,118 +138,118 @@ msgstr ""
 "другими обитателямикукуполиса, в выходные в стоимость также входит работа "
 "аниматоров."
 
-#: templates/service/index.html:309
+#: templates/service/index.html:321
 msgid "call"
 msgstr "Позвонить!"
 
-#: templates/service/index.html:324
+#: templates/service/index.html:334
 msgid "facts"
 msgstr "Интересные факты"
 
-#: templates/service/index.html:334
+#: templates/service/index.html:344
 msgid "unique"
 msgstr "Единственные в стране"
 
-#: templates/service/index.html:345
+#: templates/service/index.html:355
 msgid "square"
-msgstr "Площадь лабиринта<"
+msgstr "Площадь лабиринта"
 
-#: templates/service/index.html:356
+#: templates/service/index.html:366
 msgid "guests"
 msgstr "Посетители"
 
-#: templates/service/index.html:366
+#: templates/service/index.html:376
 msgid "goats"
 msgstr "коз"
 
-#: templates/service/index.html:367
+#: templates/service/index.html:377
 msgid "contact_zoo"
 msgstr "Контактный зоопарк"
 
-#: templates/service/index.html:378
+#: templates/service/index.html:388
 msgid "excursions"
 msgstr "Экскурсии"
 
-#: templates/service/index.html:388
+#: templates/service/index.html:398
 msgid "kilometers"
 msgstr "км"
 
-#: templates/service/index.html:389
+#: templates/service/index.html:399
 msgid "train"
 msgstr "Экскурсии на паровозике"
 
-#: templates/service/index.html:401
+#: templates/service/index.html:411
 msgid "moments"
 msgstr "Ваши счастливые моменты"
 
-#: templates/service/index.html:429
+#: templates/service/index.html:439
 msgid "email_subscribe"
 msgstr "ПОДПИШИСЬ НА НАШИ НОВОСТИ"
 
-#: templates/service/index.html:430
+#: templates/service/index.html:440
 msgid "get_emails"
 msgstr ""
-"Присоединяйся к нашему сообществу и получай электронные письма с новостями,"
+"Присоединяйся к нашему сообществу и получай электронные письма с новостями, "
 "рекламными акциями и другими полезными материалами от КУКУПОЛИС"
 
-#: templates/service/index.html:440
-#, fuzzy
-#| msgid "email_subscribe"
+#: templates/service/index.html:450
 msgid "subscribe"
 msgstr "Подписаться"
 
-#: templates/service/index.html:456
+#: templates/service/index.html:466
 msgid "next_events"
 msgstr "Ближайшие события"
 
-#: templates/service/index.html:540
+#: templates/service/index.html:572
 msgid "callback"
 msgstr "Мы будем рады получить от вас обратную связь"
 
-#: templates/service/index.html:553
+#: templates/service/index.html:585
 msgid "our_address"
 msgstr "Наш адрес"
 
-#: templates/service/index.html:554 templates/service/index.html:718
+#: templates/service/index.html:586 templates/service/index.html:754
 msgid "address"
-msgstr "222722, хутор Лизаветин, д. 1, Дзержинский район, Минская область, Беларусь"
+msgstr ""
+"222722, хутор Лизаветин, д. 1, Дзержинский район, Минская область, Беларусь"
 
-#: templates/service/index.html:566
+#: templates/service/index.html:598
 msgid "talk_telegram"
 msgstr "Давай общаться в телеграм!"
 
-#: templates/service/index.html:567
+#: templates/service/index.html:599
 msgid "working_time"
 msgstr "Пн - Вс: 09:00 - 21:00"
 
-#: templates/service/index.html:568
+#: templates/service/index.html:600
 msgid "write"
 msgstr "Написать"
 
-#: templates/service/index.html:580
+#: templates/service/index.html:612
 msgid "telephone"
 msgstr "Телефон"
 
-#: templates/service/index.html:581
-msgid "mts"
-msgstr "МТС"
-
-#: templates/service/index.html:582
+#: templates/service/index.html:614
 msgid "a1"
 msgstr "A1"
 
-#: templates/service/index.html:627
+#: templates/service/index.html:659
 msgid "partners"
 msgstr "Наши партнеры"
 
-#: templates/service/index.html:684
+#: templates/service/index.html:716
 msgid "about_kykypolis"
 msgstr "О кукуполисе"
 
-#: templates/service/index.html:685
+#: templates/service/index.html:717
 msgid "adventure"
-msgstr "Приключение в кукурузном лабиринте — это свобода следовать своему любопытству и открывать неизведанное."
+msgstr ""
+"Приключение в кукурузном лабиринте — это свобода следовать своему "
+"любопытству и открывать неизведанное."
 
-#: templates/service/index.html:699
+#: templates/service/index.html:731
 msgid "menu"
 msgstr "Меню"
+
+#~ msgid "mobile"
+#~ msgstr "МТС"

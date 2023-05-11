@@ -12,7 +12,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Site Title -->
-	<title>кукуполис</title>
+	<title>{% trans 'kykypolis_lower' %}</title>
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,8 +76,8 @@
 									<ul>
 										{% for language in languages %}
 										{% if language.code != LANGUAGE_CODE %}
-										<li><a href="#" onclick="changeLanguage('{{ language.code }}')">{{
-												language.code|language_name_local }}</a></li>
+										<li><a href="#" onclick="changeLanguage('{{ language.code }}')">
+											{{ language.code|language_name_local }}</a></li>
 										{% endif %}
 										{% endfor %}
 									</ul>
@@ -102,9 +102,9 @@
 								<li><a href="mailto:yourname@email.com"><i class="fal fa-envelope"></i>dmkr@tut.by</a>
 								</li>
 								<li><a href="tel:+375295759912"><i class="fal fa-phone-alt"></i>+375 29 575 99 12
-										(МТС)</a></li>
+										({% trans 'mts' %})</a></li>
 								<li><a href="tel:+375295759912"><i class="fal fa-phone-alt"></i>+375 29 575 99 12
-										(МТС)</a></li>
+										({% trans 'mts' %})</a></li>
 							</ul>
 						</div>
 					</div>
@@ -117,8 +117,8 @@
 						<div class="col-lg-2 col-sm-6 col-6">
 							<!-- Start site logo -->
 							<div class="site-logo" style="padding-top: 0;padding-bottom: 0;">
-								<a href="{% static 'service/index.html' %}"><img
-										src="{% static 'service/img/logo.png' %}" style="max-height: 120px;"
+								<a href="/">
+									<img src="{% static 'service/img/logo.png' %}" style="max-height: 120px;"
 										alt="GENE"></a>
 							</div>
 							<!-- End site logo -->
@@ -169,7 +169,7 @@
 											<!-- Start Single slide content	-->
 											<div class="single-slide-content text-center">
 												<div class="content-text">
-													<h1><strong>{% trans 'kykypolis' %}</strong><span></span>
+													<h1><strong>{% trans 'corn_maze2' %}</strong><span></span>
 														{% trans 'slogan' %}</h1>
 												</div>
 											</div>
@@ -406,24 +406,24 @@
 		</div>
 		<!-- End Fun Facts Area -->
 		<!-- Start section title -->
-		<div class="section-title text-center">
+		<div id="gallery_tag" class="section-title text-center">
 			<p class="title">{% trans 'kykypolis' %}</p>
 			<h2>{% trans 'moments' %}</h2>
 		</div>
 		<!-- End section title -->
 		<!-- Start Gallery -->
-		<div id="gallery_tag" class="container-sm pb-60">
+		<div class="container-sm pb-60">
 			<div class="row justify-content-center">
 				<div class="gallery-container" id="animated-thumbnails-gallery">
 					{% for gallery in galleries %}
-					<a class="gallery-item" data-src="{{ gallery.gallery_image_big.url }}" data-sub-html="">
-						{{ gallery.img_tag_small }}
-					</a>
+						{% if gallery.gallery_image_small %}
+						<a class="gallery-item" data-src="{{ gallery.gallery_image_big.url }}" data-sub-html="Фото - 
+						<a href='https://www.instagram.com/kukupolis/'>{{gallery.photographer}}</a>
+						<p> Расположение - <a href='https://www.google.com/maps/place//@53.759608,27.2019281,17z'>{{gallery.place}}</a><p>">
+							{{ gallery.img_tag_small }}
+						</a>
+						{% endif %}
 					{% endfor %}
-					<!--a class="gallery-item" data-src="{% static 'service/img/gallery/14.jpg' %}"
-							data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
-							<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/14_2.jpg' %}" />
-						</a> -->
 				</div>
 			</div>
 		</div>
@@ -516,9 +516,9 @@
 					</div>
 				</div>
 				<div class="row">
+					<!-- Start single guide -->
+					{% for review in reviews %}
 					<div class="col-sm-4">
-						<!-- Start single guide -->
-						{% for review in reviews %}
 						<div class="single-guide">
 							<div class="guide-thumb">
 								{{ review.img_tag }}
@@ -544,15 +544,18 @@
 										<li><a href="#"><i class="fab fa-youtube"></i></a></li>
 									</ul>
 									<div class="about-guide">
-										<p>{% if LANGUAGE_CODE == 'en' %}{{ review.description_en|striptags }}{% else %}{{
-											review.description|striptags }}{% endif %}</p>
+										<p>{% if LANGUAGE_CODE == 'en' %}
+												{{ review.description_en|striptags }}
+											{% else %}
+												{{review.description|striptags }}
+											{% endif %}</p>
 									</div>
 								</div>
 							</div>
 						</div>
-						{% endfor %}
-						<!-- End single guide -->
 					</div>
+					{% endfor %}
+					<!-- End single guide -->
 				</div>
 			</div>
 		</div>

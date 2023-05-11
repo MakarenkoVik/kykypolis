@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 11:53+0300\n"
+"POT-Creation-Date: 2023-05-11 12:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,208 +18,232 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/service/index.html:129 templates/service/index.html:701
+#: templates/service/index.html:15
+msgid "kykypolis_lower"
+msgstr "kykypolis"
+
+#: templates/service/index.html:105 templates/service/index.html:107
+#: templates/service/index.html:613
+msgid "mts"
+msgstr "MTS"
+
+#: templates/service/index.html:131 templates/service/index.html:733
 msgid "about_park"
-msgstr ""
+msgstr "About the park"
 
-#: templates/service/index.html:130 templates/service/index.html:702
+#: templates/service/index.html:132 templates/service/index.html:734
 msgid "services"
-msgstr ""
+msgstr "Services"
 
-#: templates/service/index.html:131 templates/service/index.html:703
+#: templates/service/index.html:133 templates/service/index.html:735
 msgid "gallery"
-msgstr ""
+msgstr "Gallery"
 
-#: templates/service/index.html:132 templates/service/index.html:704
+#: templates/service/index.html:134 templates/service/index.html:736
 msgid "events"
-msgstr ""
+msgstr "Events"
 
-#: templates/service/index.html:133 templates/service/index.html:494
-#: templates/service/index.html:705
+#: templates/service/index.html:135 templates/service/index.html:513
+#: templates/service/index.html:737
 msgid "reviews"
-msgstr ""
+msgstr "Reviews"
 
-#: templates/service/index.html:134 templates/service/index.html:539
-#: templates/service/index.html:706 templates/service/index.html:716
+#: templates/service/index.html:136 templates/service/index.html:571
+#: templates/service/index.html:738 templates/service/index.html:752
 msgid "contacts"
-msgstr ""
+msgstr "Contacts"
 
-#: templates/service/index.html:136
+#: templates/service/index.html:139 templates/service/index.html:740
 msgid "logout"
-msgstr ""
+msgstr "Logout"
 
-#: templates/service/index.html:138 templates/service/index.html:707
+#: templates/service/index.html:141 templates/service/index.html:742
 msgid "login"
-msgstr ""
+msgstr "Login"
 
-#: templates/service/index.html:169 templates/service/index.html:286
-#: templates/service/index.html:323 templates/service/index.html:400
-#: templates/service/index.html:428 templates/service/index.html:455
-#: templates/service/index.html:493 templates/service/index.html:538
-#: templates/service/index.html:626
-msgid "kykypolis"
-msgstr ""
+#: templates/service/index.html:172
+msgid "corn_maze2"
+msgstr "Korn Maze"
 
-#: templates/service/index.html:170
+#: templates/service/index.html:173
 msgid "slogan"
-msgstr ""
+msgstr "Favorite place for the whole family!"
 
-#: templates/service/index.html:204
+#: templates/service/index.html:207
 msgid "maze"
-msgstr ""
+msgstr "Maze"
 
-#: templates/service/index.html:214
+#: templates/service/index.html:217
 msgid "games"
-msgstr ""
+msgstr "Games"
 
-#: templates/service/index.html:224
+#: templates/service/index.html:227
 msgid "dances"
-msgstr ""
+msgstr "Dances"
 
-#: templates/service/index.html:234
+#: templates/service/index.html:237
 msgid "meeting_goats"
-msgstr ""
+msgstr "Getting to know the goats"
 
-#: templates/service/index.html:244
+#: templates/service/index.html:247
 msgid "fly"
-msgstr ""
+msgstr "Flying"
 
-#: templates/service/index.html:254
+#: templates/service/index.html:257
 msgid "eating_place"
-msgstr ""
+msgstr "Food court"
 
-#: templates/service/index.html:264
+#: templates/service/index.html:267
 msgid "acquaintance"
-msgstr ""
+msgstr "Get to know us better"
 
-#: templates/service/index.html:265
+#: templates/service/index.html:268
 msgid "find_out"
-msgstr ""
+msgstr "Together we will<span></span>find a way out!"
 
-#: templates/service/index.html:269
+#: templates/service/index.html:272
 msgid "about_content"
 msgstr ""
+"KYKYPOLIS Park immerses guests in the atmosphere of a quest in a corn maze. "
+"In Amusement rides work in the recreation area of ​​the agricultural park and "
+"there is an opportunity to rent arbors in the woods on the shore of the "
+"lake. You can visit an excursion, ride on train, enjoy the music and eat at "
+"the food courts. Also in the park there is a petting zoo where you can feed "
+"and pet goats and othersthe inhabitants of the farm. And the most 'tasty' is "
+"from first-hand farmersbuy fresh goat milk products. <strong>And remember, a "
+"maze is not a place for dates. It's a place for thrills :)</strong>"
 
-#: templates/service/index.html:271
+#: templates/service/index.html:274
 msgid "want_there"
-msgstr ""
+msgstr "I want to get to you!"
 
-#: templates/service/index.html:287
+#: templates/service/index.html:289 templates/service/index.html:333
+#: templates/service/index.html:410 templates/service/index.html:438
+#: templates/service/index.html:465 templates/service/index.html:512
+#: templates/service/index.html:570 templates/service/index.html:658
+msgid "kykypolis"
+msgstr "Kykypolis"
+
+#: templates/service/index.html:290
 msgid "celebrate"
-msgstr ""
+msgstr "Your perfect holiday with our hands"
 
-#: templates/service/index.html:308
+#: templates/service/index.html:320
 msgid "price_comment"
 msgstr ""
+"The ticket price includes: visiting the corn maze, excursion with riding a "
+"train and visiting a farm with 1500 goats, a petting zoo with by other "
+"inhabitants of the Kukupolis, the price also includes work on "
+"weekendsanimators."
 
-#: templates/service/index.html:309
+#: templates/service/index.html:321
 msgid "call"
-msgstr ""
-
-#: templates/service/index.html:324
-msgid "facts"
-msgstr ""
+msgstr "Call!"
 
 #: templates/service/index.html:334
+msgid "facts"
+msgstr "Interesting facts"
+
+#: templates/service/index.html:344
 msgid "unique"
-msgstr ""
+msgstr "The only ones in the country"
 
-#: templates/service/index.html:345
+#: templates/service/index.html:355
 msgid "square"
-msgstr ""
-
-#: templates/service/index.html:356
-msgid "guests"
-msgstr ""
+msgstr "Maze square"
 
 #: templates/service/index.html:366
+msgid "guests"
+msgstr "Visitors"
+
+#: templates/service/index.html:376
 msgid "goats"
-msgstr ""
+msgstr "goats"
 
-#: templates/service/index.html:367
+#: templates/service/index.html:377
 msgid "contact_zoo"
-msgstr ""
-
-#: templates/service/index.html:378
-msgid "excursions"
-msgstr ""
+msgstr "Petting zoo"
 
 #: templates/service/index.html:388
+msgid "excursions"
+msgstr "Excursions"
+
+#: templates/service/index.html:398
 msgid "kilometers"
-msgstr ""
+msgstr "km"
 
-#: templates/service/index.html:389
+#: templates/service/index.html:399
 msgid "train"
-msgstr ""
+msgstr "Boat trips"
 
-#: templates/service/index.html:401
+#: templates/service/index.html:411
 msgid "moments"
-msgstr ""
+msgstr "Your happy moments"
 
-#: templates/service/index.html:429
+#: templates/service/index.html:439
 msgid "email_subscribe"
-msgstr ""
-
-#: templates/service/index.html:430
-msgid "get_emails"
-msgstr ""
+msgstr "SUBSCRIBE TO OUR NEWS"
 
 #: templates/service/index.html:440
+msgid "get_emails"
+msgstr ""
+"Join our community and receive email updates, promotions and other useful "
+"materials from KYKYPOLIS"
+
+#: templates/service/index.html:450
 msgid "subscribe"
-msgstr ""
+msgstr "Subscribe"
 
-#: templates/service/index.html:456
+#: templates/service/index.html:466
 msgid "next_events"
-msgstr ""
+msgstr "Upcoming events"
 
-#: templates/service/index.html:540
+#: templates/service/index.html:572
 msgid "callback"
-msgstr ""
+msgstr "We will be happy to receive feedback from you"
 
-#: templates/service/index.html:553
+#: templates/service/index.html:585
 msgid "our_address"
-msgstr ""
+msgstr "Our address"
 
-#: templates/service/index.html:554 templates/service/index.html:718
+#: templates/service/index.html:586 templates/service/index.html:754
 msgid "address"
-msgstr ""
+msgstr "222722, Lizavetin farm, 1, Dzerzhinsky district, Minsk region, Belarus"
 
-#: templates/service/index.html:566
+#: templates/service/index.html:598
 msgid "talk_telegram"
-msgstr ""
+msgstr "Let's chat on telegram!"
 
-#: templates/service/index.html:567
+#: templates/service/index.html:599
 msgid "working_time"
-msgstr ""
+msgstr "Mon - Sun: 09:00 - 21:00"
 
-#: templates/service/index.html:568
+#: templates/service/index.html:600
 msgid "write"
-msgstr ""
+msgstr "Write"
 
-#: templates/service/index.html:580
+#: templates/service/index.html:612
 msgid "telephone"
-msgstr ""
+msgstr "Telephone"
 
-#: templates/service/index.html:581
-msgid "mts"
-msgstr ""
-
-#: templates/service/index.html:582
+#: templates/service/index.html:614
 msgid "a1"
-msgstr ""
+msgstr "A1"
 
-#: templates/service/index.html:627
+#: templates/service/index.html:659
 msgid "partners"
-msgstr ""
+msgstr "Our partners"
 
-#: templates/service/index.html:684
+#: templates/service/index.html:716
 msgid "about_kykypolis"
-msgstr ""
+msgstr "About kykypolis"
 
-#: templates/service/index.html:685
+#: templates/service/index.html:717
 msgid "adventure"
 msgstr ""
+"A corn maze adventure is the freedom to follow your owncuriosity and "
+"discovering the unknown."
 
-#: templates/service/index.html:699
+#: templates/service/index.html:731
 msgid "menu"
-msgstr ""
+msgstr "Menu"

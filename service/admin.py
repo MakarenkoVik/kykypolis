@@ -13,6 +13,7 @@ from service.models import Event, Gallery, Price, Review, Service
 
 # Register your models here.
 
+
 # Adding a child price model to the parent service on one page.
 class PriceInline(admin.TabularInline):
     model = Price
@@ -105,12 +106,12 @@ class ServiceAdmin(admin.ModelAdmin):
     @admin.display(description="service image")
     def img_preview(self, obj):
         return mark_safe(f'<img src = "{obj.service_image.url}" width ="200px" height="150px"/>')
-    
+
     # Preview on change view page.
     @admin.display(description="service image")
     def img_tag(self, obj):
         return mark_safe(f'<img src = "{obj.service_image.url}" width = "200" height="150px"/>')
-    
+
     # Setting the is_active field to False.
     @admin.action(description="Switch to inactive state")
     def make_inactive(self, request, queryset):
@@ -142,7 +143,7 @@ class GalleryAdmin(admin.ModelAdmin):
         "place",
         "img_preview",
     )
-    actions = ("make_inactive", "make_active")
+    actions = ("make_inactive", "make_active", "fill_place", "fill_photographer")
     readonly_fields = ("img_tag",)
     search_fields = (
         "photographer",
@@ -159,15 +160,32 @@ class GalleryAdmin(admin.ModelAdmin):
     def make_active(self, request, queryset):
         queryset.update(is_active=True)
 
+    # Filling in the fields place and place_en.
+    @admin.action(description="Fill in the place and place_en fields")
+    def fill_place(self, request, queryset):
+        queryset.update(
+            place="хутор Лизаветин, Дзержинский район, Минская область, Беларусь",
+            place_en="farm Lizavetin, Dzerzhinsky district, Minsk region, Belarus",
+        )
+
+    # Filling in the fields photographer and photographer_en.
+    @admin.action(description="Fill in the photographer and photographer_en fields")
+    def fill_photographer(self, request, queryset):
+        queryset.update(photographer="Кукуполис", photographer_en="Kykypolis")
+
     # Preview in the list of objects.
     @admin.display(description="gallery image")
     def img_preview(self, obj):
-        return mark_safe(f'<img src = "{obj.gallery_image_small.url}" width ="150px" height="150px"/>')
-    
+        if obj.gallery_image_small:
+            return mark_safe(f'<img src = "{obj.gallery_image_small.url}" width ="200px" height="150px"/>')
+        return None
+
     # Preview on change view page.
     @admin.display(description="gallery image")
     def img_tag(self, obj):
-        return mark_safe(f'<img src = "{obj.gallery_image_small.url}" width = "150" height="150px"/>')
+        if obj.gallery_image_small:
+            return mark_safe(f'<img src = "{obj.gallery_image_small.url}" width = "150" height="150px"/>')
+        return None
 
 
 # Register model Event.
@@ -197,22 +215,22 @@ class EventAdmin(admin.ModelAdmin):
     @admin.display(description="event image")
     def img_preview(self, obj):
         return mark_safe(f'<img src = "{obj.event_image.url}" width ="150px" height="150px"/>')
-    
+
     # Preview on change view page.
     @admin.display(description="event image")
     def img_tag(self, obj):
         return mark_safe(f'<img src = "{obj.event_image.url}" width = "150" height="150px"/>')
-    
+
     # Setting the is_active field to False.
     @admin.action(description="Switch to inactive state")
     def make_inactive(self, request, queryset):
         queryset.update(is_active=False)
-    
+
     # Setting the is_active field to True.
     @admin.action(description="Switch to active state")
     def make_active(self, request, queryset):
         queryset.update(is_active=True)
-    
+
     # Dump database as json.
     @admin.action(description="Download files")
     def export_as_json(self, request, queryset):
@@ -248,27 +266,27 @@ class ReviewAdmin(admin.ModelAdmin):
         "export_as_json",
         "make_active",
     )
-    
+
     # Preview in the list of objects.
     @admin.display(description="review image")
     def img_preview(self, obj):
         return mark_safe(f'<img src = "{obj.review_image.url}" width ="150px" height="150px"/>')
-    
+
     # Preview on change view page.
     @admin.display(description="review image")
     def img_tag(self, obj):
         return mark_safe(f'<img src = "{obj.review_image.url}" width = "150" height="150px"/>')
-    
+
     # Setting the is_active field to False.
     @admin.action(description="Switch to inactive state")
     def make_inactive(self, request, queryset):
         queryset.update(is_active=False)
-    
+
     # Setting the is_active field to True.
     @admin.action(description="Switch to active state")
     def make_active(self, request, queryset):
         queryset.update(is_active=True)
-    
+
     # Dump database as json.
     @admin.action(description="Download files")
     def export_as_json(self, request, queryset):
