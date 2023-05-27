@@ -106,3 +106,10 @@ class Review(BaseMixin):
 
     def img_tag(self):
         return mark_safe(f'<img src = "{self.review_image.url}" width = "300"/>')
+    
+
+class Email(BaseMixin):
+    email = models.EmailField(max_length=50, default=None, verbose_name="Email")
+
+    def __str__(self):
+        return f"{self.email}"

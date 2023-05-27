@@ -8,10 +8,12 @@ from django.http import FileResponse
 from django.urls import reverse
 from django.utils.html import format_html, mark_safe
 from django.utils.http import urlencode
+from django.core import mail
+from kykypolis import settings
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from service.models import Event, Gallery, Price, Review, Service, Email
 
-from service.models import Event, Gallery, Price, Review, Service
-
-# Register your models here.
 
 
 # Adding a child price model to the parent service on one page.
@@ -206,6 +208,7 @@ class EventAdmin(admin.ModelAdmin):
     )
     readonly_fields = ("img_tag",)
     actions = (
+        "send_emails",
         "make_inactive",
         "export_as_json",
         "make_active",
@@ -220,6 +223,14 @@ class EventAdmin(admin.ModelAdmin):
     @admin.display(description="event image")
     def img_tag(self, obj):
         return mark_safe(f'<img src = "{obj.event_image.url}" width = "150" height="150px"/>')
+    
+    @admin.action(description="Send email with selected events to users")
+    def send_emails(self, request, queryset):
+        subject = "Hello a new event is here!"
+        html_message = render_to_string("service/email.html", {'events':queryset})
+        plain_message = strip_tags(html_message)        
+        for it in Email.objects.filter(is_active=True):
+            mail.send_mail(subject, plain_message, settings.EMAIL_HOST_USER, [it.email], html_message=html_message)
 
     # Setting the is_active field to False.
     @admin.action(description="Switch to inactive state")
@@ -276,6 +287,40 @@ class ReviewAdmin(admin.ModelAdmin):
     @admin.display(description="review image")
     def img_tag(self, obj):
         return mark_safe(f'<img src = "{obj.review_image.url}" width = "150" height="150px"/>')
+
+    # Setting the is_active field to False.
+    @admin.action(description="Switch to inactive state")
+    def make_inactive(self, request, queryset):
+        queryset.update(is_active=False)
+
+    # Setting the is_active field to True.
+    @admin.action(description="Switch to active state")
+    def make_active(self, request, queryset):
+        queryset.update(is_active=True)
+
+    # Dump database as json.
+    @admin.action(description="Download files")
+    def export_as_json(self, request, queryset):
+        response = FileResponse(
+            io.BytesIO(serializers.serialize("json", queryset).encode("utf-8")),
+            as_attachment=True,
+            filename=f"log-{datetime.now()}.json",
+        )
+        return response
+
+
+@admin.register(Email)
+class EmailAdmin(admin.ModelAdmin):
+    date_hierarchy = "pub_date"
+    list_display = (
+        "email",
+        "pub_date",
+    )
+    actions = (
+        "make_inactive",
+        "export_as_json",
+        "make_active",
+    )
 
     # Setting the is_active field to False.
     @admin.action(description="Switch to inactive state")

@@ -356,7 +356,7 @@
 						<div class="single-fact text-center">
 							<div class="fact-info">
 								<img src="{% static 'service/img/icon/square.png' %}" alt="">
-								<span class="counter">25000</span><span>м²</span>
+								<span class="counter" counterup-nums="100">25000</span><span>м²</span>
 								<p>{% trans 'square' %}</p>
 							</div>
 						</div>
@@ -367,7 +367,7 @@
 						<div class="single-fact text-center">
 							<div class="fact-info">
 								<img src="{% static 'service/img/icon/funfact.png' %}" alt="">
-								<span class="counter">30000</span><span>+</span>
+								<span class="counter" counterup-nums="100">30000</span><span>+</span>
 								<p>{% trans 'guests' %}</p>
 							</div>
 						</div>
@@ -378,7 +378,7 @@
 						<div class="single-fact text-center">
 							<div class="fact-info">
 								<img src="{% static 'service/img/icon/goats.png' %}" alt="">
-								<span class="counter">1500</span><span>{% trans 'goats' %}</span>
+								<span class="counter" counterup-nums="100">1500</span><span>{% trans 'goats' %}</span>
 								<p>{% trans 'contact_zoo' %}</p>
 							</div>
 						</div>
@@ -389,7 +389,7 @@
 						<div class="single-fact text-center">
 							<div class="fact-info">
 								<img src="{% static 'service/img/icon/excursion.png' %}" alt="">
-								<span class="counter">500</span><span>+</span>
+								<span class="counter" counterup-nums="100">500</span><span>+</span>
 								<p>{% trans 'excursions' %}</p>
 							</div>
 						</div>
@@ -400,7 +400,7 @@
 						<div class="single-fact text-center">
 							<div class="fact-info">
 								<img src="{% static 'service/img/icon/tractor.png' %}" alt="">
-								<span class="counter">5000</span><span>{% trans 'kilometers' %}</span>
+								<span class="counter" counterup-nums="100">5000</span><span>{% trans 'kilometers' %}</span>
 								<p>{% trans 'train' %}</p>
 							</div>
 						</div>
@@ -462,9 +462,15 @@
 				<div class="row justify-content-center">
 					<div class="col-lg-8">
 						<!-- start subscribe -->
-						<form action="#" method="post" class="subscribe-form">
+						<form id="add_email_form" action="{% url 'service:add_email' %}" method="post" class="subscribe-form">
 							<input name="email" class="widget-input" placeholder="Email ......" type="email">
 							<button type="submit" class="widget-sbtn">{% trans 'subscribe' %}</button>
+							<div id="add_email_success" class="alert alert-success" role="alert" hidden>
+								{% trans 'add_email_success' %}
+							</div>
+							<div id="add_email_error" class="alert alert-danger" role="alert" hidden>
+								{% trans 'add_email_error' %}
+							</div>
 						</form>
 						<!-- end subscribe -->
 					</div>
@@ -813,6 +819,34 @@
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<script>
 		$(document).ready(function () {
+			$("#add_email_form").submit(function (event) {
+				$.ajax({
+					type: "POST",
+					url: "{% url 'service:add_email' %}",
+					data: { 
+						email: $(this).serializeArray()[0].value,
+						csrfmiddlewaretoken: "{{ csrf_token }}",
+					},
+					dataType: "json",
+					encode: true,
+					success: function(data)
+					{
+						$("#add_email_success").attr("hidden", false);
+						setTimeout(function(){
+							$("#add_email_success").attr("hidden", true);
+						}, 3000);
+					},
+					error: function(data)
+					{
+						$("#add_email_error").attr("hidden", false);
+						setTimeout(function(){
+							$("#add_email_error").attr("hidden", true);
+						}, 3000);
+					}
+				});
+				event.preventDefault();
+			});
+			
 			jQuery("#animated-thumbnails-gallery")
 				.justifiedGallery({
 					captions: false,
