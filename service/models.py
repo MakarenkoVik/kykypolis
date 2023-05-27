@@ -16,12 +16,18 @@ class BaseMixin(models.Model):
 class Service(BaseMixin):
     name = models.CharField(max_length=50, default="", verbose_name="Service Name")
     name_en = models.CharField(max_length=50, default="", verbose_name="Service Name En")
-    description = RichTextField(verbose_name="Service Description", default=None, null=True, blank=True)
-    description_en = RichTextField(verbose_name="Service Description En", default=None, null=True, blank=True)
+    description = models.TextField(max_length=500, verbose_name="Service Description", default=None, null=True, blank=True)
+    description_en = models.TextField(max_length=500, verbose_name="Service Description En", default=None, null=True, blank=True)
     service_image = models.ImageField(upload_to="service", blank=True, null=True, verbose_name="Service Image")
 
     def get_prices(self):
         return Price.objects.filter(service_id=self.id)
+
+    def get_included_items(self):
+        return self.description.splitlines()
+
+    def get_included_items_en(self):
+        return self.description_en.splitlines()
 
     def __str__(self):
         return f"{self.name}"

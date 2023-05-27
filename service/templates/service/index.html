@@ -311,6 +311,17 @@
 										{{ price.description|striptags }}
 									{% endif %}</small></p><br>
 								{% endfor %}
+								<ul style="font-size: 14px;line-height: 25px;padding-left: 16px;">
+								{% if LANGUAGE_CODE == 'en' %}
+									{% for item in service.get_included_items_en %}
+									<li>{{ item }}</li>
+									{% endfor %}
+								{% else %}
+									{% for item in service.get_included_items %}
+									<li>{{ item }}</li>
+									{% endfor %}
+								{% endif %}
+								</ul>
 							</div>
 						</div>
 						<!-- end single adventure -->
@@ -417,9 +428,21 @@
 				<div class="gallery-container" id="animated-thumbnails-gallery">
 					{% for gallery in galleries %}
 						{% if gallery.gallery_image_small %}
-						<a class="gallery-item" data-src="{{ gallery.gallery_image_big.url }}" data-sub-html="Фото - 
-						<a href='https://www.instagram.com/kukupolis/'>{{gallery.photographer}}</a>
-						<p> Расположение - <a href='https://www.google.com/maps/place//@53.759608,27.2019281,17z'>{{gallery.place}}</a><p>">
+						<a class="gallery-item" data-src="{{ gallery.gallery_image_big.url }}" data-sub-html="{% trans 'photo' %} - 
+						<a href='https://www.instagram.com/kukupolis/'>
+							{% if LANGUAGE_CODE == 'en' %}
+								{{gallery.photographer_en}}
+							{% else %}
+								{{gallery.photographer}}
+							{% endif %}
+						</a>
+						<p> {% trans 'location' %} - <a href='https://www.google.com/maps/place//@53.759608,27.2019281,17z'>
+							{% if LANGUAGE_CODE == 'en' %}
+								{{gallery.place_en}}
+							{% else %}
+								{{gallery.place}}
+							{% endif %}
+						</a><p>">
 							{{ gallery.img_tag_small }}
 						</a>
 						{% endif %}
