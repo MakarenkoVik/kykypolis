@@ -134,12 +134,6 @@
 										<li><a href="#events_tag">{% trans 'events' %}</a></li>
 										<li><a href="#reviews_tag">{% trans 'reviews' %}</a></li>
 										<li><a href="#contacts_tag">{% trans 'contacts' %}</a></li>
-										{% if user.is_authenticated %}
-										<li class="icon"><a href="{% url 'users:logout' %}"><i
-													class="far fa-user"></i>{% trans 'logout' %}</a></li>
-										{% else %}
-										<li class="icon"><a href="{% url 'users:login' %}"><i class="far fa-user"></i>{% trans 'login' %}</a></li>
-										{% endif %}
 									</ul>
 								</nav>
 							</div>
@@ -759,11 +753,6 @@
 								<li><a href="#events_tag"><i class="fal fa-angle-right"></i>{% trans 'events' %}</a></li>
 								<li><a href="#reviews_tag"><i class="fal fa-angle-right"></i>{% trans 'reviews' %}</a></li>
 								<li><a href="#contacts_tag"><i class="fal fa-angle-right"></i>{% trans 'contacts' %}</a></li>
-								{% if user.is_authenticated %}
-									<li><a href="{% url 'users:logout' %}"><i class="fal fa-angle-right"></i>{% trans 'logout' %}</a></li>
-								{% else %}
-									<li><a href="{% url 'users:login' %}"><i class="fal fa-angle-right"></i>{% trans 'login' %}</a></li>
-								{% endif %}
 							</ul>
 						</div>
 						<!-- end quick link widget -->
