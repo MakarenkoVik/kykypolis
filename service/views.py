@@ -26,3 +26,7 @@ def add_email(request, method=['POST']):
         email_db.save()
         return JsonResponse({})
     raise Exception("Bad data")
+
+def add_phone(request, method=['POST']):
+    email_value = request.POST.get('callback_phone')
+    return JsonResponse({})

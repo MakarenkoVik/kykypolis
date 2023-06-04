@@ -780,16 +780,22 @@ header.header-area.style-2.sticky .gene-nav ul.menu {
 }
 /*Scroll Up*/
 #scrollUp {
-  background: #ff5300;
-  border-radius: 50%;
-  bottom: 75px;
-  color: #fff;
-  font-size: 16px;
-  height: 40px;
-  line-height: 40px;
-  right: 8px;
-  text-align: center;
-  width: 40px;
+    background: #ff5300;
+    border-radius: 50%;
+    bottom: 110px;
+    color: #fff;
+    font-size: 16px;
+    height: 60px;
+    line-height: 40px;
+    right: 40px;
+    text-align: center;
+    width: 60px;
+}
+#scrollUp i{
+    font-size: 30px;
+    position: absolute;
+    top: 25%;
+    left: 29%;
 }
 /*=== Quick Icon ===*/
 .single-quick-icon {
