@@ -23,13 +23,12 @@ migrate: ## Запустить миграции
 .PHONY: build_translations
 build_translations: ## Пересобрать первод
 	cd service && django-admin makemessages -l ru  && django-admin makemessages -l en && django-admin compilemessages && cd ..
-	cd users && django-admin makemessages -l ru  && django-admin makemessages -l en && django-admin compilemessages && cd ..
 
 .PHONY: format
 format: ## Flake black isort
 	$(BIN)/black ./
-	$(BIN)/isort --recursive ./service && $(BIN)/isort --recursive ./users
-	$(BIN)/flake8 ./service && $(BIN)/flake8 ./users
+	$(BIN)/isort --recursive ./service
+	$(BIN)/flake8 ./service
 
 .PHONY: run
 run: ## Запустить проект

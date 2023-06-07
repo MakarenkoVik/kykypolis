@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-27 10:23+0300\n"
+"POT-Creation-Date: 2023-06-07 16:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,91 +20,86 @@ msgstr ""
 
 #: templates/service/index.html:15
 msgid "kykypolis_lower"
-msgstr "kykypolis"
+msgstr "kukupolis"
 
-#: templates/service/index.html:105 templates/service/index.html:107
-#: templates/service/index.html:625
+#: templates/service/index.html:87 templates/service/index.html:641
 msgid "mts"
 msgstr "MTS"
 
-#: templates/service/index.html:131 templates/service/index.html:745
+#: templates/service/index.html:132 templates/service/index.html:754
 msgid "about_park"
 msgstr "About the park"
 
-#: templates/service/index.html:132 templates/service/index.html:746
+#: templates/service/index.html:133 templates/service/index.html:755
 msgid "services"
 msgstr "Services"
 
-#: templates/service/index.html:133 templates/service/index.html:747
+#: templates/service/index.html:134 templates/service/index.html:756
 msgid "gallery"
 msgstr "Gallery"
 
-#: templates/service/index.html:134 templates/service/index.html:748
+#: templates/service/index.html:135 templates/service/index.html:757
 msgid "events"
 msgstr "Events"
 
-#: templates/service/index.html:135 templates/service/index.html:525
-#: templates/service/index.html:749
+#: templates/service/index.html:136 templates/service/index.html:546
+#: templates/service/index.html:758
 msgid "reviews"
 msgstr "Reviews"
 
-#: templates/service/index.html:136 templates/service/index.html:583
-#: templates/service/index.html:750 templates/service/index.html:764
+#: templates/service/index.html:137 templates/service/index.html:600
+#: templates/service/index.html:759 templates/service/index.html:768
 msgid "contacts"
 msgstr "Contacts"
 
-#: templates/service/index.html:139 templates/service/index.html:752
-msgid "logout"
-msgstr "Logout"
+#: templates/service/index.html:138
+msgid "request_call"
+msgstr "Request call"
 
-#: templates/service/index.html:141 templates/service/index.html:754
-msgid "login"
-msgstr "Login"
-
-#: templates/service/index.html:172
+#: templates/service/index.html:168
 msgid "corn_maze2"
 msgstr "Korn Maze"
 
-#: templates/service/index.html:173
+#: templates/service/index.html:169
 msgid "slogan"
 msgstr "Favorite place for the whole family!"
 
-#: templates/service/index.html:207
+#: templates/service/index.html:203
 msgid "maze"
 msgstr "Maze"
 
-#: templates/service/index.html:217
+#: templates/service/index.html:213
 msgid "games"
 msgstr "Games"
 
-#: templates/service/index.html:227
+#: templates/service/index.html:223
 msgid "dances"
 msgstr "Dances"
 
-#: templates/service/index.html:237
+#: templates/service/index.html:233
 msgid "meeting_goats"
 msgstr "Getting to know the goats"
 
-#: templates/service/index.html:247
+#: templates/service/index.html:243
 msgid "fly"
 msgstr "Flying"
 
-#: templates/service/index.html:257
+#: templates/service/index.html:253
 msgid "eating_place"
 msgstr "Food court"
 
-#: templates/service/index.html:267
+#: templates/service/index.html:263
 msgid "acquaintance"
 msgstr "Get to know us better"
 
-#: templates/service/index.html:268
+#: templates/service/index.html:264
 msgid "find_out"
-msgstr "Together we will<span></span>find a way out!"
+msgstr "Together we will find a way out!"
 
-#: templates/service/index.html:272
+#: templates/service/index.html:268
 msgid "about_content"
 msgstr ""
-"KYKYPOLIS Park immerses guests in the atmosphere of a quest in a corn maze. "
+"KUKUPOLIS Park immerses guests in the atmosphere of a quest in a corn maze. "
 "In Amusement rides work in the recreation area of ​​the agricultural park and "
 "there is an opportunity to rent arbors in the woods on the shore of the "
 "lake. You can visit an excursion, ride on train, enjoy the music and eat at "
@@ -113,145 +108,183 @@ msgstr ""
 "from first-hand farmersbuy fresh goat milk products. <strong>And remember, a "
 "maze is not a place for dates. It's a place for thrills :)</strong>"
 
-#: templates/service/index.html:274
+#: templates/service/index.html:270
 msgid "want_there"
 msgstr "I want to get to you!"
 
-#: templates/service/index.html:289 templates/service/index.html:333
-#: templates/service/index.html:410 templates/service/index.html:450
-#: templates/service/index.html:477 templates/service/index.html:524
-#: templates/service/index.html:582 templates/service/index.html:670
+#: templates/service/index.html:285 templates/service/index.html:342
+#: templates/service/index.html:419 templates/service/index.html:459
+#: templates/service/index.html:498 templates/service/index.html:545
+#: templates/service/index.html:599 templates/service/index.html:680
 msgid "kykypolis"
-msgstr "Kykypolis"
+msgstr "Kukupolis"
 
-#: templates/service/index.html:290
+#: templates/service/index.html:286
 msgid "celebrate"
 msgstr "Your perfect holiday with our hands"
 
-#: templates/service/index.html:320
+#: templates/service/index.html:310
+msgid "will_be_later"
+msgstr "Temporarily unavailable"
+
+#: templates/service/index.html:329
 msgid "price_comment"
 msgstr ""
-"The ticket price includes: visiting the corn maze, excursion with riding a "
-"train and visiting a farm with 1500 goats, a petting zoo with by other "
-"inhabitants of the Kukupolis, the price also includes work on "
-"weekendsanimators."
+"<strong>Please note that the corn maze will be available from July 29. </"
+"strong>Now we offer to visit our excursion, which includes: acquaintance "
+"with the history of farming, communication with goats and their feeding, "
+"exciting riding on a steam train. <strong>We kindly ask to coordinate your "
+"arrival to visit us in advance</strong>, so that we can most it is "
+"interesting to prepare an excursion for you. By appointment, an animation "
+"program and tasting of goat milk products can be included in the price of."
 
-#: templates/service/index.html:321
+#: templates/service/index.html:330
 msgid "call"
 msgstr "Call!"
 
-#: templates/service/index.html:334
+#: templates/service/index.html:343
 msgid "facts"
 msgstr "Interesting facts"
 
-#: templates/service/index.html:344
+#: templates/service/index.html:353
 msgid "unique"
 msgstr "The only ones in the country"
 
-#: templates/service/index.html:355
+#: templates/service/index.html:364
 msgid "square"
 msgstr "Maze square"
 
-#: templates/service/index.html:366
+#: templates/service/index.html:375
 msgid "guests"
 msgstr "Visitors"
 
-#: templates/service/index.html:376
+#: templates/service/index.html:385
 msgid "goats"
 msgstr "goats"
 
-#: templates/service/index.html:377
+#: templates/service/index.html:386
 msgid "contact_zoo"
 msgstr "Petting zoo"
 
-#: templates/service/index.html:388
+#: templates/service/index.html:397
 msgid "excursions"
 msgstr "Excursions"
 
-#: templates/service/index.html:398
+#: templates/service/index.html:407
 msgid "kilometers"
 msgstr "km"
 
-#: templates/service/index.html:399
+#: templates/service/index.html:408
 msgid "train"
 msgstr "Boat trips"
 
-#: templates/service/index.html:411
+#: templates/service/index.html:420
 msgid "moments"
 msgstr "Your happy moments"
 
-#: templates/service/index.html:420
+#: templates/service/index.html:429
 msgid "photo"
 msgstr "Photo"
 
-#: templates/service/index.html:428
+#: templates/service/index.html:437
 msgid "location"
 msgstr "Location"
 
-#: templates/service/index.html:451
+#: templates/service/index.html:460
 msgid "email_subscribe"
 msgstr "SUBSCRIBE TO OUR NEWS"
 
-#: templates/service/index.html:452
+#: templates/service/index.html:461
 msgid "get_emails"
 msgstr ""
 "Join our community and receive email updates, promotions and other useful "
-"materials from KYKYPOLIS"
+"materials from KUKUPOLIS"
 
-#: templates/service/index.html:462
+#: templates/service/index.html:474
 msgid "subscribe"
 msgstr "Subscribe"
 
-#: templates/service/index.html:478
+#: templates/service/index.html:476
+msgid "add_email_success"
+msgstr "Thank you, your email has been added"
+
+#: templates/service/index.html:479
+msgid "add_email_error"
+msgstr "Please enter a valid email address"
+
+#: templates/service/index.html:482
+msgid "add_email_duplicate"
+msgstr "Your mail was successfully added earlier. You can try to enter new"
+
+#: templates/service/index.html:499
 msgid "next_events"
 msgstr "Upcoming events"
 
-#: templates/service/index.html:584
+#: templates/service/index.html:601
 msgid "callback"
 msgstr "We will be happy to receive feedback from you"
 
-#: templates/service/index.html:597
+#: templates/service/index.html:614
 msgid "our_address"
 msgstr "Our address"
 
-#: templates/service/index.html:598 templates/service/index.html:766
+#: templates/service/index.html:615 templates/service/index.html:770
 msgid "address"
-msgstr "222722, Lizavetin farm, 1, Dzerzhinsky district, Minsk region, Belarus"
+msgstr "222722, Lizavetin farm, 1, Dzerzhinsk area, Minsk region, Belarus"
 
-#: templates/service/index.html:610
+#: templates/service/index.html:627
 msgid "talk_telegram"
-msgstr "Let's chat on telegram!"
+msgstr "Let's chat on Telegram or Viber!"
 
-#: templates/service/index.html:611
+#: templates/service/index.html:628
 msgid "working_time"
 msgstr "Mon - Sun: 09:00 - 21:00"
 
-#: templates/service/index.html:612
-msgid "write"
-msgstr "Write"
-
-#: templates/service/index.html:624
+#: templates/service/index.html:640 templates/service/index.html:808
 msgid "telephone"
-msgstr "Telephone"
+msgstr "Telephone*"
 
-#: templates/service/index.html:626
-msgid "a1"
-msgstr "A1"
+#: templates/service/index.html:653
+msgid "email_and_site"
+msgstr "Email and farm website"
 
-#: templates/service/index.html:671
+#: templates/service/index.html:681
 msgid "partners"
 msgstr "Our partners"
 
-#: templates/service/index.html:728
+#: templates/service/index.html:740
 msgid "about_kykypolis"
-msgstr "About kykypolis"
+msgstr "About kukupolis"
 
-#: templates/service/index.html:729
+#: templates/service/index.html:741
 msgid "adventure"
 msgstr ""
 "A corn maze adventure is the freedom to follow your owncuriosity and "
 "discovering the unknown."
 
-#: templates/service/index.html:743
+#: templates/service/index.html:752
 msgid "menu"
 msgstr "Menu"
+
+#: templates/service/index.html:799
+msgid "call_back_title"
+msgstr "Contact us"
+
+#: templates/service/index.html:804
+msgid "firstname"
+msgstr "Name"
+
+#: templates/service/index.html:813
+msgid "call_back_close"
+msgstr "Сancel"
+
+#: templates/service/index.html:814
+msgid "call_back_call"
+msgstr "Send"
+
+#: templates/service/index.html:887
+msgid "wrong phone"
+msgstr "Please enter the correct phone number"
+
+#~ msgid "write"
+#~ msgstr "Write"

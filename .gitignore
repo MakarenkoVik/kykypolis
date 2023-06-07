@@ -7,6 +7,9 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+#django admin resources
+service/static/admin 
+media/
 .Python
 build/
 develop-eggs/

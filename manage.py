@@ -4,6 +4,14 @@ import os
 import sys
 
 
+try: 
+    import pymysql
+    pymysql.version_info = (1, 4, 3, "final", 0)
+    pymysql.install_as_MySQLdb()
+except ImportError:
+    pass
+
+
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kykypolis.settings')
