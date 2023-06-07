@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-d06)mbo#p=x%*yhh@fy4(#19po=vfn**v@$25gt9c*5*j@&+8q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -84,12 +84,12 @@ WSGI_APPLICATION = 'kykypolis.wsgi.application'
 
 DATABASES = { 
 	'default': { 
-		'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+		'ENGINE': 'django.db.backends.mysql', 
 		'NAME': 'kykypolis', 
-		'USER': 'admin_kykypolis', 
-		'PASSWORD': 'kykypolis.2023', 
+		'USER': 'admin', 
+		'PASSWORD': 'password', 
 		'HOST': '127.0.0.1', 
-		'PORT': '5432'
+		'PORT': '3306'
 	}
 }
 
@@ -123,8 +123,8 @@ USE_L10N = True
 USE_TZ = True
 
 LANGUAGES = (
-    ('en', _('English')),
     ('ru', _('Русский')),
+    ('en', _('English')),
 )
 
 LOCALE_PATHS = [
@@ -160,9 +160,9 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.yandex.ru'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST = 'mailbe03.hoster.by'
+EMAIL_HOST_USER = 'kukupolis@dak.by'
+EMAIL_HOST_PASSWORD = 'Kuk123654'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True

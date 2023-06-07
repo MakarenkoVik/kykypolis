@@ -16,9 +16,14 @@ class BaseMixin(models.Model):
 class Service(BaseMixin):
     name = models.CharField(max_length=50, default="", verbose_name="Service Name")
     name_en = models.CharField(max_length=50, default="", verbose_name="Service Name En")
-    description = models.TextField(max_length=500, verbose_name="Service Description", default=None, null=True, blank=True)
-    description_en = models.TextField(max_length=500, verbose_name="Service Description En", default=None, null=True, blank=True)
-    service_image = models.ImageField(upload_to="service", blank=True, null=True, verbose_name="Service Image")
+    description = models.TextField(
+        max_length=500, verbose_name="Service Description", default=None, null=True, blank=True
+    )
+    description_en = models.TextField(
+        max_length=500, verbose_name="Service Description En", default=None, null=True, blank=True
+    )
+    service_image = models.ImageField(upload_to="service", blank=False, null=False, verbose_name="Service Image")
+    is_access = models.BooleanField(verbose_name="Is access?", default=True)
 
     def get_prices(self):
         return Price.objects.filter(service_id=self.id)
@@ -66,10 +71,10 @@ class Gallery(BaseMixin):
     place = models.CharField(max_length=100, default=None, null=True, blank=True, verbose_name="Gallery Place")
     place_en = models.CharField(max_length=100, default=None, null=True, blank=True, verbose_name="Gallery Place En")
     gallery_image_big = models.ImageField(
-        upload_to="gallery_big", blank=True, null=True, verbose_name="Gallery Image Big"
+        upload_to="gallery_big", blank=False, null=False, verbose_name="Gallery Image Big"
     )
     gallery_image_small = models.ImageField(
-        upload_to="gallery_small", blank=True, null=True, verbose_name="Gallery Image Small"
+        upload_to="gallery_small", blank=False, null=False, verbose_name="Gallery Image Small"
     )
 
     class Meta:
@@ -87,7 +92,7 @@ class Event(BaseMixin):
     date = models.DateField(verbose_name="Event Date")
     description = RichTextField(verbose_name="Event Description", default=None, null=True, blank=True)
     description_en = RichTextField(verbose_name="Event Description En", default=None, null=True, blank=True)
-    event_image = models.ImageField(upload_to="event", blank=True, null=True, verbose_name="Event Image")
+    event_image = models.ImageField(upload_to="event", blank=False, null=False, verbose_name="Event Image")
 
     def __str__(self):
         return f"{self.name}"
@@ -95,21 +100,36 @@ class Event(BaseMixin):
 
 # Creating a child model with reviews.
 class Review(BaseMixin):
+
     visitor_category = models.CharField(max_length=50, default="", verbose_name="Visitor Category")
     visitor_category_en = models.CharField(max_length=50, default="", verbose_name="Visitor Category En")
     visitor_name = models.CharField(max_length=50, default="", verbose_name="Visitor Name")
     visitor_name_en = models.CharField(max_length=50, default="", verbose_name="Visitor Name En")
     description = RichTextField(verbose_name="Review Description", default=None, null=True, blank=True)
     description_en = RichTextField(verbose_name="Review Description En", default=None, null=True, blank=True)
-    review_image = models.ImageField(upload_to="review", blank=True, null=True, verbose_name="Review Image")
+    review_image = models.ImageField(upload_to="review", blank=False, null=False, verbose_name="Review Image")
     link = models.URLField(verbose_name="Review Link")
 
     def img_tag(self):
-        return mark_safe(f'<img src = "{self.review_image.url}" width = "300"/>')
-    
+        if self.review_image:
+            return mark_safe(f'<img src = "{self.review_image.url}" width = "300"/>')
+        return mark_safe(f'<img src = "" width = "300"/>')
+
 
 class Email(BaseMixin):
-    email = models.EmailField(max_length=50, default=None, verbose_name="Email")
+    email = models.EmailField(max_length=50, unique=True, default=None, verbose_name="Email")
 
     def __str__(self):
         return f"{self.email}"
+
+
+class CallBack(BaseMixin):
+    name = models.CharField(max_length=50, default=None, verbose_name="Name")
+    phone = models.CharField(max_length=13, default=None, verbose_name="Phone")
+
+    def __str__(self):
+        return f"{self.phone}"
+
+    class Meta:
+        verbose_name = "Phone number"
+        verbose_name_plural = "Phone numbers"

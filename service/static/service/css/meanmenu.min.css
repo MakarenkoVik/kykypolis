@@ -54,8 +54,8 @@ a.meanmenu-reveal {
 }
 
 .mean-container .mean-nav ul li {
-    background-color: #19181a;
-    border-bottom: 1px solid #212022;
+    background: rgba(97, 91, 92, 0.87);
+    border-bottom: 1px solid #5d595cf7;
     border-top: 1px solid #09080a;
     float: left;
     position: relative;

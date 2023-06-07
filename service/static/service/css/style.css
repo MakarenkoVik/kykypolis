@@ -438,6 +438,7 @@ li.icon a i {
 }*/
 header.header-area.style-2 .mobile-menu-area .mean-nav {
     top: 80px;
+    background: rgba(97, 91, 92, 0.60);
 }
 .mean-container .mean-nav ul li a.mean-expand {
     height: auto;

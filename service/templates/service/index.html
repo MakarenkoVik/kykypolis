@@ -75,41 +75,15 @@
 			<div class="container">
 				<!-- Start header top -->
 				<div class="row">
-					<div class="col-lg-2 col-sm-3">
-						<div class="header-top-left">
-							<ul>
-								<li class="has-dropdown"><a href="#">{{ LANGUAGE_CODE|language_name_local }}</a>
-									<ul>
-										{% for language in languages %}
-										{% if language.code != LANGUAGE_CODE %}
-										<li><a href="#" onclick="changeLanguage('{{ language.code }}')">
-											{{ language.code|language_name_local }}</a></li>
-										{% endif %}
-										{% endfor %}
-									</ul>
-								</li>
-								<form id="languageForm" action="{% url 'service:set_language' %}" method="post">
-									{% csrf_token %}
-									<input name="language" type="hidden" value="" />
-									<input id="newLanguageInput" type="hidden" name="language" />
-								</form>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-10 col-sm-9">
+					<div class="col-lg-12 col-sm-12">
 						<!-- Header top contact -->
 						<div class="header-top-contact">
 							<ul>
-								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-								<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
-								<li><a href="mailto:yourname@email.com"><i class="fal fa-envelope"></i>dmkr@tut.by</a>
+								<li><a href="https://www.instagram.com/kukupolis/"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="https://vk.com/kukupolis"><i class="fab fa-vk"></i></a></li>
+								<li><a href="mailto:kukupolis@dak.by"><i class="fal fa-envelope"></i>kukupolis@dak.by</a>
 								</li>
-								<li><a href="tel:+375295759912"><i class="fal fa-phone-alt"></i>+375 29 575 99 12
-										({% trans 'mts' %})</a></li>
-								<li><a href="tel:+375295759912"><i class="fal fa-phone-alt"></i>+375 29 575 99 12
+								<li><a href="tel:+375298678592"><i class="fal fa-phone-alt"></i>+375 29 867 85 92
 										({% trans 'mts' %})</a></li>
 							</ul>
 						</div>
@@ -120,7 +94,28 @@
 			<div class="navigation-area">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-2 col-sm-6 col-6">
+						<div class="col-lg-1 col-sm-2 col-2">
+							<div class="header-top-left" style="display:block">
+								<ul>
+									<li class="has-dropdown"><a href="#">{{ LANGUAGE_CODE|language_name_local }}</a>
+										<ul>
+											{% for language in languages %}
+											{% if language.code != LANGUAGE_CODE %}
+											<li><a href="#" onclick="changeLanguage('{{ language.code }}')">
+												{{ language.code|language_name_local }}</a></li>
+											{% endif %}
+											{% endfor %}
+										</ul>
+									</li>
+									<form id="languageForm" action="{% url 'service:set_language' %}" method="post">
+										{% csrf_token %}
+										<input name="language" type="hidden" value="" />
+										<input id="newLanguageInput" type="hidden" name="language" />
+									</form>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-2 col-sm-4 col-4">
 							<!-- Start site logo -->
 							<div class="site-logo" style="padding-top: 0;padding-bottom: 0;">
 								<a href="/">
@@ -129,7 +124,7 @@
 							</div>
 							<!-- End site logo -->
 						</div>
-						<div class="col-lg-10 col-sm-6 col-6">
+						<div class="col-lg-9 col-sm-6 col-6">
 							<!-- Start Navigation -->
 							<div class="main-menu-wrap">
 								<nav class="gene-nav">
@@ -140,6 +135,7 @@
 										<li><a href="#events_tag">{% trans 'events' %}</a></li>
 										<li><a href="#reviews_tag">{% trans 'reviews' %}</a></li>
 										<li><a href="#contacts_tag">{% trans 'contacts' %}</a></li>
+										<li><a href="#" name="request_call">{% trans 'request_call' %}</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -271,7 +267,7 @@
 								<div class="about-content">
 									<p align="justify">{% trans 'about_content' %}
 									</p>
-									<a href="#" class="btn btn-theme blue-2">{% trans 'want_there' %}</a>
+									<a href="#" class="btn btn-theme blue-2" name="request_call">{% trans 'want_there' %}</a>
 								</div>
 							</div>
 						</div>
@@ -296,21 +292,23 @@
 						<div class="single-adventure">
 							{{ service.img_tag }}
 							<div class="adventure-content">
-								<a href="#">
-									<h6>{% if LANGUAGE_CODE == 'en' %}
-											{{ service.name_en }}
-										{% else %}
-											{{ service.name }}
-										{% endif %}</h6>
-								</a>
-								{% for price in service.get_prices %}
-								<p class="price">{{ price.value }} BYN <small>
-									{% if LANGUAGE_CODE == 'en' %}
-										{{ price.description_en|striptags }}
+								<h6>{% if LANGUAGE_CODE == 'en' %}
+										{{ service.name_en }}
 									{% else %}
-										{{ price.description|striptags }}
-									{% endif %}</small></p><br>
-								{% endfor %}
+										{{ service.name }}
+									{% endif %}</h6>
+								{% if service.is_access %}
+									{% for price in service.get_prices %}
+									<p class="price">{{ price.value }} BYN <small>
+										{% if LANGUAGE_CODE == 'en' %}
+											{{ price.description_en|striptags }}
+										{% else %}
+											{{ price.description|striptags }}
+										{% endif %}</small></p><br>
+									{% endfor %}
+								{% else %}
+									<p class="price" style="color: #ff5300">{% trans 'will_be_later' %}</p>
+								{% endif %}
 								<ul style="font-size: 14px;line-height: 25px;padding-left: 16px;">
 								{% if LANGUAGE_CODE == 'en' %}
 									{% for item in service.get_included_items_en %}
@@ -329,7 +327,7 @@
 					{% endfor %}
 					<div class="single-selling-tips section-title">
 						<p align="justify">{% trans 'price_comment' %}</p>
-						<a href="#" class="btn btn-theme blue-2 mt-10">{% trans 'call' %}</a>
+						<a href="#" name="request_call" class="btn btn-theme blue-2 mt-10">{% trans 'call' %}</a>
 					</div>
 				</div>
 			</div>
@@ -469,13 +467,19 @@
 					<div class="col-lg-8">
 						<!-- start subscribe -->
 						<form id="add_email_form" action="{% url 'service:add_email' %}" method="post" class="subscribe-form">
-							<input name="email" class="widget-input" placeholder="Email ......" type="email">
+							<input name="email" class="widget-input" placeholder="Email" type="email" required>
+							<div class="invalid-tooltip">
+								Please choose a unique and valid username.
+							</div>
 							<button type="submit" class="widget-sbtn">{% trans 'subscribe' %}</button>
 							<div id="add_email_success" class="alert alert-success" role="alert" hidden>
 								{% trans 'add_email_success' %}
 							</div>
 							<div id="add_email_error" class="alert alert-danger" role="alert" hidden>
 								{% trans 'add_email_error' %}
+							</div>
+							<div id="add_email_duplicate" class="alert alert-danger" role="alert" hidden>
+								{% trans 'add_email_duplicate' %}
 							</div>
 						</form>
 						<!-- end subscribe -->
@@ -558,7 +562,7 @@
 										{% else %}
 											{{ review.visitor_category|striptags }}
 										{% endif %}</p>
-									<a href="#">
+									<a href="{{ review.link }}">
 										<h4>{% if LANGUAGE_CODE == 'en' %}
 												{{ review.visitor_name_en|striptags }}
 											{% else %}
@@ -566,11 +570,7 @@
 											{% endif %}</h4>
 									</a>
 									<ul>
-										<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-										<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-										<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-										<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+										<li><a href="{{ review.link }}"><i class="fab fa-instagram"></i></a></li>
 									</ul>
 									<div class="about-guide">
 										<p>{% if LANGUAGE_CODE == 'en' %}
@@ -626,7 +626,6 @@
 							<div class="contact-content">
 								<h4>{% trans 'talk_telegram' %}</h4>
 								<p>{% trans 'working_time' %}</p>
-								<a href="#" class="chat">{% trans 'write' %} <i class="fal fa-angle-right"></i></a>
 							</div>
 						</div>
 						<!-- End single contact -->
@@ -639,8 +638,7 @@
 							</div>
 							<div class="contact-content">
 								<h4>{% trans 'telephone' %}</h4>
-								<p>{% trans 'mts' %}: <a href="tel:+375295759912">+375 29 575 99 12</a></p>
-								<p>{% trans 'a1' %}: <a href="tel:+375295759912">+375 29 575 99 12</a></p>
+								<p>{% trans 'mts' %}: <a href="tel:+375298678592">+375 29 867 85 92</a></p>
 							</div>
 						</div>
 						<!-- End single contact -->
@@ -652,10 +650,9 @@
 								<img src="{% static 'service/img/icon/c4.png' %}" alt="">
 							</div>
 							<div class="contact-content">
-								<h4>Email</h4>
-								<a href="mailto:dmkr@tut.by">dmkr@tut.by</a>
-								<a href="mailto:dmkr@tut.by">dmkr@tut.by</a>
-								<a href="#">www.dak.by</a>
+								<h4>{% trans 'email_and_site' %}</h4>
+								<a href="mailto:kukupolis@dak.by">kukupolis@dak.by</a>
+								<a href="https://dak.by/">www.dak.by</a>
 							</div>
 						</div>
 						<!-- End single contact -->
@@ -665,7 +662,7 @@
 		</div>
 		<!-- End Contact Area -->
 		<!-- Start Contact Google map Area -->
-		<div class="partner-area pb-90">
+		<div id="map_tag" class="partner-area pb-90">
 			<div class="container">
 				<div class="row justify-content-center">
 					<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6587589cff259133f9058f210aa3963cf7220ae8fbac27b6a1eeba694d7d267b&amp;width=757&amp;height=546&amp;lang=ru_RU&amp;scroll=true"></script>
@@ -743,11 +740,8 @@
 							<h3>{% trans 'about_kykypolis' %}</h3>
 							<p>{% trans 'adventure' %}</p>
 							<ul>
-								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-								<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+								<li><a href="https://www.instagram.com/kukupolis/"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="https://vk.com/kukupolis"><i class="fab fa-vk"></i></a></li>
 							</ul>
 						</div>
 						<!-- end contact widget -->
@@ -773,9 +767,9 @@
 						<div class="widget contact-us">
 							<h3>{% trans 'contacts' %}</h3>
 							<ul>
-								<li><a href="#"><i class="fal fa-paper-plane"></i>{% trans 'address' %}</a></li>
-								<li><a href="#"><i class="fal fa-envelope"></i>dmkr@tut.by</a></li>
-								<li><a href="#"><i class="fal fa-phone-alt"></i>+375 29 575 99 12</a></li>
+								<li><a href="#map_tag"><i class="fal fa-paper-plane"></i>{% trans 'address' %}</a></li>
+								<li><a href="mailto:kukupolis@dak.by"><i class="fal fa-envelope"></i>kukupolis@dak.by</a></li>
+								<li><a href="tel:+375298678592"><i class="fal fa-phone-alt"></i>+375 29 867 85 92</a></li>
 							</ul>
 						</div>
 						<!-- end contact us widget -->
@@ -807,8 +801,12 @@
 				</div>
 				<div class="modal-body">
 					<div class="mb-3">
-						<label for="recipient-name" class="col-form-label">{% trans 'call_back_number' %}:</label>
-						<input name="callback_phone" type="text" class="form-control" id="recipient-name">
+						<label for="recipient-name" class="col-form-label">{% trans 'firstname' %}:</label>
+						<input name="callback_name" type="text" class="form-control" id="recipient-name">
+					</div>
+					<div class="mb-3">
+						<label for="recipient-phone" class="col-form-label">{% trans 'telephone' %}:</label>
+						<input name="callback_phone" type="text" class="form-control" id="recipient-phone" required>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -858,7 +856,8 @@
 					type: "POST",
 					url: "{% url 'service:add_phone' %}",
 					data: { 
-						phone: $(this).serializeArray()[0].value,
+						firstname: $(this).serializeArray()[0].value,
+						phone: $(this).serializeArray()[1].value,
 						csrfmiddlewaretoken: "{{ csrf_token }}",
 					},
 					dataType: "json",
@@ -876,6 +875,24 @@
 				event.preventDefault();
 			});
 
+			$("*[name='request_call']").click(function(){
+				$("#call_me").click();
+			});
+
+			const callback_phone = document.querySelector('input[name="callback_phone"]');
+			callback_phone.addEventListener('invalid', function (event) 
+			{
+				if (event.target.validity.typeMismatch || event.target.validity.valueMissing || event.target.validity.valid) 
+				{
+					event.target.setCustomValidity('{% trans "wrong phone" %}');
+				}
+			})
+			callback_phone.addEventListener('change', function (event) 
+			{
+				event.target.setCustomValidity('');
+			})
+			
+
 			$("#add_email_form").submit(function (event) {
 				$.ajax({
 					type: "POST",
@@ -888,13 +905,25 @@
 					encode: true,
 					success: function(data)
 					{
-						$("#add_email_success").attr("hidden", false);
-						setTimeout(function(){
-							$("#add_email_success").attr("hidden", true);
-						}, 3000);
+						$("input[name='email']").val('')
+						if(data['duplicate'])
+						{
+							$("#add_email_duplicate").attr("hidden", false);
+							setTimeout(function(){
+								$("#add_email_duplicate").attr("hidden", true);
+							}, 3000);
+						}
+						else
+						{
+							$("#add_email_success").attr("hidden", false);
+							setTimeout(function(){
+								$("#add_email_success").attr("hidden", true);
+							}, 3000);
+						}
 					},
 					error: function(data)
 					{
+						$("input[name='email']").val('')
 						$("#add_email_error").attr("hidden", false);
 						setTimeout(function(){
 							$("#add_email_error").attr("hidden", true);
@@ -903,13 +932,30 @@
 				});
 				event.preventDefault();
 			});
+			const input = document.querySelector('input[name="email"]');
+			input.addEventListener('invalid', function (event) 
+			{
+				if (event.target.validity.typeMismatch || event.target.validity.valueMissing || event.target.validity.valid) 
+				{
+					event.target.value = "";
+					$("#add_email_error").attr("hidden", false);
+					setTimeout(function(){
+						$("#add_email_error").attr("hidden", true);
+					}, 3000);
+					event.preventDefault();
+				}
+			})
+			input.addEventListener('change', function (event) 
+			{
+				event.target.setCustomValidity('');
+			})
 			
 			jQuery("#animated-thumbnails-gallery")
 				.justifiedGallery({
 					captions: false,
 					rowHeight: 180,
 					margins: 5,
-					maxRowsCount: $(window).width() < 700 ? 3 : 100
+					maxRowsCount: $(window).width() < 700 ? 6 : 100
 				})
 				.on("jg.complete", function () {
 					$(this).lightGallery(
