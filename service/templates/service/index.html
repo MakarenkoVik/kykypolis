@@ -1,0 +1,985 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Site Title -->
+	<title>{% trans 'kykypolis_lower' %}</title>
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+		rel="stylesheet">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'service/img/favicon.png' %}">
+
+	<!-- Bootstrap v5.0.2 css href-->
+	<link rel="stylesheet" href="{% static 'service/css/bootstrap.min.css' %}">
+	<!--====== Fontawesome ======-->
+	<link rel="stylesheet" href="{% static 'service/fonts/fontawesome/css/fontawesome.all.min.css' %}">
+	<!-- Owl carousel css -->
+	<link rel="stylesheet" href="{% static 'service/css/owl-carousel.min.css' %}">
+	<!-- Meanmenu css -->
+	<link rel="stylesheet" href="{% static 'service/css/meanmenu.min.css' %}">
+	<!-- cssanimation css -->
+	<link rel="stylesheet" href="{% static 'service/css/cssanimation.min.css' %}">
+	<!-- Default css -->
+	<link rel="stylesheet" href="{% static 'service/css/default.css' %}">
+	<!-- Style CSS -->
+	<link rel="stylesheet" href="{% static 'service/css/style.css' %}">
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" href="{% static 'service/css/responsive.css' %}">
+
+	<link rel="stylesheet" href="{% static 'service/css/lightgallery.css' %}">
+
+	<link rel="stylesheet" href="{% static 'service/css/justifiedGallery.css' %}" />
+	<style>
+		.floating {
+		 position: fixed;
+		 width: 60px;
+		 height: 60px;
+		 bottom: 40px;
+		 right: 40px;
+		 background-color: #25d366;
+		 color: #fff;
+		 border-radius: 50px;
+		 text-align: center;
+		 font-size: 30px;
+		 box-shadow: 2px 2px 3px #999;
+		 z-index: 100;
+		}
+		
+		.fab-icon {
+		 margin-top: 16px;
+		}
+		</style>
+</head>
+
+<body>
+	<!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+	<!-- Start Wrapper -->
+	<div class="wrapper">
+		<!-- Start Header -->
+		<header id="header" class="header-area style-2 absulate-header"
+			style="background-color: rgba(63, 54, 54, 0.8);">
+			<div class="container">
+				<!-- Start header top -->
+				<div class="row">
+					<div class="col-lg-12 col-sm-12">
+						<!-- Header top contact -->
+						<div class="header-top-contact">
+							<ul>
+								<li><a href="https://www.instagram.com/kukupolis/"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="https://vk.com/kukupolis"><i class="fab fa-vk"></i></a></li>
+								<li><a href="mailto:kukupolis@dak.by"><i class="fal fa-envelope"></i>kukupolis@dak.by</a>
+								</li>
+								<li><a href="tel:+375298678592"><i class="fal fa-phone-alt"></i>+375 29 867 85 92
+										({% trans 'mts' %})</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- Start header top -->
+			</div>
+			<div class="navigation-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-1 col-sm-2 col-2">
+							<div class="header-top-left" style="display:block">
+								<ul>
+									<li class="has-dropdown"><a href="#">{{ LANGUAGE_CODE|language_name_local }}</a>
+										<ul>
+											{% for language in languages %}
+											{% if language.code != LANGUAGE_CODE %}
+											<li><a href="#" onclick="changeLanguage('{{ language.code }}')">
+												{{ language.code|language_name_local }}</a></li>
+											{% endif %}
+											{% endfor %}
+										</ul>
+									</li>
+									<form id="languageForm" action="{% url 'service:set_language' %}" method="post">
+										{% csrf_token %}
+										<input name="language" type="hidden" value="" />
+										<input id="newLanguageInput" type="hidden" name="language" />
+									</form>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-2 col-sm-4 col-4">
+							<!-- Start site logo -->
+							<div class="site-logo" style="padding-top: 0;padding-bottom: 0;">
+								<a href="/">
+									<img src="{% static 'service/img/logo.png' %}" style="max-height: 120px;"
+										alt="GENE"></a>
+							</div>
+							<!-- End site logo -->
+						</div>
+						<div class="col-lg-9 col-sm-6 col-6">
+							<!-- Start Navigation -->
+							<div class="main-menu-wrap">
+								<nav class="gene-nav">
+									<ul class="menu">
+										<li><a href="#about_maze_tag">{% trans 'about_park' %}</a></li>
+										<li><a href="#services_tag">{% trans 'services' %}</a></li>
+										<li><a href="#gallery_tag">{% trans 'gallery' %}</a></li>
+										<li><a href="#events_tag">{% trans 'events' %}</a></li>
+										<li><a href="#reviews_tag">{% trans 'reviews' %}</a></li>
+										<li><a href="#contacts_tag">{% trans 'contacts' %}</a></li>
+										<li><a href="#" name="request_call">{% trans 'request_call' %}</a></li>
+									</ul>
+								</nav>
+							</div>
+							<!-- Mobile Menu Active here. Don't Remove it -->
+							<div class="mobile-menu-area"></div>
+							<!-- End Navigation -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- End Header -->
+		<!-- Start Slider Area -->
+		<section class="slider-area">
+			<div id="welcome-slide" class="slide-controls owl-carousel">
+				<!-- Start Single Slide -->
+				<div class="single-slide">
+					<div class="slide-thumb shape-3">
+						<img src="{% static 'service/img/main_slider.jpg' %}" alt="">
+						<!-- Start Slide Content -->
+						<div class="slide-content">
+							<div class="container" style="margin-left: inherit;">
+								<div class="row justify-content-center">
+									<div class="col-lg-10 col-sm-12">
+										<!-- Start Slide content wrap -->
+										<div class="slide-content-area">
+											<!-- Start Single slide content	-->
+											<div class="single-slide-content text-center">
+												<div class="content-text">
+													<h1><strong>{% trans 'corn_maze2' %}</strong><span></span>
+														{% trans 'slogan' %}</h1>
+												</div>
+											</div>
+											<!-- End Single slide content -->
+										</div>
+										<!-- End Slide content wrap -->
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End Slide Content -->
+					</div>
+				</div>
+				<!-- End Single Slide -->
+			</div>
+		</section>
+		<!-- End Slider Area -->
+		<!-- Start About Area -->
+		<div id="about_maze_tag" class="about-area pt-80">
+			<div class="about-bg style-3">
+				<img src="{% static 'service/img/corn_maze_bg.jpg' %}" alt="">
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col"></div>
+					<div class="col-lg-8">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-6 col-sm-4">
+										<!-- Start single quick icon -->
+										<div class="single-quick-icon style-3 text-center">
+											<div class="quick-icon-content">
+												<img src="{% static 'service/img/icon/maze.png' %}" alt="">
+												<p>{% trans 'maze' %}</p>
+											</div>
+										</div>
+										<!-- End single quick icon -->
+									</div>
+									<div class="col-lg-6 col-sm-4">
+										<!-- Start single quick icon -->
+										<div class="single-quick-icon style-3 text-center">
+											<div class="quick-icon-content">
+												<img src="{% static 'service/img/icon/game.png' %}" alt="">
+												<p>{% trans 'games' %}</p>
+											</div>
+										</div>
+										<!-- End single quick icon -->
+									</div>
+									<div class="col-lg-6 col-sm-4">
+										<!-- Start single quick icon -->
+										<div class="single-quick-icon style-3 text-center">
+											<div class="quick-icon-content">
+												<img src="{% static 'service/img/icon/dancing.png' %}" alt="">
+												<p>{% trans 'dances' %}</p>
+											</div>
+										</div>
+										<!-- End single quick icon -->
+									</div>
+									<div class="col-lg-6 col-sm-4">
+										<!-- Start single quick icon -->
+										<div class="single-quick-icon style-3 text-center">
+											<div class="quick-icon-content">
+												<img src="{% static 'service/img/icon/farm.png' %}" alt="">
+												<p>{% trans 'meeting_goats' %}</p>
+											</div>
+										</div>
+										<!-- End single quick icon -->
+									</div>
+									<div class="col-lg-6 col-sm-4">
+										<!-- Start single quick icon -->
+										<div class="single-quick-icon style-3 text-center">
+											<div class="quick-icon-content">
+												<img src="{% static 'service/img/icon/flight.png' %}" alt="">
+												<p>{% trans 'fly' %}</p>
+											</div>
+										</div>
+										<!-- End single quick icon -->
+									</div>
+									<div class="col-lg-6 col-sm-4">
+										<!-- Start single quick icon -->
+										<div class="single-quick-icon style-3 text-center">
+											<div class="quick-icon-content">
+												<img src="{% static 'service/img/icon/food.png' %}" alt="">
+												<p>{% trans 'eating_place' %}</p>
+											</div>
+										</div>
+										<!-- End single quick icon -->
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<!-- Start section title -->
+								<div class="section-title">
+									<p class="title">{% trans 'acquaintance' %}</p>
+									<h2>{% trans 'find_out' %}</h2>
+								</div>
+								<!-- End section title -->
+								<div class="about-content">
+									<p align="justify">{% trans 'about_content' %}
+									</p>
+									<a href="#" class="btn btn-theme blue-2" name="request_call">{% trans 'want_there' %}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End About Area -->
+		<!-- Start Selling Tips Area -->
+		<div id="services_tag" class="selling-tips-area pt-85">
+			<div class="container">
+				<div class="row">
+					<!-- Start section title -->
+					<div class="section-title text-center">
+						<p class="title">{% trans 'kykypolis' %}</p>
+						<h2>{% trans 'celebrate' %}</h2>
+					</div>
+					<!-- End section title -->
+					{% for service in services %}
+					<div class="col-lg-3 col-sm-6 order-three">
+						<!-- start single adventure -->
+						<div class="single-adventure">
+							{{ service.img_tag }}
+							<div class="adventure-content">
+								<h6>{% if LANGUAGE_CODE == 'en' %}
+										{{ service.name_en }}
+									{% else %}
+										{{ service.name }}
+									{% endif %}</h6>
+								{% if service.is_access %}
+									{% for price in service.get_prices %}
+									<p class="price">{{ price.value }} BYN <small>
+										{% if LANGUAGE_CODE == 'en' %}
+											{{ price.description_en|striptags }}
+										{% else %}
+											{{ price.description|striptags }}
+										{% endif %}</small></p><br>
+									{% endfor %}
+								{% else %}
+									<p class="price" style="color: #ff5300">{% trans 'will_be_later' %}</p>
+								{% endif %}
+								<ul style="font-size: 14px;line-height: 25px;padding-left: 16px;">
+								{% if LANGUAGE_CODE == 'en' %}
+									{% for item in service.get_included_items_en %}
+									<li>{{ item }}</li>
+									{% endfor %}
+								{% else %}
+									{% for item in service.get_included_items %}
+									<li>{{ item }}</li>
+									{% endfor %}
+								{% endif %}
+								</ul>
+							</div>
+						</div>
+						<!-- end single adventure -->
+					</div>
+					{% endfor %}
+					<div class="single-selling-tips section-title">
+						<p align="justify">{% trans 'price_comment' %}</p>
+						<a href="#" name="request_call" class="btn btn-theme blue-2 mt-10">{% trans 'call' %}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Selling Tips Area -->
+		<!-- Start Fun Facts Area -->
+		<div class="funfact-area style-3 pb-120">
+			<div class="container">
+				<div class="row justify-content-center pt-85">
+					<!-- Start section title -->
+					<div class="section-title text-center">
+						<p class="title">{% trans 'kykypolis' %}</p>
+						<h2>{% trans 'facts' %}</h2>
+					</div>
+					<!-- End section title -->
+				</div>
+				<div class="row">
+					<div class="col-lg-2 col-sm-4">
+						<!-- Start single fact -->
+						<div class="single-fact text-center">
+							<div class="fact-info">
+								<img src="{% static 'service/img/icon/number_one.png' %}" alt="">
+								<p>{% trans 'unique' %}</p>
+							</div>
+						</div>
+						<!-- Start single fact -->
+					</div>
+					<div class="col-lg-2 col-sm-4">
+						<!-- Start single fact -->
+						<div class="single-fact text-center">
+							<div class="fact-info">
+								<img src="{% static 'service/img/icon/square.png' %}" alt="">
+								<span class="counter" counterup-nums="100">25000</span><span>м²</span>
+								<p>{% trans 'square' %}</p>
+							</div>
+						</div>
+						<!-- Start single fact -->
+					</div>
+					<div class="col-lg-2 col-sm-4">
+						<!-- Start single fact -->
+						<div class="single-fact text-center">
+							<div class="fact-info">
+								<img src="{% static 'service/img/icon/funfact.png' %}" alt="">
+								<span class="counter" counterup-nums="100">30000</span><span>+</span>
+								<p>{% trans 'guests' %}</p>
+							</div>
+						</div>
+						<!-- Start single fact -->
+					</div>
+					<div class="col-lg-2 col-sm-4">
+						<!-- Start single fact -->
+						<div class="single-fact text-center">
+							<div class="fact-info">
+								<img src="{% static 'service/img/icon/goats.png' %}" alt="">
+								<span class="counter" counterup-nums="100">1500</span><span>{% trans 'goats' %}</span>
+								<p>{% trans 'contact_zoo' %}</p>
+							</div>
+						</div>
+						<!-- Start single fact -->
+					</div>
+					<div class="col-lg-2 col-sm-4">
+						<!-- Start single fact -->
+						<div class="single-fact text-center">
+							<div class="fact-info">
+								<img src="{% static 'service/img/icon/excursion.png' %}" alt="">
+								<span class="counter" counterup-nums="100">500</span><span>+</span>
+								<p>{% trans 'excursions' %}</p>
+							</div>
+						</div>
+						<!-- Start single fact -->
+					</div>
+					<div class="col-lg-2 col-sm-4">
+						<!-- Start single fact -->
+						<div class="single-fact text-center">
+							<div class="fact-info">
+								<img src="{% static 'service/img/icon/tractor.png' %}" alt="">
+								<span class="counter" counterup-nums="100">5000</span><span>{% trans 'kilometers' %}</span>
+								<p>{% trans 'train' %}</p>
+							</div>
+						</div>
+						<!-- Start single fact -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Fun Facts Area -->
+		<!-- Start section title -->
+		<div id="gallery_tag" class="section-title text-center">
+			<p class="title">{% trans 'kykypolis' %}</p>
+			<h2>{% trans 'moments' %}</h2>
+		</div>
+		<!-- End section title -->
+		<!-- Start Gallery -->
+		<div class="container-sm pb-60">
+			<div class="row justify-content-center">
+				<div class="gallery-container" id="animated-thumbnails-gallery">
+					{% for gallery in galleries %}
+						{% if gallery.gallery_image_small %}
+						<a class="gallery-item" data-src="{{ gallery.gallery_image_big.url }}" data-sub-html="{% trans 'photo' %} - 
+						<a href='https://www.instagram.com/kukupolis/'>
+							{% if LANGUAGE_CODE == 'en' %}
+								{{gallery.photographer_en}}
+							{% else %}
+								{{gallery.photographer}}
+							{% endif %}
+						</a>
+						<p> {% trans 'location' %} - <a href='https://www.google.com/maps/place//@53.759608,27.2019281,17z'>
+							{% if LANGUAGE_CODE == 'en' %}
+								{{gallery.place_en}}
+							{% else %}
+								{{gallery.place}}
+							{% endif %}
+						</a><p>">
+							{{ gallery.img_tag_small }}
+						</a>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<!-- End Gallery -->
+		<!-- Start Subscribe Area -->
+		<div class="subscribe-area style-3 pt-70">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-8">
+						<!-- Start section title -->
+						<div class="section-title text-center">
+							<p class="title">{% trans 'kykypolis' %}</p>
+							<h2>{% trans 'email_subscribe' %}</h2>
+							<p>{% trans 'get_emails' %}</p>
+						</div>
+						<!-- End section title -->
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-8">
+						<!-- start subscribe -->
+						<form id="add_email_form" action="{% url 'service:add_email' %}" method="post" class="subscribe-form">
+							<input name="email" class="widget-input" placeholder="Email" type="email" required>
+							<div class="invalid-tooltip">
+								Please choose a unique and valid username.
+							</div>
+							<button type="submit" class="widget-sbtn">{% trans 'subscribe' %}</button>
+							<div id="add_email_success" class="alert alert-success" role="alert" hidden>
+								{% trans 'add_email_success' %}
+							</div>
+							<div id="add_email_error" class="alert alert-danger" role="alert" hidden>
+								{% trans 'add_email_error' %}
+							</div>
+							<div id="add_email_duplicate" class="alert alert-danger" role="alert" hidden>
+								{% trans 'add_email_duplicate' %}
+							</div>
+						</form>
+						<!-- end subscribe -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Subscribe Area -->
+		<!-- Start Events Area -->
+		<div id="events_tag" class="home-blog-area style-3 pt-90 pb-120">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-9">
+						<!-- Start section title -->
+						<div class="section-title text-center">
+							<p class="title">{% trans 'kykypolis' %}</p>
+							<h2>{% trans 'next_events' %}</h2>
+						</div>
+						<!-- End section title -->
+					</div>
+				</div>
+				<div class="row">
+					{% for event in events %}
+					<div class="col-lg-3 col-sm-6">
+						<!-- Start single post blog -->
+						<div class="single-post-blog">
+							<div class="post-thumbnail">
+								<img src="{{ event.event_image.url }}" alt="">
+							</div>
+							<div class="post-date">
+								<p>{{ event.date|date:"d" }} <span>{{ event.date|date:"F" }}</span></p>
+							</div>
+							<div class="post-blog-content">
+								<a href="#">
+									<h4>{{ language.code }}
+										{% if LANGUAGE_CODE == 'en' %}
+											{{ event.name_en|striptags }}
+										{% else %}
+											{{ event.name|striptags }}
+										{% endif %}</h4>
+								</a>
+								<p>{% if LANGUAGE_CODE == 'en' %}
+										{{ event.description_en|striptags }}
+									{% else %}
+										{{ event.description|striptags }}
+									{% endif %}</p>
+							</div>
+						</div>
+						<!-- End single post blog -->
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<!-- End Events Area -->
+		<!-- Start Guide Area -->
+		<div id="reviews_tag" class="guide-area pt-110 pb-80">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-10">
+						<!-- Start section title -->
+						<div class="section-title text-center">
+							<p class="title">{% trans 'kykypolis' %}</p>
+							<h2>{% trans 'reviews' %}</h2>
+						</div>
+						<!-- End section title -->
+					</div>
+				</div>
+				<div class="row">
+					<!-- Start single guide -->
+					{% for review in reviews %}
+					<div class="col-sm-4">
+						<div class="single-guide">
+							<div class="guide-thumb">
+								{{ review.img_tag }}
+								<div class="guide-content">
+									<p class="title">
+										{% if LANGUAGE_CODE == 'en' %}
+											{{ review.visitor_category_en|striptags }}
+										{% else %}
+											{{ review.visitor_category|striptags }}
+										{% endif %}</p>
+									<a href="{{ review.link }}">
+										<h4>{% if LANGUAGE_CODE == 'en' %}
+												{{ review.visitor_name_en|striptags }}
+											{% else %}
+												{{ review.visitor_name|striptags }}
+											{% endif %}</h4>
+									</a>
+									<ul>
+										<li><a href="{{ review.link }}"><i class="fab fa-instagram"></i></a></li>
+									</ul>
+									<div class="about-guide">
+										<p>{% if LANGUAGE_CODE == 'en' %}
+												{{ review.description_en|striptags }}
+											{% else %}
+												{{review.description|striptags }}
+											{% endif %}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					<!-- End single guide -->
+				</div>
+			</div>
+		</div>
+		<!-- End Guide Area -->
+		<!-- Start Contact Area -->
+		<div id="contacts_tag" class="contact-area pt-90 pb-95">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-10">
+						<!-- Start section title -->
+						<div class="section-title text-center">
+							<p class="title">{% trans 'kykypolis' %}</p>
+							<h2>{% trans 'contacts' %}</h2>
+							<p>{% trans 'callback' %}</p>
+						</div>
+						<!-- End section title -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-sm-6">
+						<!-- Start single contact -->
+						<div class="single-contact text-center">
+							<div class="contact-thumb">
+								<img src="{% static 'service/img/icon/c1.png' %}" alt="">
+							</div>
+							<div class="contact-content">
+								<h4>{% trans 'our_address' %}</h4>
+								<p>{% trans 'address' %}</p>
+							</div>
+						</div>
+						<!-- End single contact -->
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<!-- Start single contact -->
+						<div class="single-contact text-center">
+							<div class="contact-thumb">
+								<img src="{% static 'service/img/icon/c2.png' %}" alt="">
+							</div>
+							<div class="contact-content">
+								<h4>{% trans 'talk_telegram' %}</h4>
+								<p>{% trans 'working_time' %}</p>
+							</div>
+						</div>
+						<!-- End single contact -->
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<!-- Start single contact -->
+						<div class="single-contact text-center">
+							<div class="contact-thumb">
+								<img src="{% static 'service/img/icon/c3.png' %}" alt="">
+							</div>
+							<div class="contact-content">
+								<h4>{% trans 'telephone' %}</h4>
+								<p>{% trans 'mts' %}: <a href="tel:+375298678592">+375 29 867 85 92</a></p>
+							</div>
+						</div>
+						<!-- End single contact -->
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<!-- Start single contact -->
+						<div class="single-contact text-center">
+							<div class="contact-thumb">
+								<img src="{% static 'service/img/icon/c4.png' %}" alt="">
+							</div>
+							<div class="contact-content">
+								<h4>{% trans 'email_and_site' %}</h4>
+								<a href="mailto:kukupolis@dak.by">kukupolis@dak.by</a>
+								<a href="https://dak.by/">www.dak.by</a>
+							</div>
+						</div>
+						<!-- End single contact -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Contact Area -->
+		<!-- Start Contact Google map Area -->
+		<div id="map_tag" class="partner-area pb-90">
+			<div class="container">
+				<div class="row justify-content-center">
+					<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6587589cff259133f9058f210aa3963cf7220ae8fbac27b6a1eeba694d7d267b&amp;width=757&amp;height=546&amp;lang=ru_RU&amp;scroll=true"></script>
+				</div>
+			</div>
+		</div>
+		<!-- End Contact Google map Area -->
+		<!-- Start Partner Area -->
+		<div class="partner-area pb-90">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-10">
+						<!-- Start section title -->
+						<div class="section-title text-center">
+							<p class="title">{% trans 'kykypolis' %}</p>
+							<h2>{% trans 'partners' %}</h2>
+						</div>
+						<!-- End section title -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="partner-wrap owl-carousel">
+							<!-- Start single partner -->
+							<div class="single-partner">
+								<img class="bottom" src="{% static 'service/img/logo/DAK.png' %}" alt="">
+								<img class="top" src="{% static 'service/img/logo/DAK_2.png' %}" alt="">
+							</div>
+							<!-- End single partner -->
+							<!-- Start single partner -->
+							<div class="single-partner">
+								<img class="bottom" src="{% static 'service/img/logo/green.png' %}" alt="">
+								<img class="top" src="{% static 'service/img/logo/green_2.png' %}" alt="">
+							</div>
+							<!-- End single partner -->
+							<!-- Start single partner -->
+							<div class="single-partner">
+								<img class="bottom" src="{% static 'service/img/logo/kvitki.png' %}" alt="">
+								<img class="top" src="{% static 'service/img/logo/kvitki_2.png' %}" alt="">
+							</div>
+							<!-- End single partner -->
+							<!-- Start single partner -->
+							<div class="single-partner">
+								<img class="bottom" src="{% static 'service/img/logo/slivki.png' %}" alt="">
+								<img class="top" src="{% static 'service/img/logo/slivki_2.png' %}" alt="">
+							</div>
+							<!-- End single partner -->
+							<!-- Start single partner -->
+							<div class="single-partner">
+								<img class="bottom" src="{% static 'service/img/logo/onliner.png' %}" alt="">
+								<img class="top" src="{% static 'service/img/logo/onliner_2.png' %}" alt="">
+							</div>
+							<!-- End single partner -->
+							<!-- Start single partner -->
+							<div class="single-partner">
+								<img class="bottom" src="{% static 'service/img/logo/ont.png' %}" alt="">
+								<img class="top" src="{% static 'service/img/logo/ont_2.png' %}" alt="">
+							</div>
+							<!-- End single partner -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Button trigger modal -->
+
+		<!-- End Partner Area -->
+		<!-- Start Footer Area -->
+		<footer class="footer-area style-3 overlay-bg-4 pt-115">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-sm-6">
+						<!-- start contact widget -->
+						<div class="widget contact-widget">
+							<h3>{% trans 'about_kykypolis' %}</h3>
+							<p>{% trans 'adventure' %}</p>
+							<ul>
+								<li><a href="https://www.instagram.com/kukupolis/"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="https://vk.com/kukupolis"><i class="fab fa-vk"></i></a></li>
+							</ul>
+						</div>
+						<!-- end contact widget -->
+					</div>
+					<div class="col-lg-2 col-sm-3">
+						<!-- start quick link widget -->
+						<div class="widget quick-link-widget">
+							<h3>{% trans 'menu' %}</h3>
+							<ul>
+								<li><a href="#about_maze_tag"><i class="fal fa-angle-right"></i>{% trans 'about_park' %}</a></li>
+								<li><a href="#services_tag"><i class="fal fa-angle-right"></i>{% trans 'services' %}</a></li>
+								<li><a href="#gallery_tag"><i class="fal fa-angle-right"></i>{% trans 'gallery' %}</a></li>
+								<li><a href="#events_tag"><i class="fal fa-angle-right"></i>{% trans 'events' %}</a></li>
+								<li><a href="#reviews_tag"><i class="fal fa-angle-right"></i>{% trans 'reviews' %}</a></li>
+								<li><a href="#contacts_tag"><i class="fal fa-angle-right"></i>{% trans 'contacts' %}</a></li>
+							</ul>
+						</div>
+						<!-- end quick link widget -->
+					</div>
+
+					<div class="col-lg-3 col-sm-6">
+						<!-- start contact us widget -->
+						<div class="widget contact-us">
+							<h3>{% trans 'contacts' %}</h3>
+							<ul>
+								<li><a href="#map_tag"><i class="fal fa-paper-plane"></i>{% trans 'address' %}</a></li>
+								<li><a href="mailto:kukupolis@dak.by"><i class="fal fa-envelope"></i>kukupolis@dak.by</a></li>
+								<li><a href="tel:+375298678592"><i class="fal fa-phone-alt"></i>+375 29 867 85 92</a></li>
+							</ul>
+						</div>
+						<!-- end contact us widget -->
+					</div>
+					<!-- Start copyright text -->
+					<div class="copyright-text">
+						<p>© 2023 MakarenkoVik</p>
+					</div>
+					<!-- End copyright text -->
+				</div>
+			</div>
+		</footer>
+		<!-- End Footer Area -->
+	</div>
+	<!-- End Wrapper -->
+	
+	<div id="call_me" class="floating" data-bs-toggle="modal" data-bs-target="#callback_modal_dialog">
+		<i class="fa fa-phone fab-icon"></i>
+	</div>
+  
+	<!-- Modal -->
+	<div class="modal fade" id="callback_modal_dialog" tabindex="-1" aria-labelledby="callback_modal_dialog_label" aria-hidden="true">
+		<div class="modal-dialog">
+			<form id="callbac_form">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="callback_modal_dialog_label">{% trans 'call_back_title' %}</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="mb-3">
+						<label for="recipient-name" class="col-form-label">{% trans 'firstname' %}:</label>
+						<input name="callback_name" type="text" class="form-control" id="recipient-name">
+					</div>
+					<div class="mb-3">
+						<label for="recipient-phone" class="col-form-label">{% trans 'telephone' %}:</label>
+						<input name="callback_phone" type="text" class="form-control" id="recipient-phone" required>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'call_back_close' %}</button>
+					<button type="submit" class="btn btn-primary">{% trans 'call_back_call' %}</button>
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- all js here -->
+	<!-- jquery latest version -->
+	<script src="{% static 'service/js/vendor/jquery-3.3.1.min.js' %}"></script>
+	<!-- bootstrap js -->
+	<script src="{% static 'service/js/bootstrap.min.js' %}"></script>
+	<!-- popper js -->
+	<script src="{% static 'service/js/popper.min.js' %}"></script>
+	<!-- owl carousel js -->
+	<script src="{% static 'service/js/owlcarousel.min.js' %}"></script>
+	<!-- meanmenu js -->
+	<script src="{% static 'service/js/meanmenu.min.js' %}"></script>
+	<!-- counterup js -->
+	<script src="{% static 'service/js/counterup.min.js' %}"></script>
+	<!-- scrollup js -->
+	<script src="{% static 'service/js/scrollup.min.js' %}"></script>
+	<!-- waypoints js -->
+	<script src="{% static 'service/js/waypoints.min.js' %}"></script>
+	<!-- imagesloaded js -->
+	<script src="{% static 'service/js/imagesloaded.pkgd.min.js' %}"></script>
+	<!-- Isotope js -->
+	<script src="{% static 'service/js/isotope.min.js' %}"></script>
+	<!-- main js -->
+	<script src="{% static 'service/js/main.js' %}"></script>
+
+	<script src="{% static 'service/js/lightgallery.js' %}"></script>
+
+	<script src="{% static 'service/js/jquery.justifiedGallery.min.js' %}"></script>
+
+	<!-- Google Map js -->
+	<script>
+		$(document).ready(function () {
+			$.scrollUp();
+			
+			$("#callbac_form").submit(function (event) {
+				$.ajax({
+					type: "POST",
+					url: "{% url 'service:add_phone' %}",
+					data: { 
+						firstname: $(this).serializeArray()[0].value,
+						phone: $(this).serializeArray()[1].value,
+						csrfmiddlewaretoken: "{{ csrf_token }}",
+					},
+					dataType: "json",
+					encode: true,
+					success: function(data)
+					{
+						bootstrap.Modal.getOrCreateInstance(document.getElementById('callback_modal_dialog')).hide();
+					},
+					error: function(data)
+					{
+						bootstrap.Modal.getOrCreateInstance(document.getElementById('callback_modal_dialog')).hide();
+						alert("произошла ошибка пожалуйста свяжитесь с нами");
+					}
+				});
+				event.preventDefault();
+			});
+
+			$("*[name='request_call']").click(function(){
+				$("#call_me").click();
+			});
+
+			const callback_phone = document.querySelector('input[name="callback_phone"]');
+			callback_phone.addEventListener('invalid', function (event) 
+			{
+				if (event.target.validity.typeMismatch || event.target.validity.valueMissing || event.target.validity.valid) 
+				{
+					event.target.setCustomValidity('{% trans "wrong phone" %}');
+				}
+			})
+			callback_phone.addEventListener('change', function (event) 
+			{
+				event.target.setCustomValidity('');
+			})
+			
+
+			$("#add_email_form").submit(function (event) {
+				$.ajax({
+					type: "POST",
+					url: "{% url 'service:add_email' %}",
+					data: { 
+						email: $(this).serializeArray()[0].value,
+						csrfmiddlewaretoken: "{{ csrf_token }}",
+					},
+					dataType: "json",
+					encode: true,
+					success: function(data)
+					{
+						$("input[name='email']").val('')
+						if(data['duplicate'])
+						{
+							$("#add_email_duplicate").attr("hidden", false);
+							setTimeout(function(){
+								$("#add_email_duplicate").attr("hidden", true);
+							}, 3000);
+						}
+						else
+						{
+							$("#add_email_success").attr("hidden", false);
+							setTimeout(function(){
+								$("#add_email_success").attr("hidden", true);
+							}, 3000);
+						}
+					},
+					error: function(data)
+					{
+						$("input[name='email']").val('')
+						$("#add_email_error").attr("hidden", false);
+						setTimeout(function(){
+							$("#add_email_error").attr("hidden", true);
+						}, 3000);
+					}
+				});
+				event.preventDefault();
+			});
+			const input = document.querySelector('input[name="email"]');
+			input.addEventListener('invalid', function (event) 
+			{
+				if (event.target.validity.typeMismatch || event.target.validity.valueMissing || event.target.validity.valid) 
+				{
+					event.target.value = "";
+					$("#add_email_error").attr("hidden", false);
+					setTimeout(function(){
+						$("#add_email_error").attr("hidden", true);
+					}, 3000);
+					event.preventDefault();
+				}
+			})
+			input.addEventListener('change', function (event) 
+			{
+				event.target.setCustomValidity('');
+			})
+			
+			jQuery("#animated-thumbnails-gallery")
+				.justifiedGallery({
+					captions: false,
+					rowHeight: 180,
+					margins: 5,
+					maxRowsCount: $(window).width() < 700 ? 6 : 100
+				})
+				.on("jg.complete", function () {
+					$(this).lightGallery(
+						document.getElementById("animated-thumbnails-gallery"),
+						{
+							autoplayFirstVideo: false,
+							pager: false,
+							galleryId: "nature",
+							mobileSettings: {
+								controls: false,
+								showCloseIcon: false,
+								download: false,
+								rotate: false
+							}
+						}
+					);
+				});
+		});
+		
+		function changeLanguage(newLanguage) {
+			$('input[name="language"]').val(newLanguage);
+			$('#languageForm').submit();
+		}
+	</script>
+</body>
+
+</html>

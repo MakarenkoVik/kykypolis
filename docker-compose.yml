@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:14
+    container_name: kykypolis_db
+    hostname: postgres
+    environment:
+      POSTGRES_DB: kykypolis
+      POSTGRES_USER: admin_kykypolis
+      POSTGRES_PASSWORD: kykypolis.2023
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+    restart: always
+  web:
+    container_name: kykypolis_web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    security_opt:
+      - apparmor:unconfined
+    ports:
+      - 8000:8000
+    restart: unless-stopped
+    depends_on:
+      - postgres
+volumes:
+  postgres-db-volume:
