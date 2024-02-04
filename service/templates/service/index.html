@@ -1,0 +1,1035 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Site Title -->
+	<title>Home Three</title>
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+		rel="stylesheet">
+	<!-- Favicon -->
+	<link rel="shortcut icon" ="{% static 'service/img/favicon.png' %}">
+	<!-- Bootstrap v5.0.2 css href-->
+	<link rel="stylesheet" href="{% static 'service/css/bootstrap.min.css' %}">
+	<!-- Animate css -->
+	<link rel="stylesheet" href="{% static 'service/css/animate.min.css' %}">
+	<!--====== Fontawesome ======-->
+	<link rel="stylesheet" href="{% static 'service/fonts/fontawesome/css/fontawesome.all.min.css' %}">
+	<!-- Owl carousel css -->
+	<link rel="stylesheet" href="{% static 'service/css/owl-carousel.min.css' %}">
+	<!-- Meanmenu css -->
+	<link rel="stylesheet" href="{% static 'service/css/meanmenu.min.css' %}">
+	<!-- cssanimation css -->
+	<link rel="stylesheet" href="{% static 'service/css/cssanimation.min.css' %}">
+	<!-- Default css -->
+	<link rel="stylesheet" href="{% static 'service/css/default.css' %}">
+	<!-- Style CSS -->
+	<link rel="stylesheet" href="{% static 'service/css/style.css' %}">
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" href="{% static 'service/css/responsive.css' %}">
+
+	<link rel="stylesheet" href="{% static 'service/https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.3.2/css/lightgallery.css' %}" />
+
+	<link rel="stylesheet" href="{% static 'service/css/justifiedGallery.css' %}" />
+</head>
+
+<body>
+	<!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+	<!-- Start Preloader -->
+	<div class="preloader-wrap">
+		<div class="cube-wrapper">
+			<div class="cube-folding">
+				<span class="leaf1"></span>
+				<span class="leaf2"></span>
+				<span class="leaf3"></span>
+				<span class="leaf4"></span>
+			</div>
+			<span class="loading" data-name="Loading">Load</span>
+		</div>
+	</div>
+	<!-- End Preloader -->
+	<!-- Start Wrapper -->
+	<div class="wrapper">
+		<!-- Start Header -->
+		<header id="header" class="header-area style-2 absulate-header"
+			style="background-color: rgba(63, 54, 54, 0.8);">
+			<div class="container">
+				<!-- Start header top -->
+				<div class="row">
+					<div class="col-lg-2 col-sm-3">
+						<div class="header-top-left">
+							<ul>
+								<li class="has-dropdown"><a href="#">Русский</a>
+									<ul>
+										<li><a href="#">English</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-10 col-sm-9">
+						<!-- Header top contact -->
+						<div class="header-top-contact">
+							<ul>
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+								<li><a href="mailto:yourname@email.com"><i class="fal fa-envelope"></i>dmkr@tut.by</a>
+								</li>
+								<li><a href="tel:+375295759912"><i class="fal fa-phone-alt"></i>+375 29 575 99 12
+										(МТС)</a></li>
+								<li><a href="tel:+375295759912"><i class="fal fa-phone-alt"></i>+375 29 575 99 12
+										(МТС)</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- Start header top -->
+			</div>
+			<div class="navigation-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-2 col-sm-6 col-6">
+							<!-- Start site logo -->
+							<div class="site-logo" style="padding-top: 0;padding-bottom: 0;">
+								<a href="{% static 'service/index.html' %}"><img src="{% static 'service/img/logo.png' %}" style="max-height: 120px;"
+										alt="GENE"></a>
+							</div>
+							<!-- End site logo -->
+						</div>
+						<div class="col-lg-10 col-sm-6 col-6">
+							<!-- Start Navigation -->
+							<div class="main-menu-wrap">
+								<nav class="gene-nav">
+									<ul class="menu">
+										<li><a>О парке</a></li>
+										<li><a>Услуги</a></li>
+										<li><a>Галерея</a></li>
+										<li><a>События</a></li>
+										<li><a>Отзывы</a></li>
+										<li><a>Контакты</a></li>
+										<li class="icon"><a href="login.html"><i class="far fa-user"></i>Войти</a></li>
+									</ul>
+								</nav>
+							</div>
+							<!-- Mobile Menu Active here. Don't Remove it -->
+							<div class="mobile-menu-area"></div>
+							<!-- End Navigation -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- End Header -->
+		<!-- Start Slider Area -->
+		<section class="slider-area">
+			<div id="welcome-slide" class="slide-controls owl-carousel">
+				<!-- Start Single Slide -->
+				<div class="single-slide">
+					<div class="slide-thumb shape-3">
+						<img src="{% static 'service/img/main_slider.jpg' %}" alt="">
+						<!-- Start Slide Content -->
+						<div class="slide-content">
+							<div class="container" style="margin-left: inherit;">
+								<div class="row justify-content-center">
+									<div class="col-lg-10 col-sm-12">
+										<!-- Start Slide content wrap -->
+										<div class="slide-content-area">
+											<!-- Start Single slide content	-->
+											<div class="single-slide-content text-center">
+												<div class="content-text">
+													<h1><strong>Кукурузный Лабиринт</strong><span></span>
+														Любимое место для всей семьи!</h1>
+												</div>
+											</div>
+											<!-- End Single slide content -->
+										</div>
+										<!-- End Slide content wrap -->
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End Slide Content -->
+					</div>
+				</div>
+				<!-- End Single Slide -->
+			</div>
+		</section>
+		<!-- End Slider Area -->
+		<!-- Start About Area -->
+		<div class="about-area pt-80">
+			<div class="about-bg style-3">
+				<img src="{% static 'service/img/corn_maze_bg.png' %}" alt="">
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col"></div>
+					<div class="col-lg-8">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-6 col-sm-4">
+										<!-- Start single quick icon -->
+										<div class="single-quick-icon style-3 text-center">
+											<div class="quick-icon-content">
+												<img src="{% static 'service/img/icon/maze.png' %}" alt="">
+												<p>Лабиринт</p>
+											</div>
+										</div>
+										<!-- End single quick icon -->
+									</div>
+									<div class="col-lg-6 col-sm-4">
+										<!-- Start single quick icon -->
+										<div class="single-quick-icon style-3 text-center">
+											<div class="quick-icon-content">
+												<img src="{% static 'service/img/icon/game.png' %}" alt="">
+												<p>Игры</p>
+											</div>
+										</div>
+										<!-- End single quick icon -->
+									</div>
+									<div class="col-lg-6 col-sm-4">
+										<!-- Start single quick icon -->
+										<div class="single-quick-icon style-3 text-center">
+											<div class="quick-icon-content">
+												<img src="{% static 'service/img/icon/dancing.png' %}" alt="">
+												<p>Танцы</p>
+											</div>
+										</div>
+										<!-- End single quick icon -->
+									</div>
+									<div class="col-lg-6 col-sm-4">
+										<!-- Start single quick icon -->
+										<div class="single-quick-icon style-3 text-center">
+											<div class="quick-icon-content">
+												<img src="{% static 'service/img/icon/farm.png' %}" alt="">
+												<p>Знакомство с козлятами</p>
+											</div>
+										</div>
+										<!-- End single quick icon -->
+									</div>
+									<div class="col-lg-6 col-sm-4">
+										<!-- Start single quick icon -->
+										<div class="single-quick-icon style-3 text-center">
+											<div class="quick-icon-content">
+												<img src="{% static 'service/img/icon/flight.png' %}" alt="">
+												<p>Полеты</p>
+											</div>
+										</div>
+										<!-- End single quick icon -->
+									</div>
+									<div class="col-lg-6 col-sm-4">
+										<!-- Start single quick icon -->
+										<div class="single-quick-icon style-3 text-center">
+											<div class="quick-icon-content">
+												<img src="{% static 'service/img/icon/food.png' %}" alt="">
+												<p>Фудкорт</p>
+											</div>
+										</div>
+										<!-- End single quick icon -->
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<!-- Start section title -->
+								<div class="section-title">
+									<p class="title">Познакомьтесь с нами ближе</p>
+									<h2>Вместе мы<span></span>найдем выход!</h2>
+								</div>
+								<!-- End section title -->
+								<div class="about-content">
+									<p>Парк КУКУПОЛИС погружает гостей в атмосферу квеста в
+										кукурузном лабиринте. В зоне отдыха агропарка работают
+										аттракционы и есть возможность арендовать беседки. Можно
+										посетить экскурсию, прокатиться на паровозике, насладиться
+										музыкой и подкрепиться на фудкортах. Также в парке
+										есть контактный зоопарк, где можно покормить и погладить
+										коз. И самое «вкусное» - это из «первых рук» фермеров
+										купить свежие продукты из козьего молока.
+										<strong>И помните, лабиринт — это не место для свиданий.
+											Это место для острых ощущений:)</strong>
+									</p>
+									<a href="#" class="btn btn-theme blue-2">Хочу Попасть К Вам!</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End About Area -->
+		<!-- Start Selling Tips Area -->
+		<div class="selling-tips-area pt-85">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-sm-6 order-three">
+						<!-- start single adventure -->
+						<div class="single-adventure">
+							<img src="{% static 'service/img/price_holyday.jpeg' %}"
+								alt="adventure">
+							<div class="adventure-content">
+								<a href="#">
+									<h6>Вход в парк выходные</h6>
+								</a>
+								<p class="price">20 BYN <small>взрослый</small></p><br>
+								<p class="price">15 BYN <small>детский</small></p>
+								<p class="price">Бесплатно <small>дети до 5 лет</small></p><br>
+							</div>
+						</div>
+						<!-- end single adventure -->
+					</div>
+					<div class="col-lg-3 col-sm-6 order-two">
+						<!-- start single adventure -->
+						<div class="single-adventure">
+							<img src="{% static 'service/img/price_workday.jpeg' %}" alt="adventure">
+							<div class="adventure-content">
+								<a href="#">
+									<h6>Вход в парк будние</h6>
+								</a>
+								<p class="price">15 BYN <small>взрослый</small></p><br>
+								<p class="price">10 BYN <small>детский</small></p>
+								<p class="price">Бесплатно <small>дети до 5 лет</small></p><br>
+							</div>
+						</div>
+						<!-- end single adventure -->
+					</div>
+					<div class="col-lg-6 order-one">
+						<div class="selling-tips-wrap">
+							<!-- Start single selling tips -->
+							<div class="single-selling-tips section-title">
+								<p class="title">КУКУПОЛИС</p>
+								<h2>Ваш идеальный праздник<span></span> Нашими руками</h2>
+								<p>В стоимость входного билета входит посещение кукурузного,
+									лабиринта, экскурсия на паровозике до фермы, посещение
+									фермы с 1500 коз, контактный зоопарк, танцы, песни и
+									многое другое.
+								</p>
+								<a href="#" class="btn btn-theme blue-2 mt-30">Забронировать</a>
+							</div>
+							<!-- End single selling tips -->
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-sm-6">
+						<!-- start single adventure -->
+						<div class="single-adventure">
+							<img src="{% static 'service/img/excursion.jpg' %}" alt="adventure">
+							<div class="adventure-content">
+								<a href="#">
+									<h6>Экскурсия</h6>
+								</a>
+								<p class="price">12 BYN <br><small>Минимально 10 человек</small></p>
+							</div>
+						</div>
+						<!-- end single adventure -->
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<!-- start single adventure -->
+						<div class="single-adventure">
+							<img src="{% static 'service/img/alcove.jpg' %}" alt="adventure">
+							<div class="adventure-content">
+								<a href="#">
+									<h6>Аренда беседок</h6>
+								</a>
+								<p class="price">6 BYN <small>за первый час</small></p><br>
+								<p class="price">5 BYN <small>за последующие</small></p>
+							</div>
+						</div>
+						<!-- end single adventure -->
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<!-- start single adventure -->
+						<div class="single-adventure">
+							<img src="{% static 'service/img/certificate.jpg' %}" alt="adventure">
+							<div class="adventure-content">
+								<a href="#">
+									<h6>Cертификат</h6>
+								</a>
+								<p class="price">20 BYN <small>действует весь сезон</small></p>
+							</div>
+						</div>
+						<!-- end single adventure -->
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<!-- start single adventure -->
+						<div class="single-adventure">
+							<img src="{% static 'service/img/fly.jpg' %}" alt="adventure">
+							<div class="adventure-content">
+								<a href="#">
+									<h6>Полет</h6>
+								</a>
+								<p class="price">50 BYN <small>автожир</small></p>
+							</div>
+						</div>
+						<!-- end single adventure -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Selling Tips Area -->
+		<!-- Start Fun Facts Area -->
+		<div class="funfact-area style-3 pb-120">
+			<div class="container">
+				<div class="row justify-content-center pt-85">
+					<!-- Start section title -->
+					<div class="section-title text-center">
+						<p class="title">Кукуполис</p>
+						<h2>Интересные факты</h2>
+					</div>
+					<!-- End section title -->
+				</div>
+				<div class="row">
+					<div class="col-lg-2 col-sm-4">
+						<!-- Start single fact -->
+						<div class="single-fact text-center">
+							<div class="fact-info">
+								<img src="{% static 'service/img/icon/number_one.png' %}" alt="">
+								<p>Единственные в стране</p>
+							</div>
+						</div>
+						<!-- Start single fact -->
+					</div>
+					<div class="col-lg-2 col-sm-4">
+						<!-- Start single fact -->
+						<div class="single-fact text-center">
+							<div class="fact-info">
+								<img src="{% static 'service/img/icon/square.png' %}" alt="">
+								<span class="counter">25000</span><span>м²</span>
+								<p>Площадь лабиринта</p>
+							</div>
+						</div>
+						<!-- Start single fact -->
+					</div>
+					<div class="col-lg-2 col-sm-4">
+						<!-- Start single fact -->
+						<div class="single-fact text-center">
+							<div class="fact-info">
+								<img src="{% static 'service/img/icon/funfact.png' %}" alt="">
+								<span class="counter">30000</span><span>+</span>
+								<p>Посетители</p>
+							</div>
+						</div>
+						<!-- Start single fact -->
+					</div>
+					<div class="col-lg-2 col-sm-4">
+						<!-- Start single fact -->
+						<div class="single-fact text-center">
+							<div class="fact-info">
+								<img src="{% static 'service/img/icon/goats.png' %}" alt="">
+								<span class="counter">1500</span><span>коз</span>
+								<p>Контактный зоопарк</p>
+							</div>
+						</div>
+						<!-- Start single fact -->
+					</div>
+					<div class="col-lg-2 col-sm-4">
+						<!-- Start single fact -->
+						<div class="single-fact text-center">
+							<div class="fact-info">
+								<img src="{% static 'service/img/icon/excursion.png' %}" alt="">
+								<span class="counter">500</span><span>+</span>
+								<p>Экскурсии</p>
+							</div>
+						</div>
+						<!-- Start single fact -->
+					</div>
+					<div class="col-lg-2 col-sm-4">
+						<!-- Start single fact -->
+						<div class="single-fact text-center">
+							<div class="fact-info">
+								<img src="{% static 'service/img/icon/tractor.png' %}" alt="">
+								<span class="counter">5000</span><span>км</span>
+								<p>Экскурсии на паровозике</p>
+							</div>
+						</div>
+						<!-- Start single fact -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Fun Facts Area -->
+		<!-- Start section title -->
+		<div class="section-title text-center">
+			<p class="title">Кукуполис</p>
+			<h2>Ваши счастливые моменты</h2>
+		</div>
+		<!-- End section title -->
+		<!-- Start Galery -->
+		<div class="container-sm pb-60">
+			<div class="row justify-content-center">
+				<div class="gallery-container" id="animated-thumbnails-gallery">
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/1.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/1.jpg' %}" />
+					</a>
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/2.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/2.jpg' %}" />
+					</a>
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/3.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/3.jpg' %}" />
+					</a>
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/4.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/4.jpg' %}" />
+					</a>
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/5.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/5.jpg' %}" />
+					</a>
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/6.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/6.jpg' %}" />
+					</a>
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/7.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/7.jpg' %}" />
+					</a>
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/8.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/8.jpg' %}" />
+					</a>
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/9.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/9.jpg' %}" />
+					</a>
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/10.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/10.jpg' %}" />
+					</a>
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/11.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/11.jpg' %}" />
+					</a>
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/12.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/12.jpg' %}" />
+					</a>
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/13.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/13.jpg' %}" />
+					</a>
+					<a class="gallery-item" data-src="{% static 'service/img/gallery/14.jpg' %}"
+						data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd' >Tobias Rademacher </a></h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'>Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>layers of blue.</p>">
+						<img alt="layers of blue." class="img-responsive" src="{% static 'service/img/gallery/14.jpg' %}" />
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- End Galery -->
+		<!-- Start Subscribe Area -->
+		<div class="subscribe-area style-3 pt-70">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-8">
+						<!-- Start section title -->
+						<div class="section-title text-center">
+							<p class="title">Кукуполис</p>
+							<h2>ПОДПИШИСЬ НА НАШИ НОВОСТИ</h2>
+							<p>Присоединяйся к нашему сообществу и получай электронные письма с новостями,
+								рекламными акциями и другими полезными материалами от КУКУПОЛИС</p>
+						</div>
+						<!-- End section title -->
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-8">
+						<!-- start subscribe -->
+						<form action="#" method="post" class="subscribe-form">
+							<input name="email" class="widget-input" placeholder="Email ......" type="email">
+							<button type="submit" class="widget-sbtn">Подписаться</button>
+						</form>
+						<!-- end subscribe -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Subscribe Area -->
+		<!-- Start Home Blog Area -->
+		<div class="home-blog-area style-3 pt-90 pb-120">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-9">
+						<!-- Start section title -->
+						<div class="section-title text-center">
+							<p class="title">Кукуполис</p>
+							<h2>Ближайшие события</h2>
+						</div>
+						<!-- End section title -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-sm-6">
+						<!-- Start single post blog -->
+						<div class="single-post-blog">
+							<div class="post-thumbnail">
+								<img src="{% static 'service/img/open_maze.png' %}" alt="">
+							</div>
+							<div class="post-date">
+								<p>1 <span>Август</span></p>
+							</div>
+							<div class="post-blog-content">
+								<a href="#">
+									<h4>Открытие кукуполиса</h4>
+								</a>
+								<p>Вас ждет вечеринка</p>
+							</div>
+						</div>
+						<!-- End single post blog -->
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<!-- Start single post blog -->
+						<div class="single-post-blog">
+							<div class="post-thumbnail">
+								<img src="{% static 'service/img/open_maze.png' %}" alt="">
+							</div>
+							<div class="post-date">
+								<p>1 <span>Август</span></p>
+							</div>
+							<div class="post-blog-content">
+								<a href="#">
+									<h4>Открытие кукуполиса</h4>
+								</a>
+								<p>Вас ждет вечеринка</p>
+							</div>
+						</div>
+						<!-- End single post blog -->
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<!-- Start single post blog -->
+						<div class="single-post-blog">
+							<div class="post-thumbnail">
+								<img src="{% static 'service/img/open_maze.png' %}" alt="">
+							</div>
+							<div class="post-date">
+								<p>1 <span>Август</span></p>
+							</div>
+							<div class="post-blog-content">
+								<a href="#">
+									<h4>Открытие кукуполиса</h4>
+								</a>
+								<p>Вас ждет вечеринка</p>
+							</div>
+						</div>
+						<!-- End single post blog -->
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<!-- Start single post blog -->
+						<div class="single-post-blog">
+							<div class="post-thumbnail">
+								<img src="{% static 'service/img/open_maze.png' %}" alt="">
+							</div>
+							<div class="post-date">
+								<p>1 <span>Август</span></p>
+							</div>
+							<div class="post-blog-content">
+								<a href="#">
+									<h4>Открытие кукуполиса</h4>
+								</a>
+								<p>Вас ждет вечеринка</p>
+							</div>
+						</div>
+						<!-- End single post blog -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Home Blog Area -->
+		<!-- Start Guide Area -->
+		<div class="guide-area pt-110 pb-80">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-10">
+						<!-- Start section title -->
+						<div class="section-title text-center">
+							<p class="title">Кукуполис</p>
+							<h2>Отзывы</h2>
+						</div>
+						<!-- End section title -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<!-- Start single guide -->
+						<div class="single-guide">
+							<div class="guide-thumb">
+								<img src="{% static 'service/img/reviews.jpg' %}" alt="">
+								<div class="guide-content">
+									<p class="title">Посетитель</p>
+									<a href="#">
+										<h4>Светлана</h4>
+									</a>
+									<ul>
+										<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+										<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+										<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+										<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+									</ul>
+									<div class="about-guide">
+										<p>Все очень понравилось!</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End single guide -->
+					</div>
+					<div class="col-sm-4">
+						<!-- Start single guide -->
+						<!-- Start single guide -->
+						<div class="single-guide">
+							<div class="guide-thumb">
+								<img src="{% static 'service/img/reviews.jpg' %}" alt="">
+								<div class="guide-content">
+									<p class="title">Посетитель</p>
+									<a href="#">
+										<h4>Светлана</h4>
+									</a>
+									<ul>
+										<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+										<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+										<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+										<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+									</ul>
+									<div class="about-guide">
+										<p>Все очень понравилось!</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End single guide -->
+					</div>
+					<div class="col-sm-4">
+						<!-- Start single guide -->
+						<div class="single-guide">
+							<div class="guide-thumb">
+								<img src="{% static 'service/img/reviews.jpg' %}" alt="">
+								<div class="guide-content">
+									<p class="title">Посетитель</p>
+									<a href="#">
+										<h4>Светлана</h4>
+									</a>
+									<ul>
+										<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+										<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+										<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+										<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+									</ul>
+									<div class="about-guide">
+										<p>Все очень понравилось!</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End single guide -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Guide Area -->
+		<!-- Start Contact Area -->
+		<div class="contact-area pt-90 pb-95">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-10">
+						<!-- Start section title -->
+						<div class="section-title text-center">
+							<p class="title">Кукуполис</p>
+							<h2>Контакты</h2>
+							<p>Мы будем рады получить от вас обратную связь</p>
+						</div>
+						<!-- End section title -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-sm-6">
+						<!-- Start single contact -->
+						<div class="single-contact text-center">
+							<div class="contact-thumb">
+								<img src="{% static 'service/img/icon/c1.png' %}" alt="">
+							</div>
+							<div class="contact-content">
+								<h4>Наш адрес</h4>
+								<p>222722, хутор Лизаветин, д. 1,
+									Дзержинский район, Минская область, Беларусь</p>
+							</div>
+						</div>
+						<!-- End single contact -->
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<!-- Start single contact -->
+						<div class="single-contact text-center">
+							<div class="contact-thumb">
+								<img src="{% static 'service/img/icon/c2.png' %}" alt="">
+							</div>
+							<div class="contact-content">
+								<h4>Давай общаться в телеграм!</h4>
+								<p>Пн - Вс: 09:00 - 21:00</p>
+								<a href="#" class="chat">Написать <i class="fal fa-angle-right"></i></a>
+							</div>
+						</div>
+						<!-- End single contact -->
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<!-- Start single contact -->
+						<div class="single-contact text-center">
+							<div class="contact-thumb">
+								<img src="{% static 'service/img/icon/c3.png' %}" alt="">
+							</div>
+							<div class="contact-content">
+								<h4>Телефон</h4>
+								<p>МТС: <a href="tel:+375295759912">+375 29 575 99 12</a></p>
+								<p>A1: <a href="tel:+375295759912">+375 29 575 99 12</a></p>
+							</div>
+						</div>
+						<!-- End single contact -->
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<!-- Start single contact -->
+						<div class="single-contact text-center">
+							<div class="contact-thumb">
+								<img src="{% static 'service/img/icon/c4.png' %}" alt="">
+							</div>
+							<div class="contact-content">
+								<h4>Email</h4>
+								<a href="mailto:dmkr@tut.by">dmkr@tut.by</a>
+								<a href="mailto:dmkr@tut.by">dmkr@tut.by</a>
+								<a href="#">www.dak.by</a>
+							</div>
+						</div>
+						<!-- End single contact -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Contact Area -->
+		<!-- Start Contact Google map Area -->
+		<div class="partner-area pb-90">
+			<div class="container">
+				<div class="row justify-content-center">
+						<div class="google-map-area">
+							<!-- Start Google Map -->
+							<div id="map_canvas" style="width:100%;height:760px;"></div>
+							<!-- End Google Map -->
+						</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Contact Google map Area -->
+		<!-- Start Partner Area -->
+		<div class="partner-area pb-90">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-10">
+						<!-- Start section title -->
+						<div class="section-title text-center">
+							<p class="title">Кукуполис</p>
+							<h2>Наши партнеры</h2>
+						</div>
+						<!-- End section title -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="partner-wrap owl-carousel">
+							<!-- Start single partner -->
+							<div class="single-partner">
+								<img class="bottom" src="{% static 'service/img/logo/DAK.png' %}" alt="">
+								<img class="top" src="{% static 'service/img/logo/DAK_2.png' %}" alt="">
+							</div>
+							<!-- End single partner -->
+							<!-- Start single partner -->
+							<div class="single-partner">
+								<img class="bottom" src="{% static 'service/img/logo/green.png' %}" alt="">
+								<img class="top" src="{% static 'service/img/logo/green_2.png' %}" alt="">
+							</div>
+							<!-- End single partner -->
+							<!-- Start single partner -->
+							<div class="single-partner">
+								<img class="bottom" src="{% static 'service/img/logo/kvitki.png' %}" alt="">
+								<img class="top" src="{% static 'service/img/logo/kvitki_2.png' %}" alt="">
+							</div>
+							<!-- End single partner -->
+							<!-- Start single partner -->
+							<div class="single-partner">
+								<img class="bottom" src="{% static 'service/img/logo/slivki.png' %}" alt="">
+								<img class="top" src="{% static 'service/img/logo/slivki_2.png' %}" alt="">
+							</div>
+							<!-- End single partner -->
+							<!-- Start single partner -->
+							<div class="single-partner">
+								<img class="bottom" src="{% static 'service/img/logo/onliner.png' %}" alt="">
+								<img class="top" src="{% static 'service/img/logo/onliner_2.png' %}" alt="">
+							</div>
+							<!-- End single partner -->
+							<!-- Start single partner -->
+							<div class="single-partner">
+								<img class="bottom" src="{% static 'service/img/logo/ont.png' %}" alt="">
+								<img class="top" src="{% static 'service/img/logo/ont_2.png' %}" alt="">
+							</div>
+							<!-- End single partner -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Partner Area -->
+		<!-- Start Footer Area -->
+		<footer class="footer-area style-3 overlay-bg-4 pt-115">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-sm-6">
+						<!-- start contact widget -->
+						<div class="widget contact-widget">
+							<h3>О кукуполисе</h3>
+							<p>Приключение в кукурузном лабиринте — это свобода следовать своему любопытству и
+								открывать неизведанное.</p>
+							<ul>
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+							</ul>
+						</div>
+						<!-- end contact widget -->
+					</div>
+					<div class="col-lg-2 col-sm-3">
+						<!-- start quick link widget -->
+						<div class="widget quick-link-widget">
+							<h3>Меню</h3>
+							<ul>
+								<li><a href="#"><i class="fal fa-angle-right"></i>О парке</a></li>
+								<li><a href="#"><i class="fal fa-angle-right"></i>Услуги</a></li>
+								<li><a href="#"><i class="fal fa-angle-right"></i>Галерея</a></li>
+								<li><a href="#"><i class="fal fa-angle-right"></i>События</a></li>
+								<li><a href="#"><i class="fal fa-angle-right"></i>Отзывы</a></li>
+								<li><a href="#"><i class="fal fa-angle-right"></i>Контакты</a></li>
+								<li><a href="#"><i class="fal fa-angle-right"></i>Войти</a></li>
+							</ul>
+						</div>
+						<!-- end quick link widget -->
+					</div>
+
+					<div class="col-lg-3 col-sm-6">
+						<!-- start contact us widget -->
+						<div class="widget contact-us">
+							<h3>Контакты</h3>
+							<ul>
+								<li><a href="#"><i class="fal fa-paper-plane"></i>хутор Лизаветин, д. 1,
+										Дзержинский район, Минская область, Беларусь</a></li>
+								<li><a href="#"><i class="fal fa-envelope"></i>dmkr@tut.by</a></li>
+								<li><a href="#"><i class="fal fa-phone-alt"></i>+375 29 575 99 12</a></li>
+							</ul>
+						</div>
+						<!-- end contact us widget -->
+					</div>
+					<!-- Start copyright text -->
+					<div class="copyright-text">
+						<p>© 2023 MakarenkoVik</p>
+					</div>
+					<!-- End copyright text -->
+				</div>
+			</div>
+		</footer>
+		<!-- End Footer Area -->
+	</div>
+	<!-- End Wrapper -->
+	<!-- all js here -->
+	<!-- jquery latest version -->
+	<script src="{% static 'service/js/vendor/jquery-3.3.1.min.js' %}"></script>
+	<!-- bootstrap js -->
+	<script src="{% static 'service/js/bootstrap.min.js' %}"></script>
+	<!-- popper js -->
+	<script src="{% static 'service/js/popper.min.js' %}"></script>
+	<!-- owl carousel js -->
+	<script src="{% static 'service/js/owlcarousel.min.js' %}"></script>
+	<!-- meanmenu js -->
+	<script src="{% static 'service/js/meanmenu.min.js' %}"></script>
+	<!-- counterup js -->
+	<script src="{% static 'service/js/counterup.min.js' %}"></script>
+	<!-- scrollup js -->
+	<script src="{% static 'service/js/scrollup.min.js' %}"></script>
+	<!-- waypoints js -->
+	<script src="{% static 'service/js/waypoints.min.js' %}"></script>
+	<!-- imagesloaded js -->
+	<script src="{% static 'service/js/imagesloaded.pkgd.min.js' %}"></script>
+	<!-- Isotope js -->
+	<script src="{% static 'service/js/isotope.min.js' %}"></script>
+	<!-- main js -->
+	<script src="{% static 'service/js/main.js' %}"></script>
+
+	<script src="{% static 'service/https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.3.2/js/lightgallery.js' %}"></script>
+
+	<script src="{% static 'service/js/jquery.justifiedGallery.min.js' %}"></script>
+
+	<!-- Google Map js -->
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script>
+		$(document).ready(function () {
+			jQuery("#animated-thumbnails-gallery")
+				.justifiedGallery({
+					captions: false,
+					lastRow: "hide",
+					rowHeight: 180,
+					margins: 5,
+					maxRowsCount: $(window).width() < 700 ? 3 : 100
+				})
+				.on("jg.complete", function () {
+					$(this).lightGallery(
+						document.getElementById("animated-thumbnails-gallery"),
+						{
+							autoplayFirstVideo: false,
+							pager: false,
+							galleryId: "nature",
+							mobileSettings: {
+								controls: false,
+								showCloseIcon: false,
+								download: false,
+								rotate: false
+							}
+						}
+					);
+				});
+		});
+		var map;
+			var grayStyles = [
+				{
+					featureType: "all",
+					stylers: [
+						{ saturation: -90 },
+						{ lightness: 50 }
+					]
+				},
+			];
+			var mapOptions = {
+				center: new google.maps.LatLng(41.325663, 19.8029607),
+				zoom: 15,
+				styles: grayStyles,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+
+			function initialize() {
+				map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+			}
+
+			google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+</body>
+
+</html>
