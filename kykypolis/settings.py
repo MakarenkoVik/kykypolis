@@ -161,8 +161,6 @@ LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'mailbe03.hoster.by'
-EMAIL_HOST_USER = 'kukupolis@dak.by'
-EMAIL_HOST_PASSWORD = 'Kuk123654'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
